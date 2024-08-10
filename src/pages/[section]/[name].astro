@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from "astro";
+
+import { getSnippets } from "@/lib/snippets";
+
+import CodeSnippet from "@/components/CodeSnippet.mdx";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import { Typography } from "@/components/ui/typography";
+
+export const getStaticPaths = (async () => {
+  const snippets = await getSnippets();
+
+  return Promise.all(
+    Object.values(snippets).flatMap(
+      (snippets) =>
+        snippets?.flatMap(async ({ content, section, name }) => ({
+          params: { section, name },
+          props: { section, name, content },
+        })) ?? [],
+    ),
+  );
+}) satisfies GetStaticPaths;
+
+const { name } = Astro.props;
+
+const { default: content } = await (Astro.props.content as Promise<{
+  default: string;
+}>);
+
+const description = content.match(/\/\*\s*(.+)\s*\*\//)?.[1];
+---
+
+<BaseLayout>
+  <CodeSnippet name={name} content={content} description={description} />
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { getSnippets } from "@/lib/snippets";
+import { Link } from "@/components/ui/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+
+const snippets = await getSnippets();
+const section = Astro.params.section as string;
+---
+
+<aside>
+  <ScrollArea client:load>
+    <ul class="space-y-2">
+      {
+        snippets[section]?.map(({ name }) => (
+          <li>
+            <Link
+              className={cn(
+                "hover:underline hover:underline-offset-2",
+                Astro.params.name === name && "text-foreground",
+              )}
+              href={`/${section}/${name}`}
+            >
+              {name}
+            </Link>
+          </li>
+        ))
+      }
+    </ul>
+  </ScrollArea>
+</aside>

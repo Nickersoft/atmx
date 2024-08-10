@@ -1,0 +1,23 @@
+import { Code } from "astro:components";
+
+import { Typography } from "@/components/ui/typography";
+
+<header class="mb-8">
+  <Typography variant="h1" className="mb-2">
+    {props.name}
+  </Typography>
+
+  <Typography variant="p" className="text-lg" color="muted">
+    {props.description}
+  </Typography>
+</header>
+
+<Typography variant="h2">Using the CLI</Typography>
+
+To quickly add this utility to your local codebase, just run the following:
+
+```typescript
+const t = "hey";
+```
+
+{/* <Code code={`$ npx codedex add ${props.name}`} lang="bash" wrap /> */}
