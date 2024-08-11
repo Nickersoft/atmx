@@ -9,7 +9,10 @@ export function Link({ className, children, ...props }: LinkProps) {
   return (
     <Typography
       color="muted"
-      className={cn("hover:text-foreground text-sm font-light", className)}
+      className={cn(
+        "text-sm font-light transition-all duration-150 hover:text-foreground active:opacity-50",
+        className,
+      )}
       asChild
     >
       <a {...props}>{children}</a>

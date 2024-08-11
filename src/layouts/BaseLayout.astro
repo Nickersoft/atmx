@@ -1,62 +1,74 @@
 ---
-import Sidebar from "@/components/Sidebar.astro";
-import { Link } from "@/components/ui/link";
+import { ViewTransitions } from "astro:transitions";
 
-import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
-import { capitalize } from "@/snippets/utilities/capitalize";
+import Nav from "@/components/Nav.astro";
+import Sidebar from "@/components/Sidebar.astro";
+
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 import "@/styles/global.css";
-import "@fontsource/geist-sans/300.css";
-import "@fontsource/geist-sans/400.css";
-import "@fontsource/geist-sans/600.css";
+import "@fontsource-variable/inter";
+
+const fly = {
+  old: {
+    name: "flyOut",
+    duration: "0.1s",
+    easing: "ease-out",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "flyIn",
+    duration: "0.3s",
+    easing: "ease-in-out",
+    fillMode: "backwards",
+  },
+};
 ---
 
-<html lang="en" class="w-full h-full dark">
+<html transition:animate="none" lang="en" class="w-full h-full dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+    <ViewTransitions />
   </head>
-  <body class="w-full h-full">
-    <main class="py-32 max-w-4xl mx-auto">
-      <header class="text-left">
-        <Typography variant="h1" className="mb-2">
-          Stop writing the same code twice.
-        </Typography>
-        <Typography color="muted" className="font-light text-lg">
-          Useful zero-dependency utilities & React hooks you can copy-and-paste
-          into your JavaScript app.
-        </Typography>
-
-        <ul class="flex flex-row justify-left items-center gap-4 py-8">
-          {
-            ["utilities", "hooks"].map((section) => (
-              <li>
-                <Link
-                  className={cn(
-                    "rounded-full font-medium",
-                    Astro.url.pathname.startsWith(`/${section}`) &&
-                      "text-foreground bg-muted px-2 py-1",
-                  )}
-                  href={`/${section}`}
-                >
-                  {capitalize(section)}
-                </Link>
-              </li>
-            ))
-          }
-        </ul>
-      </header>
-
-      <div class="flex flex-row w-full gap-16">
-        <Sidebar />
-        <div class="flex-1">
-          <slot />
+  <body class="w-full flex flex-col h-full">
+    <Nav />
+    <div class="grid h-full grid-cols-[275px,auto]">
+      <Sidebar />
+      <main class="p-8">
+        <div transition:animate={{ forwards: fly, backwards: fly }}>
+          <ScrollArea className="max-w-3xl">
+            <slot />
+          </ScrollArea>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
+
+<style is:global>
+  @keyframes flyIn {
+    from {
+      transform: translateX(8px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyOut {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.98);
+      opacity: 0;
+    }
+  }
+</style>

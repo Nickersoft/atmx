@@ -32,9 +32,9 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 240 6% 10%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 240 4% 16%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
@@ -48,7 +48,7 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
+    --border: 240 4% 16%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --chart-1: 220 70% 50%;
@@ -68,15 +68,15 @@
   }
 }
 
-pre {
-  @apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-md border !bg-zinc-950 p-4 dark:!bg-zinc-900;
+code {
+  @apply text-sm;
+}
 
-  code {
-    @apply text-sm;
-  }
+pre {
+  @apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-md border border-white/5 !bg-card p-4;
 
   button.rehype-pretty-copy {
-    @apply !-mt-0.5 !flex !items-center !justify-center !opacity-100 hover:bg-muted;
+    @apply top-4 !flex !items-center !justify-center !opacity-100 hover:bg-muted;
 
     .success,
     .ready {

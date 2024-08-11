@@ -2,11 +2,11 @@
 import { cn } from "@/lib/utils";
 import { Link } from "@/components/ui/link";
 
-const items = ["utilities", "hooks"];
+const items = ["helpers", "hooks"];
 ---
 
-<nav>
-  <ul class="flex flex-row justify-left items-center gap-4 py-8">
+<nav class="border-b">
+  <ul class="flex flex-row justify-left items-center gap-4 p-4">
     {
       items.map((section) => {
         const active = Astro.url.pathname.startsWith(`/${section}`);
@@ -17,7 +17,7 @@ const items = ["utilities", "hooks"];
               className={cn(
                 "rounded-full font-medium capitalize",
                 "hover:text-foreground",
-                active && "text-foreground bg-muted px-2 py-1",
+                active && "text-foreground px-2 py-1",
               )}
               href={`/${section}`}
             >

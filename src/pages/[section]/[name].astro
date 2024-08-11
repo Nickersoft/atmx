@@ -1,23 +1,26 @@
 ---
 import type { GetStaticPaths } from "astro";
 
-import { getSnippets } from "@/lib/snippets";
+import { getSnippets, transformCode } from "@/lib/snippets";
 
-import CodeSnippet from "@/components/CodeSnippet.mdx";
+import Code from "@/components/Code.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { Typography } from "@/components/ui/typography";
+import { Installation } from "@/components/Installation";
 
 export const getStaticPaths = (async () => {
   const snippets = await getSnippets();
 
   return Promise.all(
-    Object.values(snippets).flatMap(
-      (snippets) =>
-        snippets?.flatMap(async ({ content, section, name }) => ({
-          params: { section, name },
-          props: { section, name, content },
-        })) ?? [],
+    Object.values(snippets).flatMap((snippets) =>
+      snippets?.flatMap(
+        ({ section, snippets }) =>
+          snippets.flatMap(({ name, content }) => ({
+            params: { section, name },
+            props: { section, name, content },
+          })) ?? [],
+      ),
     ),
   );
 }) satisfies GetStaticPaths;
@@ -32,5 +35,30 @@ const description = content.match(/\/\*\s*(.+)\s*\*\//)?.[1];
 ---
 
 <BaseLayout>
-  <CodeSnippet name={name} content={content} description={description} />
+  <header class="mb-8">
+    <Typography variant="h1" className="mb-2">
+      {name}
+    </Typography>
+
+    <Typography variant="p" className="text-lg" color="muted">
+      {description}
+    </Typography>
+  </header>
+
+  <Typography variant="h2">Installation</Typography>
+
+  <Installation client:load>
+    <Typography slot="cli"
+      ><Code code={`npx codedex add ${name}`} lang="bash" wrap /></Typography
+    >
+    <div slot="manual">
+      <Typography className="py-4 mb-0">
+        Copy and paste the following method into
+        <code class="text-muted-foreground">
+          @/utils/{name}.tsx:
+        </code>
+      </Typography>
+      <Code code={transformCode(content)} lang="typescript" class="mt-0" />
+    </div>
+  </Installation>
 </BaseLayout>

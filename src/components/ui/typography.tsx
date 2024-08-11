@@ -15,7 +15,7 @@ type TypographyTag =
   | "li"
   | "div";
 
-export const typographyVariants = cva("font-sans font-normal", {
+export const typographyVariants = cva("font-sans tracking-normal font-normal", {
   variants: {
     variant: {
       h1: "scroll-m-20 text-4xl font-bold tracking-tight",
@@ -23,7 +23,7 @@ export const typographyVariants = cva("font-sans font-normal", {
       h3: "scroll-m-20 text-2xl font-semibold tracking-tight",
       h4: "scroll-m-20 text-xl font-semibold tracking-tight",
       h5: "scroll-m-20 text-lg font-semibold tracking-tight",
-      h6: "scroll-m-20 text-base font-semibold tracking-tight",
+      h6: "scroll-m-20 text-base font-semibold tracking-normal",
       p: "leading-7 [&:not(:first-of-type)]:mt-6",
     },
     color: {

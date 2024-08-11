@@ -1,0 +1,18 @@
+---
+import { Code as AstroCode } from "astro:components";
+
+import { transformerCopyButton } from "@rehype-pretty/transformers";
+
+import type { ComponentProps } from "astro/types";
+
+import theme from "@/lib/code-theme.json";
+
+interface Props
+  extends Omit<ComponentProps<typeof AstroCode>, "theme" | "transformers"> {}
+---
+
+<AstroCode
+  {...Astro.props}
+  theme={theme as any}
+  transformers={[transformerCopyButton()]}
+/>

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./src/**/*.{ts,astro,tsx,mdx,md}"],
+  content: ["./src/**/*.{ts,astro,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -10,6 +10,9 @@ module.exports = {
       screens: {
         "2xl": "1400px",
       },
+    },
+    fontFamily: {
+      sans: ["Inter Variable", "system-ui", "sans-serif"],
     },
     extend: {
       colors: {

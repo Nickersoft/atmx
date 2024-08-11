@@ -1,8 +1,4 @@
-/**
- * Sorts an array of items into groups. The return value is a map where the keys are
- * the group ids the given getGroupId function produced and the value is an array of
- * each item in that group.
- */
+/* Sorts an array of items into groups */
 export const group = <T, Key extends string | number | symbol>(
   array: readonly T[],
   getGroupId: (item: T) => Key,

@@ -1,8 +1,11 @@
 ---
 import { Typography } from "@/components/ui/typography";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Sidebar from "@/components/Sidebar.astro";
+export const prerender = false;
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+return Astro.redirect("/helpers");
 ---
 
 <BaseLayout>

@@ -4,28 +4,40 @@ import { Link } from "@/components/ui/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
+import { Typography } from "./ui/typography";
+
 const snippets = await getSnippets();
 const section = Astro.params.section as string;
 ---
 
-<aside>
+<aside class="h-full border-r py-4">
   <ScrollArea client:load>
-    <ul class="space-y-2">
-      {
-        snippets[section]?.map(({ name }) => (
-          <li>
-            <Link
-              className={cn(
-                "hover:underline hover:underline-offset-2",
-                Astro.params.name === name && "text-foreground",
-              )}
-              href={`/${section}/${name}`}
-            >
-              {name}
-            </Link>
-          </li>
-        ))
-      }
-    </ul>
+    {
+      snippets[section]?.map(({ category, snippets }) => (
+        <section class="w-full mb-4 px-2">
+          <Typography
+            className="text-sm select-none pointer-events-none capitalize mb-2 ml-2"
+            variant="h6"
+          >
+            {category}
+          </Typography>
+          <ul>
+            {snippets.map(({ name }) => (
+              <li class="w-full" transition:animate="none">
+                <Link
+                  className={cn(
+                    "w-full inline-block rounded-md border-transparent border p-2",
+                    Astro.params.name === name && "bg-muted text-foreground",
+                  )}
+                  href={`/${section}/${name}`}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
   </ScrollArea>
 </aside>
