@@ -1,4 +1,10 @@
-/* Sorts an array of string in alphabetical order */
+/**
+ * Sorts an array of string in alphabetical order
+ *
+ * @param array - The array to sort
+ *
+ * @example alphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
+ */
 export function alphabetical<T>(
   array: readonly T[],
   getter: (item: T) => string,

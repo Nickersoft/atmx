@@ -1,11 +1,11 @@
 ---
-import { getSnippets } from "@/lib/snippets";
-
 export const prerender = false;
 
-const snippets = await getSnippets();
+const snippets = await fetch(new URL("/registry/helpers.json", Astro.url)).then(
+  (res) => res.json(),
+);
 
-const firstFunc = snippets?.[Astro.params.section!]?.[0]?.snippets?.[0];
+const firstFunc = snippets[0];
 
 return Astro.redirect(`/${Astro.params.section}/${firstFunc?.name}`, 302);
 ---

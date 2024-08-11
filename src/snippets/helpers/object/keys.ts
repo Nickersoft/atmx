@@ -1,4 +1,4 @@
-import { isObject } from "../typed/is-array";
+import { isObject } from "@/snippets/helpers/typed/is-array";
 
 function getKeys(nested: any, paths: string[]): string[] {
   if (isObject(nested)) {

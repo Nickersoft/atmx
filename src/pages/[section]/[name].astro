@@ -1,37 +1,42 @@
 ---
 import type { GetStaticPaths } from "astro";
 
-import { getSnippets, transformCode } from "@/lib/snippets";
+import { transformCode } from "@/lib/snippets";
 
 import Code from "@/components/Code.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { Typography } from "@/components/ui/typography";
 import { Installation } from "@/components/Installation";
+import type { Snippet, SnippetMetadata } from "@/types";
 
 export const getStaticPaths = (async () => {
-  const snippets = await getSnippets();
+  console.log(Astro.url);
 
-  return Promise.all(
-    Object.values(snippets).flatMap((snippets) =>
-      snippets?.flatMap(
-        ({ section, snippets }) =>
-          snippets.flatMap(({ name, content }) => ({
-            params: { section, name },
-            props: { section, name, content },
-          })) ?? [],
-      ),
+  const [helpers, hooks] = await Promise.all<Snippet[][]>(
+    ["helpers", "hooks"].map((section) =>
+      fetch(new URL(`/registry/${section}.json`)).then((res) => res.json()),
     ),
   );
+
+  return Promise.all(
+    Object.entries({ helpers, hooks }).map(([section, snippets]) =>
+      snippets.map(({ name, urls }) => ({
+        params: { section, name },
+        props: {
+          url: urls.metadata,
+        },
+      })),
+    ),
+  ).then((paths) => paths.flat());
 }) satisfies GetStaticPaths;
 
-const { name } = Astro.props;
+const { name } = Astro.params;
+const { url } = Astro.props;
 
-const { default: content } = await (Astro.props.content as Promise<{
-  default: string;
-}>);
-
-const description = content.match(/\/\*\s*(.+)\s*\*\//)?.[1];
+const { description, content } = (await fetch(url as string).then((res) =>
+  res.json(),
+)) as SnippetMetadata;
 ---
 
 <BaseLayout>
