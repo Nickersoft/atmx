@@ -1,3 +1,5 @@
+import "core-js/features/object/group-by";
+
 export async function getSnippets() {
   const files = await import.meta.glob("../snippets/**/*.ts", {
     query: "?raw",

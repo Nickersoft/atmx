@@ -1,0 +1,11 @@
+---
+import { getSnippets } from "@/lib/snippets";
+
+export const prerender = false;
+
+const snippets = await getSnippets();
+
+const firstFunc = snippets?.[Astro.params.section!]?.[0]?.snippets?.[0];
+
+return Astro.redirect(`/${Astro.params.section}/${firstFunc?.name}`);
+---

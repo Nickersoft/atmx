@@ -33,6 +33,7 @@
     "astro": "^4.13.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "core-js": "^3.38.0",
     "detype": "^1.0.10",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",

@@ -1,0 +1,3 @@
+const keys = 'import { isObject } from "../typed/is-array";\n\nfunction getKeys(nested: any, paths: string[]): string[] {\n  if (isObject(nested)) {\n    return Object.entries(nested).flatMap(([k, v]) =>\n      getKeys(v, [...paths, k]),\n    );\n  }\n\n  if (Array.isArray(nested)) {\n    return nested.flatMap((item, i) => getKeys(item, [...paths, `${i}`]));\n  }\n\n  return [paths.join(".")];\n}\n\n/* Get a string list of all key names that exist in an object (deep). */\nexport function keys<TValue extends object>(value: TValue): string[] {\n  if (!value) return [];\n  return getKeys(value, []);\n}\n';
+
+export { keys as default };
