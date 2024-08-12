@@ -6,14 +6,9 @@ import { isFunction } from "@/snippets/helpers/typed/isFunction";
  * values.
  *
  * @example
- * zipToObject(['a', 'b'], [1, 2])
- * // { a: 1, b: 2 }
- *
- * zipToObject(['a', 'b'], (k, i) => k + i)
- * // { a: 'a0', b: 'b1' }
- *
- * zipToObject(['a', 'b'], 1)
- * // { a: 1, b: 1 }
+ * zipToObject(['a', 'b'], [1, 2]) // { a: 1, b: 2 }
+ * zipToObject(['a', 'b'], (k, i) => k + i) // { a: 'a0', b: 'b1' }
+ * zipToObject(['a', 'b'], 1) // { a: 1, b: 1 }
  */
 export function zipToObject<K extends string | number | symbol, V>(
   keys: K[],

@@ -4,6 +4,7 @@ import { basename, extname } from "node:path";
 
 import { extractDependencies, extractDocs } from "./ast";
 import type { Snippet, SnippetMetadata } from "@/types";
+import { extractTSDoc } from "./extract-tsdoc";
 
 export function transformCode(code: string) {
   return code.replaceAll(/snippets\/(.+?)\/.+?\/(.+?)/g, "helpers/$2");
@@ -20,8 +21,8 @@ export async function getSnippets(): Promise<Record<string, Snippet[]>> {
 
       const code = ((await content()) as { default: string }).default;
       const baseURL = `/registry/${section}`;
-      const dependencies = await extractDependencies(code);
       const name = basename(snippetName, extname(snippetName));
+      const dependencies = await extractDependencies(code);
 
       return {
         section,
@@ -44,10 +45,6 @@ export async function getSnippets(): Promise<Record<string, Snippet[]>> {
 }
 
 export async function getSnippetMetadata(snippet: Snippet) {
-  const tsdoc = extractDocs(snippet.content);
-
-  return {
-    ...snippet,
-    ...tsdoc,
-  } satisfies SnippetMetadata;
+  const tsdoc = extractTSDoc(snippet);
+  return { ...snippet, ...tsdoc } satisfies SnippetMetadata;
 }

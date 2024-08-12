@@ -2,6 +2,7 @@ import { isArray } from "@/snippets/helpers/typed/isArray";
 import { isMap } from "@/snippets/helpers/typed/isMap";
 import { isObject } from "@/snippets/helpers/typed/isObject";
 import { isSet } from "@/snippets/helpers/typed/isSet";
+
 /**
  * A strategy for cloning objects with `cloneDeep`.
  *
@@ -150,6 +151,7 @@ export function cloneDeep<T extends object>(
   const strategy = { ...DefaultCloningStrategy, ...customStrategy };
 
   const tracked = new Map<unknown, unknown>();
+
   const track = (parent: unknown, newParent: unknown) => {
     tracked.set(parent, newParent);
     return newParent;
@@ -178,12 +180,14 @@ export function cloneDeep<T extends object>(
     ) => unknown;
 
     const newParent = cloneParent(parent, track.bind(null, parent), clone);
+
     if (!newParent) {
       // Use the default strategy if null is returned.
       return cloneDeep(parent, DefaultCloningStrategy);
     }
 
     tracked.set(parent, newParent);
+
     return newParent;
   };
 

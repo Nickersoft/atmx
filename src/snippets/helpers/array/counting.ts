@@ -3,8 +3,7 @@
  * function when applied to each item in the array.
  *
  * @example
- * counting([1, 2, 3, 4], (n) => n % 2 === 0 ? 'even' : 'odd')
- * // { even: 2, odd: 2 }
+ * counting([1, 2, 3, 4], (n) => n % 2 === 0 ? 'even' : 'odd') // { even: 2, odd: 2 }
  */
 export function counting<T, TId extends string | number | symbol>(
   array: readonly T[],

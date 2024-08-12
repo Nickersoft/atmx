@@ -1,5 +1,5 @@
 /**
- * Min gets the smallest value from a list.
+ * Returns the smallest value from a list.
  *
  * @example
  * min([1, 2, 3, 4]) // => 1

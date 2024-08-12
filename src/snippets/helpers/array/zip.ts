@@ -6,8 +6,7 @@ import { unzip } from "@/snippets/helpers/array/unzip";
  * contains the second elements of the given arrays, and so on.
  *
  * @example
- * zip(['a', 'b'], [1, 2], [true, false])
- * // [['a', 1, true], ['b', 2, false]]
+ * zip(['a', 'b'], [1, 2], [true, false]) // [['a', 1, true], ['b', 2, false]]
  */
 export function zip<T1, T2, T3, T4, T5>(
   array1: readonly T1[],

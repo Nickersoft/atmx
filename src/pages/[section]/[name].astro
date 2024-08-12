@@ -1,7 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
+import { marked } from "marked";
 
-import { getSnippetMetadata, getSnippets, transformCode } from "@/lib/snippets";
+import { getSnippetMetadata, getSnippets } from "@/lib/snippets";
 
 import Code from "@/components/Code.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -25,8 +26,9 @@ export const getStaticPaths = (async () =>
 const { name, section } = Astro.params;
 const { snippet } = Astro.props;
 
-const { description, examples, content } = await getSnippetMetadata(snippet);
+const { examples, content, ...docs } = await getSnippetMetadata(snippet);
 
+const description = await marked(docs.description);
 const exampleBlock = `import { ${name} } from "@/${section}/${name}";
 
 ${examples.join("\n\n")}
@@ -39,9 +41,7 @@ ${examples.join("\n\n")}
       {name}
     </Typography>
 
-    <Typography variant="p" className="text-lg" color="muted">
-      {description}
-    </Typography>
+    <div class="text-lg text-muted-foreground" set:html={description} />
   </header>
 
   <Typography variant="h2">Usage</Typography>

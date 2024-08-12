@@ -1,4 +1,4 @@
-import { AggregateError } from "@/snippets/helpers/async/AggregateError";
+import { AggregateError } from "@/snippets/helpers/types";
 import { fork } from "@/snippets/helpers/array/fork";
 import { list } from "@/snippets/helpers/array/list";
 import { sort } from "@/snippets/helpers/array/sort";

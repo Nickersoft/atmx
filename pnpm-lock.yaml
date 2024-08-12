@@ -50,6 +50,9 @@ importers:
       detype:
         specifier: ^1.0.10
         version: 1.0.10
+      marked:
+        specifier: ^14.0.0
+        version: 14.0.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2166,6 +2169,11 @@ packages:
 
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+
+  marked@14.0.0:
+    resolution: {integrity: sha512-uIj4+faQ+MgHgwUW1l2PsPglZLOLOT1uErt06dAPtx2kjteLAkbsd/0FiYg/MGS+i7ZKLb7w2WClxHkzOOuryQ==}
+    engines: {node: '>= 18'}
+    hasBin: true
 
   mdast-util-definitions@6.0.0:
     resolution: {integrity: sha512-scTllyX6pnYNZH/AIp/0ePz6s4cZtARxImwoPJ7kS42n+MnVsI4XbnG6d4ibehRIldYMWM2LD7ImQblVhUejVQ==}
@@ -5630,6 +5638,8 @@ snapshots:
       semver: 6.3.1
 
   markdown-table@3.0.3: {}
+
+  marked@14.0.0: {}
 
   mdast-util-definitions@6.0.0:
     dependencies:

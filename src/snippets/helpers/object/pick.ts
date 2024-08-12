@@ -1,8 +1,28 @@
-import {
-  filterKey,
-  type FilteredKeys,
-  type KeyFilter,
-} from "@/snippets/helpers/object/filterKey";
+type KeyOf<T extends object> = object extends T ? keyof any : keyof T;
+type ValueOf<T extends object> = object extends T ? unknown : T[keyof T];
+
+export type KeyFilterFunction<T extends object = object> = (
+  value: ValueOf<T>,
+  key: KeyOf<T>,
+  obj: T,
+) => boolean;
+
+/**
+ * Functions can use this type to accept either an array of keys or a
+ * filter function.
+ */
+export type KeyFilter<
+  T extends object = object,
+  Key extends keyof any = keyof any,
+> = KeyFilterFunction<T> | readonly Key[];
+
+/**
+ * Extract the keys of an object that pass a filter.
+ */
+export type FilteredKeys<
+  T extends object,
+  F extends KeyFilter<T> | null | undefined,
+> = Extract<keyof T, F extends readonly any[] ? F[number] : any>;
 
 import { isArray } from "@/snippets/helpers/typed/isArray";
 
@@ -18,11 +38,8 @@ import { isArray } from "@/snippets/helpers/typed/isArray";
  * @example
  * const a = { a: 1, b: 2, c: 3 }
  *
- * pick(a, ['a', 'c'])
- * // => { a: 1, c: 3 }
- *
- * pick(a, (value, key) => value > 1)
- * // => { b: 2, c: 3 }
+ * pick(a, ['a', 'c']) // => { a: 1, c: 3 }
+ * pick(a, (value, key) => value > 1) // => { b: 2, c: 3 }
  */
 export function pick<T extends object, F extends KeyFilter<T, keyof T>>(
   obj: T,
@@ -36,16 +53,24 @@ export function pick<T extends object>(
   if (!obj) {
     return {};
   }
+
   let keys: (keyof T)[] = filter as any;
+
   if (isArray(filter)) {
     filter = null;
   } else {
     keys = Reflect.ownKeys(obj) as (keyof T)[];
   }
+
   return keys.reduce((acc, key) => {
-    if (filterKey(obj, key, filter)) {
+    const hasKey =
+      Object.hasOwnProperty.call(obj, key) &&
+      (filter == null || filter((obj as any)[key], key, obj));
+
+    if (hasKey) {
       acc[key] = obj[key];
     }
+
     return acc;
   }, {} as T);
 }

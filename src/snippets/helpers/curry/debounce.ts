@@ -30,8 +30,7 @@ export type DebounceFunction<TArgs extends any[]> = {
  * const myDebouncedFunc = debounce({ delay: 1000 }, (x) => console.log(x))
  *
  * myDebouncedFunc(0)
- * myDebouncedFunc(1)
- * // Logs 1, but not 0
+ * myDebouncedFunc(1) // Logs 1, but not 0
  */
 export function debounce<TArgs extends any[]>(
   { delay }: { delay: number },

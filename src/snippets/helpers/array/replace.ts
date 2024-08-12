@@ -1,28 +1,47 @@
 /**
- * Replace an element in an array with a new item without modifying
- * the array and return the new value.
+ * Replace the first occurrence of an item in an array where the
+ * `match` function returns true. If no items match, append the new
+ * item to the end of the list if append is `true`.
+ *
+ * @param array - The array to search for the item.
+ * @param newItem - The new item to replace the old item with.
+ * @param match - The function to determine if an item should be replaced.
+ * @param append - If true, append the new item to the end of the list if a match is not found.
  *
  * @example
- * replace([1, 2, 3], 4, (n) => n === 2)
- * // [1, 4, 3]
+ * replaceOrAppend([1, 2, 3], 4, (n) => n > 1) // [1, 4, 3]
+ * replaceOrAppend([1, 2, 3], 4, (n) => n > 100) // [1, 2, 3, 4]
  */
-export function replace<T>(
+export function replaceOrAppend<T>(
   array: readonly T[],
   newItem: T,
-  match: (item: T, idx: number) => boolean,
+  match: (a: T, idx: number) => boolean,
+  append: boolean = false,
 ): T[] {
-  if (!array) {
+  if (!array && !newItem) {
     return [];
   }
-  if (newItem === undefined) {
+
+  if (!newItem) {
     return [...array];
   }
+
+  if (!array) {
+    return [newItem];
+  }
+
   const out = array.slice();
+
   for (let index = 0; index < array.length; index++) {
     if (match(array[index], index)) {
       out[index] = newItem;
-      break;
+      return out;
     }
   }
+
+  if (append) {
+    out.push(newItem);
+  }
+
   return out;
 }

@@ -8,8 +8,7 @@
  *   [1, 2, 3, 4],
  *   x => x * x,
  *   x => x > 2
- * )
- * // => [9, 16]
+ * ) // => [9, 16]
  */
 export function select<T, U>(
   array: readonly T[],
@@ -31,12 +30,14 @@ export function select<T, U>(
     return [];
   }
   let mapped: U;
+
   return array.reduce((acc, item, index) => {
     if (condition) {
       condition(item, index) && acc.push(mapper(item, index));
     } else if ((mapped = mapper(item, index)) != null) {
       acc.push(mapped);
     }
+
     return acc;
   }, [] as U[]);
 }

@@ -8,6 +8,7 @@ export async function extractDependencies(code: string): Promise<Dependencies> {
   const module = await parse(code, {
     syntax: "typescript",
     comments: true,
+    script: true,
   });
 
   return module.body

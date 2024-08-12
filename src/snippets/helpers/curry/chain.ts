@@ -9,8 +9,7 @@
  *   (x) => x * 2,
  * )
  *
- * myChainedFunc(0)
- * // => 10
+ * myChainedFunc(0) // => 10
  */
 export function chain<T1 extends any[], T2, T3>(
   f1: (...arg: T1) => T2,

@@ -1,10 +1,10 @@
 /**
- * Literally just `Number.isInteger` with a better type.
+ * `Number.isInteger` with better typing.
  *
  * @example
  * isInt(0) // => true
  * isInt(0.1) // => false
  */
-export const isInt = /* @__PURE__ */ (() => Number.isInteger)() as (
-  value: unknown,
-) => value is number;
+export function isInt(value: unknown): value is number {
+  return Number.isInteger(value);
+}

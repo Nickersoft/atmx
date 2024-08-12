@@ -55,10 +55,13 @@ export const once: OnceImplementation = /* @__PURE__ */ (() => {
     } as OnceFunction;
 
     onceFn[onceSymbol] = onceSymbol;
+
     return onceFn as typeof fn;
   };
+
   once.reset = (fn: OnceFunction): void => {
     fn[onceSymbol] = onceSymbol;
   };
+
   return once;
 })();

@@ -16,11 +16,8 @@
  */
 export function clamp(
   n: number,
-  min: number | null | undefined,
-  max: number | null | undefined,
+  min?: number | null,
+  max?: number | null,
 ): number {
-  if (max != null && min != null && min > max) {
-    throw new Error("invalid clamp range");
-  }
-  return max != null && n > max ? max : min != null && n < min ? min : n;
+  return Math.min(max ?? n, Math.max(min ?? n, n));
 }

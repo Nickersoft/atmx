@@ -1,5 +1,5 @@
 /**
- * Max gets the greatest value from a list.
+ * Returns the greatest value from a list.
  *
  * @example
  * max([2, 3, 5]) // => 5
@@ -18,6 +18,8 @@ export function max<T>(
   if (!array || (array.length ?? 0) === 0) {
     return null;
   }
+
   const get = getter ?? ((v: any) => v);
+
   return array.reduce((a, b) => (get(a) > get(b) ? a : b));
 }

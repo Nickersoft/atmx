@@ -4,8 +4,7 @@
  *
  * @example
  * const a = { a: 1, b: undefined, c: 3 }
- * shake(a)
- * // => { a: 1, c: 3 }
+ * shake(a) // => { a: 1, c: 3 }
  */
 export function shake<T extends object>(
   obj: T,
@@ -14,7 +13,9 @@ export function shake<T extends object>(
   if (!obj) {
     return {} as T;
   }
+
   const keys = Object.keys(obj) as (keyof T)[];
+
   return keys.reduce((acc, key) => {
     if (!filter(obj[key])) {
       acc[key] = obj[key];

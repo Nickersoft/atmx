@@ -5,12 +5,9 @@ import { isPrimitive } from "@/snippets/helpers/typed/isPrimitive";
  *
  * @example
  * const original = { a: 1, b: { c: 3 } }
- * const cloned = clone(original)
- * // => { a: 1, b: { c: 3 } }
- * original !== cloned
- * // => true
- * original.b === cloned.b
- * // => true
+ * const cloned = clone(original) // => { a: 1, b: { c: 3 } }
+ * original !== cloned // => true
+ * original.b === cloned.b // => true
  */
 export function clone<T>(obj: T): T {
   // Primitive values do not need cloning.

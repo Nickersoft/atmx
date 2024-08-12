@@ -1,4 +1,4 @@
-import { range } from "@/snippets/helpers/number/range";
+import { range } from "@/snippets/helpers/array/range";
 
 /**
  * Creates a list of given start, end, value, and step parameters.

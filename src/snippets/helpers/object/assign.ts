@@ -8,8 +8,7 @@ import { isPlainObject } from "@/snippets/helpers/typed/isPlainObject";
  * const a = { a: 0, b: 2, p: { a: 4 } }
  * const b = { a: 1, c: 3, p: { b: 5 } }
  *
- * assign(a, b)
- * // => { a: 1, b: 2, c: 3, p: { a: 4, b: 5 } }
+ * assign(a, b) // => { a: 1, b: 2, c: 3, p: { a: 4, b: 5 } }
  */
 export function assign<X extends Record<string | symbol | number, any>>(
   initial: X,

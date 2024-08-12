@@ -17,12 +17,14 @@ export function set<T extends object, K>(
   if (!initial) {
     return {} as T;
   }
+
   if (!path || value === undefined) {
     return initial;
   }
 
   const root: any = clone(initial);
   const keys = path.match(/[^.[\]]+/g);
+
   if (keys) {
     keys.reduce(
       (object, key, i) =>

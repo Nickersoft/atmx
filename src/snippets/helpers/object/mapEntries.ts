@@ -3,8 +3,7 @@
  *
  * @example
  * const a = { a: 1, b: 2, c: 3 }
- * mapEntries(a, (key, value) => [value, key])
- * // => { 1: 'a', 2: 'b', 3: 'c' }
+ * mapEntries(a, (key, value) => [value, key]) // => { 1: 'a', 2: 'b', 3: 'c' }
  */
 export function mapEntries<
   TKey extends string | number | symbol,
@@ -18,6 +17,7 @@ export function mapEntries<
   if (!obj) {
     return {} as Record<TNewKey, TNewValue>;
   }
+
   return Object.entries(obj).reduce(
     (acc, [key, value]) => {
       const [newKey, newValue] = toEntry(key as TKey, value as TValue);

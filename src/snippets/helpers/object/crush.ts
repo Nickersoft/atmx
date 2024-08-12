@@ -7,8 +7,7 @@ import type { Simplify, Intersect } from "@/snippets/helpers/types";
  * to dot notation.
  *
  * @example
- * crush({ name: 'ra', children: [{ name: 'hathor' }] })
- * // { name: 'ra', 'children.0.name': 'hathor' }
+ * crush({ name: 'ra', children: [{ name: 'hathor' }] }) // { name: 'ra', 'children.0.name': 'hathor' }
  */
 export function crush<T extends object>(value: T): Crush<T> {
   if (!value) {

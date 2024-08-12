@@ -4,8 +4,7 @@
  *
  * @example
  * const a = { a: 1, b: 2, c: 3 }
- * invert(a)
- * // => { 1: 'a', 2: 'b', 3: 'c' }
+ * invert(a) // => { 1: 'a', 2: 'b', 3: 'c' }
  */
 export function invert<
   TKey extends string | number | symbol,
@@ -14,7 +13,9 @@ export function invert<
   if (!obj) {
     return {} as Record<TValue, TKey>;
   }
+
   const keys = Object.keys(obj) as TKey[];
+
   return keys.reduce(
     (acc, key) => {
       acc[obj[key]] = key;

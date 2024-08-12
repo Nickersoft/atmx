@@ -9,8 +9,7 @@
  *   (x) => x * 2,
  * )
  *
- * myComposedFunc(0)
- * // => 5
+ * myComposedFunc(0) // => 5
  */
 export function compose<
   F1Result,

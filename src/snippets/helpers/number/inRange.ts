@@ -18,8 +18,7 @@ export function inRange(number: number, end: number): boolean;
  * * Numbers can be negative or positive.
  * * Starting number is inclusive.
  * * Ending number is exclusive.
- * * The start and the end of the range can be ascending OR descending
- *   order.
+ * * The start and the end of the range can be ascending OR descending order.
  *
  * @example
  * inRange(5, 0, 10) // => true

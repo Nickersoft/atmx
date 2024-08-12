@@ -3,8 +3,7 @@
  *
  * @example
  * const a = { a: 1, b: 2, c: 3 }
- * mapValues(a, (value, key) => value * 2)
- * // => { a: 2, b: 4, c: 6 }
+ * mapValues(a, (value, key) => value * 2) // => { a: 2, b: 4, c: 6 }
  */
 export function mapValues<
   TValue,

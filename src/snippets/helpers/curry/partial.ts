@@ -3,11 +3,8 @@
  * in `TItemsToRemove` removed from the start of the array type.
  *
  *
- * type T = RemoveItemsInFront<[number, number], [number]>
- * // [number]
- *
- * type T = RemoveItemsInFront<[File, number, string], [File, number]>
- * // [string]
+ * type T = RemoveItemsInFront<[number, number], [number]> // [number]
+ * type T = RemoveItemsInFront<[File, number, string], [File, number]> // [string]
  */
 type RemoveItemsInFront<
   TItems extends any[],

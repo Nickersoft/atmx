@@ -1,7 +1,7 @@
 import type { StrictExtract } from "@/snippets/helpers/types";
 
 /**
- * Literally just `Array.isArray` but with better type inference.
+ * `Array.isArray` but with better type inference.
  *
  * @example
  * isArray([]) // => true

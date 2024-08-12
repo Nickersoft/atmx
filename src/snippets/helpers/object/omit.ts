@@ -4,8 +4,7 @@
  *
  * @example
  * const a = { a: 1, b: 2, c: 3 }
- * omit(a, ['b'])
- * // => { a: 1, c: 3 }
+ * omit(a, ['b']) // => { a: 1, c: 3 }
  */
 export function omit<T, TKeys extends keyof T>(
   obj: T,
