@@ -5,7 +5,5 @@ const snippets = await fetch(new URL("/registry/helpers.json", Astro.url)).then(
   (res) => res.json(),
 );
 
-const firstFunc = snippets[0];
-
-return Astro.redirect(`/${Astro.params.section}/${firstFunc?.name}`, 302);
+return Astro.redirect(`/${Astro.params.section}/${snippets[0]?.name}`, 302);
 ---

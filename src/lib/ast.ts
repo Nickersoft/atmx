@@ -17,7 +17,10 @@ export async function extractDependencies(code: string): Promise<Dependencies> {
       (acc, source) => {
         const match = source.match(/@\/snippets\/(.+)\/.+\/(.+)/);
 
-        if (match) {
+        if (source === "@/snippets/helpers/types") {
+          acc.local.push("helpers/types");
+          return acc;
+        } else if (match) {
           acc.local.push(`${match[1]}/${match[2]}`);
         } else {
           acc.external.push(source);
@@ -46,7 +49,12 @@ export function extractDocs(code: string): TSDoc {
 
   const examples = customBlocks
     .filter((block) => block.blockTag.tagName === "@example")
-    .map((ex) => Formatter.renderDocNode(ex.content).trim());
+    .map((ex) =>
+      Formatter.renderDocNode(ex.content)
+        .replaceAll("```ts", "")
+        .replaceAll("```", "")
+        .trim(),
+    );
 
   return { description, parameters, examples };
 }

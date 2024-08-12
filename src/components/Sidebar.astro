@@ -1,19 +1,24 @@
 ---
 import { Link } from "@/components/ui/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Typography } from "@/components/ui/typography";
+
+import { getSnippets } from "@/lib/snippets";
 import { cn } from "@/lib/utils";
 
-import { Typography } from "./ui/typography";
-
-const snippets = await getSnippets();
 const section = Astro.params.section as string;
+const snippets = await getSnippets();
+const groupedByCategory = Object.groupBy(
+  snippets[section]!,
+  ({ category }) => category,
+);
 ---
 
-<aside class="h-full border-r py-4">
-  <ScrollArea client:load>
+<aside class="h-full overflow-hidden border-r">
+  <ScrollArea className="h-full" client:load data-nav>
     {
-      snippets[section]?.map(({ category, snippets }) => (
-        <section class="w-full mb-4 px-2">
+      Object.entries(groupedByCategory).map(([category, snippets]) => (
+        <section class="w-full py-4 px-2">
           <Typography
             className="text-sm select-none pointer-events-none capitalize mb-2 ml-2"
             variant="h6"
@@ -21,8 +26,8 @@ const section = Astro.params.section as string;
             {category}
           </Typography>
           <ul>
-            {snippets.map(({ name }) => (
-              <li class="w-full" transition:animate="none">
+            {snippets?.map(({ name }) => (
+              <li data-nav-item={name} class="w-full">
                 <Link
                   className={cn(
                     "w-full inline-block rounded-md border-transparent border p-2",
@@ -40,3 +45,14 @@ const section = Astro.params.section as string;
     }
   </ScrollArea>
 </aside>
+
+<script define:vars={{ name: Astro.params.name }}>
+  document
+    .querySelector("[data-nav]")
+    .querySelector(`[data-nav-item=${name}]`)
+    .scrollIntoView({
+      behavior: "instant",
+      block: "center",
+      inline: "center",
+    });
+</script>

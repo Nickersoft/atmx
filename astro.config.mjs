@@ -13,6 +13,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
+  site: "https://codedex.dev",
   output: "hybrid",
   adapter: vercel({ webAnalytics: true }),
 });

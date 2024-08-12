@@ -2,63 +2,30 @@ import "core-js/features/object/group-by";
 
 import type { APIRoute } from "astro";
 
-import { extractDependencies } from "@/lib/ast";
 import type { Snippet } from "@/types";
+import { getSnippets } from "@/lib/snippets";
 
-interface RawSnippet {
-  section: string;
-  category: string;
-  name: string;
-  content: string;
-}
-
-export const GET: APIRoute<{ snippets: RawSnippet[] }> = async ({
+export const GET: APIRoute<{ snippets: Snippet[] }> = async ({
   url,
   props,
 }) => {
-  const { snippets: snippetList } = props;
+  const { snippets } = props;
 
-  const snippets = snippetList.map(
-    async ({ section, category, name: snippetName, content }) => {
-      const dependencies = await extractDependencies(content);
-      const name = snippetName.replace(".ts", "");
-      const baseURL = `${url.origin}/registry/${section}`;
-      return {
-        category,
-        name,
+  return new Response(
+    JSON.stringify(
+      snippets.map(({ urls, ...snippet }) => ({
+        ...snippet,
         urls: {
-          code: `${baseURL}/${name}.ts`,
-          metadata: `${baseURL}/${name}.json`,
+          code: new URL(urls.code, url).toString(),
+          metadata: new URL(urls.metadata, url).toString(),
         },
-        dependencies,
-      } satisfies Snippet;
-    },
+      })),
+    ),
   );
-
-  return new Response(JSON.stringify(await Promise.all(snippets)));
 };
 
 export async function getStaticPaths() {
-  const files = await import.meta.glob("../../snippets/**/*.ts", {
-    query: "?raw",
-  });
-
-  const snippets = await Promise.all(
-    Object.entries(files).map(async ([path, content]) => {
-      const [section, category, name] = path.split("/").slice(-3);
-
-      return {
-        section,
-        category,
-        name,
-        content: ((await content()) as { default: string }).default,
-      };
-    }),
-  );
-
-  const groupedBySection = Object.groupBy(snippets, ({ section }) => section);
-
-  return Object.entries(groupedBySection).map(([section, snippets]) => ({
+  return Object.entries(await getSnippets()).map(([section, snippets]) => ({
     params: { section },
     props: { snippets },
   }));

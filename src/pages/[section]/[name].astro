@@ -1,42 +1,36 @@
 ---
 import type { GetStaticPaths } from "astro";
 
-import { transformCode } from "@/lib/snippets";
+import { getSnippetMetadata, getSnippets, transformCode } from "@/lib/snippets";
 
 import Code from "@/components/Code.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { Typography } from "@/components/ui/typography";
 import { Installation } from "@/components/Installation";
-import type { Snippet, SnippetMetadata } from "@/types";
 
-export const getStaticPaths = (async () => {
-  console.log(Astro.url);
+export const getStaticPaths = (async () =>
+  Promise.all(
+    Object.entries(await getSnippets())
+      .map(
+        ([section, snippets]) =>
+          snippets?.map((snippet) => ({
+            params: { section, name: snippet.name },
+            props: { snippet },
+          })) ?? [],
+      )
+      .flat(),
+  )) satisfies GetStaticPaths;
 
-  const [helpers, hooks] = await Promise.all<Snippet[][]>(
-    ["helpers", "hooks"].map((section) =>
-      fetch(new URL(`/registry/${section}.json`)).then((res) => res.json()),
-    ),
-  );
+const { name, section } = Astro.params;
+const { snippet } = Astro.props;
 
-  return Promise.all(
-    Object.entries({ helpers, hooks }).map(([section, snippets]) =>
-      snippets.map(({ name, urls }) => ({
-        params: { section, name },
-        props: {
-          url: urls.metadata,
-        },
-      })),
-    ),
-  ).then((paths) => paths.flat());
-}) satisfies GetStaticPaths;
+const { description, examples, content } = await getSnippetMetadata(snippet);
 
-const { name } = Astro.params;
-const { url } = Astro.props;
+const exampleBlock = `import { ${name} } from "@/${section}/${name}";
 
-const { description, content } = (await fetch(url as string).then((res) =>
-  res.json(),
-)) as SnippetMetadata;
+${examples.join("\n\n")}
+`.trim();
 ---
 
 <BaseLayout>
@@ -50,12 +44,16 @@ const { description, content } = (await fetch(url as string).then((res) =>
     </Typography>
   </header>
 
+  <Typography variant="h2">Usage</Typography>
+
+  <Code code={exampleBlock} lang="typescript" class="mb-12" />
+
   <Typography variant="h2">Installation</Typography>
 
   <Installation client:load>
-    <Typography slot="cli"
-      ><Code code={`npx codedex add ${name}`} lang="bash" wrap /></Typography
-    >
+    <Typography slot="cli">
+      <Code code={`npx codedex add ${name}`} lang="bash" wrap />
+    </Typography>
     <div slot="manual">
       <Typography className="py-4 mb-0">
         Copy and paste the following method into
@@ -63,7 +61,7 @@ const { description, content } = (await fetch(url as string).then((res) =>
           @/utils/{name}.tsx:
         </code>
       </Typography>
-      <Code code={transformCode(content)} lang="typescript" class="mt-0" />
+      <Code code={content} lang="typescript" class="mt-0" />
     </div>
   </Installation>
 </BaseLayout>

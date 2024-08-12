@@ -3,7 +3,7 @@
  *
  * @param array - The array to sort
  *
- * @example alphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
+ * @examplealphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
  */
 export function alphabetical<T>(
   array: readonly T[],

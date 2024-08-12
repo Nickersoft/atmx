@@ -4,8 +4,10 @@ export interface Dependencies {
 }
 
 export interface Snippet {
+  section: string;
   category: string;
   name: string;
+  content: string;
   urls: {
     code: string;
     metadata: string;
