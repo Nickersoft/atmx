@@ -37,15 +37,17 @@ const fly = {
   <body class="w-full flex relative flex-col h-full">
     <Nav />
     <div class="flex-1 relative">
-      <div class="grid absolute overflow-hidden inset-0 grid-cols-[275px,auto]">
+      <div class="grid absolute inset-0 grid-cols-[275px,auto]">
         <Sidebar />
-        <main class="p-8 overflow-auto">
-          <div transition:animate={{ forwards: fly, backwards: fly }}>
-            <ScrollArea>
-              <slot />
-            </ScrollArea>
-          </div>
-        </main>
+        <ScrollArea className="h-full" client:load>
+          <main
+            transition:animate={{ forwards: fly, backwards: fly }}
+            class="p-8 h-full overflow-hidden"
+          >
+            <span>test</span>
+            <slot />
+          </main>
+        </ScrollArea>
       </div>
     </div>
   </body>
