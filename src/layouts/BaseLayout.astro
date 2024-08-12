@@ -39,7 +39,7 @@ const fly = {
     <div class="flex-1 relative">
       <div class="grid absolute overflow-hidden inset-0 grid-cols-[275px,auto]">
         <Sidebar />
-        <main class="p-8">
+        <main class="p-8 overflow-auto">
           <div transition:animate={{ forwards: fly, backwards: fly }}>
             <ScrollArea>
               <slot />
