@@ -39,7 +39,7 @@ const fly = {
     <div class="flex-1 relative">
       <div class="grid absolute inset-0 grid-cols-[275px,auto]">
         <Sidebar />
-        <ScrollArea className="h-full" client:load>
+        <ScrollArea client:load>
           <main
             transition:animate={{ forwards: fly, backwards: fly }}
             class="p-8"
