@@ -1,0 +1,23 @@
+{
+  "name": "registry-tools",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/** --dts --format esm",
+    "prepare": "pnpm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.2.4"
+  },
+  "dependencies": {
+    "@microsoft/tsdoc": "^0.15.0",
+    "@swc/core": "^1.7.11",
+    "core-js": "^3.38.0",
+    "detype": "^1.0.10",
+    "typescript": "^5.5.4"
+  }
+}

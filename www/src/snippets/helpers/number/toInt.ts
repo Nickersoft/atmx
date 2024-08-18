@@ -1,0 +1,31 @@
+import { isSymbol } from "www/src/snippets/helpers/typed/isSymbol";
+
+/**
+ * Combines `Number.parseInt` with NaN handling. By default, a zero
+ * (0) is returned in place of NaN.
+ *
+ * @example
+ * toInt("1.23") // => 1
+ * toInt("foo") // => 0
+ * toInt("1.23px", 1) // => 1
+ * toInt("foo", -1) // => -1
+ */
+export function toInt(value: unknown): number;
+
+export function toInt<T>(
+  value: unknown,
+  defaultValue: T | undefined,
+): number | T;
+
+export function toInt<T>(
+  value: any,
+  defaultValue?: T,
+): number | Exclude<T, undefined> {
+  // Symbols throw on string coercion, which parseInt does.
+  const parsedValue = isSymbol(value) ? Number.NaN : Number.parseInt(value);
+  return Number.isNaN(parsedValue)
+    ? defaultValue !== undefined
+      ? (defaultValue as Exclude<T, undefined>)
+      : 0
+    : parsedValue;
+}

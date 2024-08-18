@@ -1,0 +1,77 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import Nav from "@/components/Nav.astro";
+import Sidebar from "@/components/Sidebar.astro";
+
+import { ScrollArea } from "www/src/components/ui/scroll-area";
+
+import "@/styles/global.css";
+import "@fontsource-variable/inter";
+
+const fly = {
+  old: {
+    name: "flyOut",
+    duration: "0.1s",
+    easing: "ease-out",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "flyIn",
+    duration: "0.3s",
+    easing: "ease-in-out",
+    fillMode: "backwards",
+  },
+};
+---
+
+<html transition:animate="none" lang="en" class="w-full h-full dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Codedex</title>
+    <ViewTransitions />
+  </head>
+  <body class="w-full flex relative flex-col h-full">
+    <Nav />
+    <div class="flex-1 relative">
+      <div class="grid absolute inset-0 grid-cols-[275px,auto]">
+        <Sidebar />
+        <ScrollArea client:load>
+          <main
+            transition:animate={{ forwards: fly, backwards: fly }}
+            class="p-8"
+          >
+            <slot />
+          </main>
+        </ScrollArea>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @keyframes flyIn {
+    from {
+      transform: translateX(8px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyOut {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.98);
+      opacity: 0;
+    }
+  }
+</style>

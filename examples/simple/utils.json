@@ -1,0 +1,7 @@
+{
+  "ts": true,
+  "aliases": {
+    "helpers": "@/lib/helpers",
+    "hooks": "@/lib/hooks"
+  }
+}

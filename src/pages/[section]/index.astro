@@ -1,9 +1,0 @@
----
-export const prerender = false;
-
-const snippets = await fetch(new URL("/registry/helpers.json", Astro.url)).then(
-  (res) => res.json(),
-);
-
-return Astro.redirect(`/${Astro.params.section}/${snippets[0]?.name}`, 302);
----

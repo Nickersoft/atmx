@@ -1,0 +1,31 @@
+{
+  "name": "codedex",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "codedex": "./dist/main.js"
+  },
+  "scripts": {
+    "build": "tsup --format esm src/main.ts",
+    "dev": "tsup --format esm src/main.ts --watch",
+    "prepare": "pnpm run build",
+    "generate-schema": "tsx scripts/generate-schema.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.2.4",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "zod-to-json-schema": "^3.23.2"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.8",
+    "commander": "^12.1.0",
+    "ora": "^8.0.1",
+    "zod": "^3.23.8"
+  }
+}
