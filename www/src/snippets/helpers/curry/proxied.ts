@@ -12,7 +12,7 @@ export function proxied<T, K>(
   return new Proxy(
     {},
     {
-      get: (target, propertyName: any) => handler(propertyName),
+      get: (_, propertyName: any) => handler(propertyName),
     },
   );
 }

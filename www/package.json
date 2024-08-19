@@ -25,7 +25,7 @@
     "marked": "^14.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "registry-tools": "link:../packages/registry-tools",
+    "registry-tools": "workspace:*",
     "shiki": "^1.12.1",
     "tailwind-merge": "^2.4.0"
   },
@@ -45,5 +45,10 @@
     "tailwindcss": "^3.4.9",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.5.4"
+  },
+  "dependenciesMeta": {
+    "registry-tools": {
+      "injected": true
+    }
   }
 }

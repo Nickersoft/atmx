@@ -5,3 +5,5 @@ export const REGISTRY_HOST = IS_DEV
   : "https://codedex.dev";
 
 export const SNIPPET_TYPES = ["hook", "helper"] as const;
+
+export const CLI_NAME = `codedex`;

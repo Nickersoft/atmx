@@ -2,15 +2,16 @@
 import type { GetStaticPaths } from "astro";
 import { marked } from "marked";
 
-import { getSnippetMetadata } from "registry-tools";
+import { expandSnippet } from "registry-tools";
 
-import { getSnippets } from "@/lib/snippets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import Code from "@/components/Code.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { Typography } from "@/components/ui/typography";
 import { Installation } from "@/components/Installation";
+
+import { getSnippets } from "@/lib/snippets";
 
 export const getStaticPaths = (async () =>
   Promise.all(
@@ -28,7 +29,7 @@ export const getStaticPaths = (async () =>
 const { name, type } = Astro.params;
 const { snippet } = Astro.props;
 
-const { examples, content, ...docs } = await getSnippetMetadata(snippet);
+const { examples, content, ...docs } = await expandSnippet(snippet);
 
 const description = await marked(docs.description);
 const exampleBlock = `import { ${name} } from "@/${type}/${name}";

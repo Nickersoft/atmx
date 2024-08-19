@@ -1,10 +1,14 @@
 {
   "name": "registry-tools",
   "version": "0.0.0",
-  "description": "",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "", 
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsup",
     "dev": "cross-env NODE_ENV=development tsup --watch",
@@ -12,14 +16,19 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__traverse": "^7.20.6",
     "cross-env": "^7.0.3",
     "tsup": "^8.2.4",
     "vitest": "^2.0.5"
   },
   "dependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-typescript": "^7.24.7",
+    "@babel/traverse": "^7.25.3",
     "@microsoft/tsdoc": "^0.15.0",
     "core-js": "^3.38.0",
-    "detype": "^1.0.10",
+    "prettier": "^3.3.3",
     "ts-morph": "^23.0.0",
     "typescript": "^5.5.4"
   }

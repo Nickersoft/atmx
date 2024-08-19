@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const type = Astro.params.type as string;
 const snippets = await getSnippets();
 const groupedByCategory = Object.groupBy(
-  snippets[type]!,
+  snippets[type as keyof typeof snippets]!,
   ({ category }) => category,
 );
 ---
@@ -46,7 +46,7 @@ const groupedByCategory = Object.groupBy(
   </ScrollArea>
 </aside>
 
-<script define:vars={{ name: Astro.params.name }}>
+<script is:inline define:vars={{ name: Astro.params.name }}>
   // const nav = document.querySelector("[data-nav]");
 
   let scrollTop = 0;
