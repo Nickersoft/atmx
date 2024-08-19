@@ -1,6 +1,7 @@
 import { expect, test } from "vitest";
 
 import { extractTSDoc } from "./extract-tsdoc.js";
+import { SnippetType } from "@/types.js";
 
 const code = `
 /**
@@ -17,10 +18,11 @@ test("extracts docs correctly", async () => {
   const snippet = {
     name: "test",
     content: code,
-    type: "helpers",
+    type: "helper" as SnippetType,
     category: "array",
     urls: {
-      code: "/registry/helpers/flat.ts",
+      ts: "/registry/helpers/flat.ts",
+      js: "/registry/helpers/flat.js",
       metadata: "/registry/helpers/flat.json",
     },
     dependencies: {

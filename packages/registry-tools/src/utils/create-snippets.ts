@@ -1,6 +1,6 @@
 import { basename, extname } from "node:path";
 
-import { ImportGlob, Snippet } from "@/types.js";
+import { ImportGlob, Snippet, SnippetType } from "@/types.js";
 import { transformImports } from "@/transformers/transform-imports.js";
 
 import { extractDependencies } from "./extract-dependencies.js";
@@ -8,12 +8,13 @@ import { createSourceFile } from "./ast.js";
 
 export async function createSnippets(
   files: ImportGlob,
-): Promise<Record<string, Snippet[]>> {
+): Promise<Record<SnippetType, Snippet[]>> {
   const snippets = await Promise.all(
     Object.entries(files).map(async ([path, getContent]) => {
-      const [type, category, snippetName] = path.split("/").slice(-3);
+      const [registry, category, snippetName] = path.split("/").slice(-3);
 
-      const baseURL = `/registry/${type}`;
+      const type = registry.slice(0, -1);
+      const baseURL = `/registry/${registry}`;
 
       const name = basename(snippetName, extname(snippetName));
       const content = ((await getContent()) as { default: string }).default;
@@ -30,7 +31,8 @@ export async function createSnippets(
         dependencies,
         name,
         urls: {
-          code: `${baseURL}/${name}.ts`,
+          ts: `${baseURL}/${name}.ts`,
+          js: `${baseURL}/${name}.js`,
           metadata: `${baseURL}/${name}.json`,
         },
         content: code.getFullText(),

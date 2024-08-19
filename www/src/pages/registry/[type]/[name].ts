@@ -1,14 +1,16 @@
 import type { APIRoute } from "astro";
 
 import {
-  type SnippetMetadata,
-  getSnippetMetadata,
-  ts2js,
+  type ExpandedSnippet,
+  type SnippetType,
+  expandSnippet,
+  getRegistryName,
+  transformToJS,
 } from "registry-tools";
 
 import { getSnippets } from "@/lib/snippets";
 
-export const GET: APIRoute<{ snippet: SnippetMetadata }> = async ({
+export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
   params,
   props,
 }) => {
@@ -20,7 +22,7 @@ export const GET: APIRoute<{ snippet: SnippetMetadata }> = async ({
   }
 
   if (name?.endsWith(".js")) {
-    return new Response(await ts2js(snippet.content));
+    return new Response(await transformToJS(snippet.content));
   }
 
   return new Response(JSON.stringify(snippet));
@@ -30,10 +32,12 @@ export async function getStaticPaths() {
   const snippets = await getSnippets();
 
   return Promise.all(
-    Object.entries(snippets).flatMap(([type, snippets]) =>
+    Object.entries(snippets).flatMap(([_type, snippets]) =>
       Promise.all(
         snippets?.map(async (snippet) => {
-          const metadata = await getSnippetMetadata(snippet);
+          const metadata = await expandSnippet(snippet);
+          const type = getRegistryName(_type as SnippetType);
+
           return [
             {
               params: { type, name: `${snippet.name}.json` },

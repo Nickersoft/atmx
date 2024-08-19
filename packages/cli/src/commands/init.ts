@@ -1,15 +1,17 @@
-import { existsSync } from "node:fs";
+import { writeFile } from "node:fs/promises";
 
 import { Command } from "commander";
 import { input, select } from "@inquirer/prompts";
 
-import { writeConfig } from "@/config.js";
+import { CONFIG_FILENAME } from "@/consts.js";
+import { isTypescriptProject } from "@/utils/is-typescript-project.js";
+import type { GlobalOptions } from "@/types.js";
 
-async function init() {
-  const hasTSConfig = existsSync("tsconfig.json");
+interface InitOptions extends GlobalOptions {}
 
+async function init(options: InitOptions) {
   const ts =
-    hasTSConfig ||
+    isTypescriptProject(options.cwd) ||
     (await select({
       message: "Would you like to use TypeScript?",
       choices: [
@@ -28,13 +30,15 @@ async function init() {
     default: "@/lib/hooks",
   });
 
-  await writeConfig({
+  const config = {
     ts,
     aliases: {
       helpers,
       hooks,
     },
-  });
+  };
+
+  await writeFile(CONFIG_FILENAME, JSON.stringify(config, null, 2));
 }
 
 export default new Command("init").action(init);

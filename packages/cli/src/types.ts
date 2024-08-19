@@ -1,8 +1,19 @@
 import * as z from "zod";
 
-import { configSchema } from "./config.js";
-import { UTILITY_TYPES } from "./consts.js";
+import { configSchema, resolvedConfigSchema } from "./utils/get-config.js";
+import { SourceFile } from "ts-morph";
 
-export type UtilityConfig = z.infer<typeof configSchema>;
+export type PromiseLike<T> = T | Promise<T>;
 
-export type UtilityType = (typeof UTILITY_TYPES)[number];
+export type Config = z.infer<typeof configSchema>;
+
+export type ResolvedConfig = z.infer<typeof resolvedConfigSchema>;
+
+export interface GlobalOptions {
+  cwd: string;
+}
+
+export type Transformer = (
+  sourceFile: SourceFile,
+  config: ResolvedConfig,
+) => PromiseLike<SourceFile>;

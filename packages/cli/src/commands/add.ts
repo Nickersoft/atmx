@@ -1,89 +1,109 @@
+import { dirname, relative } from "node:path";
+
 import { Argument, Command } from "commander";
-import type { Snippet } from "registry-tools";
+
+import { confirm } from "@inquirer/prompts";
+
 import ora from "ora";
 
-import { REGISTRY_HOST, UTILITY_TYPES } from "@/consts.js";
-import type { UtilityConfig, UtilityType } from "@/types.js";
-import { installPackages, pluralize } from "@/utils.js";
+import type { GlobalOptions } from "@/types.js";
+import { installPackages } from "@/utils/install-packages.js";
 
-const getRegistry = (() => {
-  const registryCache = new Map<UtilityType, Record<string, Snippet>>();
+import { getOutputPath, installSnippet } from "@/utils/install-snippet.js";
+import { getConfig } from "@/utils/get-config.js";
+import {
+  getRegistry,
+  getRegistryName,
+  SNIPPET_TYPES,
+  type RegistryName,
+  type SnippetType,
+} from "registry-tools";
+import { pathExists } from "fs-extra";
 
-  return async function (
-    category: UtilityType,
-  ): Promise<Record<string, Snippet>> {
-    if (registryCache.has(category)) {
-      return registryCache.get(category)!;
-    }
-
-    const url = new URL(`/registry/${pluralize(category)}.json`, REGISTRY_HOST);
-    const registry = await fetch(url).then((res) => res.json());
-
-    registryCache.set(category, registry);
-
-    return registry;
-  };
-})();
-
-async function installExternalDeps(deps: string[]) {
-  await installPackages(deps);
+interface AddOptions extends GlobalOptions {
+  registry: RegistryName;
+  name: string;
+  type: SnippetType;
+  logging?: boolean;
 }
 
-async function installLocalDeps(deps: string[]) {
+async function installDeps(deps: string[], options: AddOptions) {
+  if (deps.length === 0) return;
+
   await Promise.all(
     deps
       .map((d) => d.split("/"))
-      .map(([type, name]) => add(type as UtilityType, name)),
+      .map(([registry, name]) =>
+        add({
+          ...options,
+          registry: registry as RegistryName,
+          name,
+          logging: false,
+        }),
+      ),
   );
 }
 
-function getCode(type: UtilityType, name: string, typescript?: boolean) {
-  const path = `/registry/${type}/${name}${typescript ? ".ts" : ".js"}`;
-  const url = new URL(path, REGISTRY_HOST);
-  return fetch(url).then((res) => res.text());
-}
+async function add(opts: AddOptions) {
+  const { logging, name, type, registry: registryName } = opts;
 
-async function installCode(
-  type: UtilityType,
-  name: string,
-  config: UtilityConfig,
-) {
-  const code = await getCode(type, name, config.ts);
-  const aliasKey = pluralize(type) as keyof UtilityConfig["aliases"];
-  const alias = config.aliases?.[aliasKey];
-  const ext = config.ts ? "ts" : "js";
-  const outputPath = `${alias}/${name}.${ext}`;
-}
+  const config = await getConfig();
+  const registry = await getRegistry(registryName);
+  const snippet = registry[name];
 
-async function add(type: UtilityType, name: string) {
-  const spinner = ora(`Resolving ${name}...`).start();
-
-  const registry = await getRegistry(type);
-  const utility = registry[name];
-
-  if (!utility) {
+  if (!snippet) {
     throw new Error(`No ${type} found with the name "${name}"!`);
   }
+
+  const outputPath = await getOutputPath(snippet, config);
+
+  if (logging && (await pathExists(outputPath))) {
+    const shouldOverwrite = await confirm({
+      message: `A snippet for '${snippet.name}' already exists. Would you like to override it?`,
+    });
+
+    if (!shouldOverwrite) return;
+  } else if (logging) {
+    const shouldInstall = await confirm({
+      message: `This command will install the ${type} '${name}' to the directory '${relative(opts.cwd, dirname(outputPath))}'. Would you like to continue?`,
+    });
+
+    if (!shouldInstall) return;
+  }
+
+  const spinner = ora({ isSilent: !logging }).start();
 
   spinner.text = `Adding ${type} ${name}...`;
 
   const {
     dependencies: { local, external },
-  } = utility;
+  } = snippet;
 
   if (local.length > 0 || external.length > 0) {
     spinner.text = "Installing dependencies...";
-    await Promise.all([installLocalDeps(local), installExternalDeps(external)]);
+    await Promise.all([installDeps(local, opts), installPackages(external)]);
   }
 
-  console.log(type, name);
+  spinner.text = `Installing '${name}'...`;
+
+  await installSnippet(snippet, config);
+
+  spinner.succeed(`Installed ${type} ${name}!`);
 }
 
 export default new Command("add")
   .addArgument(
     new Argument("<type>", "Type of component to import").choices(
-      UTILITY_TYPES,
+      SNIPPET_TYPES,
     ),
   )
   .argument("<name>", "Name of the component to import")
-  .action(add);
+  .action((type, name, opts, cmd: Command) =>
+    add({
+      ...cmd.optsWithGlobals(),
+      registry: getRegistryName(type),
+      type,
+      name,
+      logging: true,
+    }),
+  );

@@ -1,7 +1,11 @@
+import { SNIPPET_TYPES } from "./consts.js";
+
 export type ImportGlob = Record<
   string,
   () => Promise<{ default: string }> | { default: string }
 >;
+
+export type SnippetType = (typeof SNIPPET_TYPES)[number];
 
 export interface Dependencies {
   local: string[];
@@ -9,12 +13,13 @@ export interface Dependencies {
 }
 
 export interface Snippet {
-  type: string;
+  type: SnippetType;
   category: string;
   name: string;
   content: string;
   urls: {
-    code: string;
+    ts: string;
+    js: string;
     metadata: string;
   };
   dependencies: Dependencies;
@@ -29,3 +34,5 @@ export interface TSDoc {
 export interface ExpandedSnippet extends Omit<Snippet, "urls">, TSDoc {
   content: string;
 }
+
+export type RegistryName = `${SnippetType}s`;
