@@ -1,5 +1,5 @@
-import { detect } from "detect-package-manager";
-import { $, type Result } from "execa";
+import { $ } from "execa";
+import { getPackageManager } from "./utils/get-package-manager.js";
 
 export function pluralize(word: string) {
   return word + "s";
@@ -15,7 +15,7 @@ export async function installPackages(packages: string[]): Promise<void>;
 export async function installPackages(
   packages: string | string[],
 ): Promise<void> {
-  const pm = await detect();
+  const pm = await getPackageManager(".");
 
   const packageList =
     typeof packages === "string" ? packages : packages.join(" ");
