@@ -60,5 +60,5 @@ export function resolveAliases(type: UtilityType, config: UtilityConfig) {
   const aliasKey = pluralize(type) as keyof UtilityConfig["aliases"];
   const alias = config.aliases?.[aliasKey];
   const tsConfig = loadConfig();
-  const 
+  // const
 }

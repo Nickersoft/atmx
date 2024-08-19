@@ -1,8 +1,4 @@
-import { transform } from "detype";
-
-export * from "./snippets.js";
+export * from "./utils/create-snippets.js";
+export * from "./utils/expand-snippet.js";
+export * from "./transformers/transform-to-js.js";
 export * from "./types.js";
-
-export function ts2js(code: string) {
-  return transform(code, "tmp.ts");
-}

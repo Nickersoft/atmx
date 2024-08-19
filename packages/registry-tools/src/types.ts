@@ -26,6 +26,6 @@ export interface TSDoc {
   examples: string[];
 }
 
-export interface SnippetMetadata extends Omit<Snippet, "urls">, TSDoc {
+export interface ExpandedSnippet extends Omit<Snippet, "urls">, TSDoc {
   content: string;
 }

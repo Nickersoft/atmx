@@ -14,7 +14,8 @@ import {
 import { TextRange, TSDocParser } from "@microsoft/tsdoc";
 
 import type { Snippet, TSDoc } from "@/types.js";
-import { Formatter } from "@/formatter.js";
+
+import { Formatter } from "./formatter.js";
 
 /**
  * Returns true if the specified SyntaxKind is part of a declaration form.
@@ -146,7 +147,7 @@ function walkCompilerAstAndFindComments(
   );
 }
 
-export function extractDocs(code: string): TSDoc {
+function extractDocs(code: string): TSDoc {
   const parser = new TSDocParser();
 
   const { summarySection, params, customBlocks } =
