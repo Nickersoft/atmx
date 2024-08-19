@@ -1,5 +1,5 @@
-import { list } from "www/src/snippets/helpers/array/list";
-import { range } from "www/src/snippets/helpers/array/range";
+import { list } from "@/snippets/helpers/array/list";
+import { range } from "@/snippets/helpers/array/range";
 
 export interface Series<T> {
   min: (a: T, b: T) => T;

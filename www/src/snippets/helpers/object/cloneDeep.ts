@@ -1,7 +1,7 @@
-import { isArray } from "www/src/snippets/helpers/typed/isArray";
-import { isMap } from "www/src/snippets/helpers/typed/isMap";
-import { isObject } from "www/src/snippets/helpers/typed/isObject";
-import { isSet } from "www/src/snippets/helpers/typed/isSet";
+import { isArray } from "@/snippets/helpers/typed/isArray";
+import { isMap } from "@/snippets/helpers/typed/isMap";
+import { isObject } from "@/snippets/helpers/typed/isObject";
+import { isSet } from "@/snippets/helpers/typed/isSet";
 
 /**
  * A strategy for cloning objects with `cloneDeep`.

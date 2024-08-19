@@ -1,4 +1,4 @@
-import { isPrimitive } from "www/src/snippets/helpers/typed/isPrimitive";
+import { isPrimitive } from "@/snippets/helpers/typed/isPrimitive";
 
 /**
  * Creates a shallow copy of the given object/value.

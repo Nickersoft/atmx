@@ -1,6 +1,6 @@
-import { isArray } from "www/src/snippets/helpers/typed/isArray";
-import { isObject } from "www/src/snippets/helpers/typed/isObject";
-import type { Simplify, Intersect } from "www/src/snippets/helpers/types";
+import { isArray } from "@/snippets/helpers/typed/isArray";
+import { isObject } from "@/snippets/helpers/typed/isObject";
+import type { Simplify, Intersect } from "@/snippets/helpers/types";
 
 /**
  * Flattens a deep object to a single dimension, converting the keys

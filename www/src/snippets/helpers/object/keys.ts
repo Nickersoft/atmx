@@ -1,5 +1,5 @@
-import { isArray } from "www/src/snippets/helpers/typed/isArray";
-import { isPlainObject } from "www/src/snippets/helpers/typed/isPlainObject";
+import { isArray } from "@/snippets/helpers/typed/isArray";
+import { isPlainObject } from "@/snippets/helpers/typed/isPlainObject";
 
 /**
  * Get a string list of all key names that exist in an object (deep).

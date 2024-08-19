@@ -1,4 +1,4 @@
-import { isNumber } from "www/src/snippets/helpers/typed/isNumber";
+import { isNumber } from "@/snippets/helpers/typed/isNumber";
 
 /**
  * Return true if the given value is a number that is not an integer.

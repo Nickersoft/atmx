@@ -1,4 +1,4 @@
-import { isTagged } from "www/src/snippets/helpers/typed/isTagged";
+import { isTagged } from "@/snippets/helpers/typed/isTagged";
 
 /**
  * Returns true if `value` is a plain object, a class instance

@@ -1,9 +1,11 @@
 ---
+import { Snippet } from "registry-tools";
+
 export const prerender = false;
 
-const snippets = await fetch(new URL("/registry/helpers.json", Astro.url)).then(
-  (res) => res.json(),
-);
+const snippets = await fetch(new URL("/registry/helpers.json", Astro.url))
+  .then((res) => res.json())
+  .then((res) => Object.values(res) as Snippet[]);
 
 return Astro.redirect(`/${Astro.params.type}/${snippets[0]?.name}`, 302);
 ---

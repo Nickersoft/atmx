@@ -1,4 +1,4 @@
-import { set } from "www/src/snippets/helpers/object/set";
+import { set } from "@/snippets/helpers/object/set";
 
 /**
  * The opposite of crush, given an object that was crushed into key

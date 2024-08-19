@@ -1,5 +1,5 @@
-import { sleep } from "www/src/snippets/helpers/async/sleep";
-import { tryit } from "www/src/snippets/helpers/async/tryit";
+import { sleep } from "@/snippets/helpers/async/sleep";
+import { tryit } from "@/snippets/helpers/async/tryit";
 
 export type RetryOptions = {
   times?: number;

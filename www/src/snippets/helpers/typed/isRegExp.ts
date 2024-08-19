@@ -1,4 +1,4 @@
-import { isTagged } from "www/src/snippets/helpers/typed/isTagged";
+import { isTagged } from "@/snippets/helpers/typed/isTagged";
 
 /**
  * Checks if the given value is a RegExp.

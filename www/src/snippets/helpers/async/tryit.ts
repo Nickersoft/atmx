@@ -1,4 +1,4 @@
-import { isPromise } from "www/src/snippets/helpers/typed/isPromise";
+import { isPromise } from "@/snippets/helpers/typed/isPromise";
 
 /**
  * The result of a `tryit` function.

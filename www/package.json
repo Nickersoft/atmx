@@ -1,5 +1,5 @@
 {
-  "name": "code-snippets",
+  "name": "www",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,11 +10,6 @@
     "astro": "astro",
     "ui": "shadcn-ui"
   },
-  "workspaces": [
-    "packages/registry-tools",
-    "packages/cli",
-    "www"
-  ],
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.20",
     "@radix-ui/react-icons": "^1.3.0",

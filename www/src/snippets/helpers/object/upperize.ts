@@ -1,4 +1,4 @@
-import { mapKeys } from "www/src/snippets/helpers/object/mapKeys";
+import { mapKeys } from "@/snippets/helpers/object/mapKeys";
 
 export type UppercaseKeys<T extends Record<string, any>> = {
   [P in keyof T & string as Uppercase<P>]: T[P];

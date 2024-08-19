@@ -1,5 +1,5 @@
-import { iterate } from "www/src/snippets/helpers/array/iterate";
-import { random } from "www/src/snippets/helpers/random/random";
+import { iterate } from "@/snippets/helpers/array/iterate";
+import { random } from "@/snippets/helpers/random/random";
 
 /**
  * Generate a random string of a given length.

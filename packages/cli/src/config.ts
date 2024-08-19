@@ -2,16 +2,28 @@ import { readFile, writeFile } from "node:fs/promises";
 
 import * as z from "zod";
 
-import { CONFIG_FILENAME } from "./consts.js";
-import type { UtilityConfig } from "./types.js";
+import { CONFIG_FILENAME, UTILITY_TYPES } from "./consts.js";
+import type { UtilityConfig, UtilityType } from "./types.js";
+import { pluralize } from "./utils.js";
+import { loadConfig } from "tsconfig-paths";
 
-export const configSchema = z.object({
-  ts: z.boolean(),
-  aliases: z.object({
-    helpers: z.string(),
-    hooks: z.string(),
-  }),
-});
+export const configSchema = z
+  .object({
+    ts: z.boolean(),
+    aliases: z.object({
+      helpers: z.string(),
+      hooks: z.string(),
+    }),
+  })
+  .refine(
+    (config) =>
+      Object.keys(config.aliases).every((key) =>
+        UTILITY_TYPES.map((type) => pluralize(type)).includes(
+          key as UtilityType,
+        ),
+      ),
+    "Aliases must be a plural form of a valid utility type",
+  );
 
 /**
  * Creates a configuration file from the given configuration object
@@ -42,4 +54,11 @@ export async function readConfig(): Promise<UtilityConfig> {
   } catch (e) {
     throw new Error(`Could not find a ${CONFIG_FILENAME} configuration file!`);
   }
+}
+
+export function resolveAliases(type: UtilityType, config: UtilityConfig) {
+  const aliasKey = pluralize(type) as keyof UtilityConfig["aliases"];
+  const alias = config.aliases?.[aliasKey];
+  const tsConfig = loadConfig();
+  const 
 }

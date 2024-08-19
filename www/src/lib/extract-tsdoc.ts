@@ -13,7 +13,7 @@ import {
 } from "typescript";
 import { TextRange, TSDocParser } from "@microsoft/tsdoc";
 
-import type { Snippet, TSDoc } from "www/src/types";
+import type { Snippet, TSDoc } from "@/types";
 
 import { Formatter } from "./Formatter";
 

@@ -1,4 +1,4 @@
-import { isSymbol } from "www/src/snippets/helpers/typed/isSymbol";
+import { isSymbol } from "@/snippets/helpers/typed/isSymbol";
 
 /**
  * Combines `Number.parseInt` with NaN handling. By default, a zero

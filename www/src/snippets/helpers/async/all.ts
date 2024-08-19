@@ -1,5 +1,5 @@
-import { isArray } from "www/src/snippets/helpers/typed/isArray";
-import { AggregateError } from "www/src/snippets/helpers/types";
+import { isArray } from "@/snippets/helpers/typed/isArray";
+import { AggregateError } from "@/snippets/helpers/types";
 
 type PromiseValues<T extends Promise<any>[]> = {
   [K in keyof T]: T[K] extends Promise<infer U> ? U : never;

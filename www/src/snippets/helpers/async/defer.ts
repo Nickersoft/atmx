@@ -1,4 +1,4 @@
-import { tryit } from "www/src/snippets/helpers/async/tryit";
+import { tryit } from "@/snippets/helpers/async/tryit";
 
 /**
  * Useful when for script like things where cleanup should be done on

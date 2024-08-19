@@ -5,7 +5,7 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["www/src/*"]
+      "@/*": ["src/*"]
     }
   },
   "mdx": {

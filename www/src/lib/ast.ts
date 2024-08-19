@@ -2,7 +2,7 @@ import { TSDocParser } from "@microsoft/tsdoc";
 import { parse } from "@swc/core";
 
 import { Formatter } from "./Formatter";
-import type { Dependencies, TSDoc } from "www/src/types";
+import type { Dependencies, TSDoc } from "@/types";
 
 export async function extractDependencies(code: string): Promise<Dependencies> {
   const module = await parse(code, {

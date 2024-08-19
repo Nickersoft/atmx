@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes } from "react";
 
 import { Typography } from "./typography";
-import { cn } from "www/src/lib/utils";
+import { cn } from "@/lib/utils";
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 

@@ -1,4 +1,4 @@
-import { isFunction } from "www/src/snippets/helpers/typed/isFunction";
+import { isFunction } from "@/snippets/helpers/typed/isFunction";
 
 /**
  * Creates a generator that will produce an iteration through the

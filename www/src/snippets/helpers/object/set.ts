@@ -1,5 +1,5 @@
-import { clone } from "www/src/snippets/helpers/object/clone";
-import { isIntString } from "www/src/snippets/helpers/typed/isIntString";
+import { clone } from "@/snippets/helpers/object/clone";
+import { isIntString } from "@/snippets/helpers/typed/isIntString";
 
 /**
  * Opposite of get, dynamically set a nested value into an object

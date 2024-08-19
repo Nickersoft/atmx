@@ -1,10 +1,10 @@
 ---
-import { Link } from "www/src/components/ui/link";
-import { ScrollArea } from "www/src/components/ui/scroll-area";
-import { Typography } from "www/src/components/ui/typography";
+import { Link } from "@/components/ui/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Typography } from "@/components/ui/typography";
 
-import { getSnippets } from "www/src/lib/snippets";
-import { cn } from "www/src/lib/utils";
+import { getSnippets } from "@/lib/snippets";
+import { cn } from "@/lib/utils";
 
 const type = Astro.params.type as string;
 const snippets = await getSnippets();
@@ -18,7 +18,7 @@ const groupedByCategory = Object.groupBy(
   <ScrollArea className="h-full" client:load data-nav>
     {
       Object.entries(groupedByCategory).map(([category, snippets]) => (
-        <category class="w-full py-4 px-2">
+        <div class="w-full py-4 px-2">
           <Typography
             className="text-sm select-none pointer-events-none capitalize mb-2 ml-2"
             variant="h6"
@@ -40,19 +40,27 @@ const groupedByCategory = Object.groupBy(
               </li>
             ))}
           </ul>
-        </category>
+        </div>
       ))
     }
   </ScrollArea>
 </aside>
 
 <script define:vars={{ name: Astro.params.name }}>
-  document
-    .querySelector("[data-nav]")
-    .querySelector(`[data-nav-item=${name}]`)
-    .scrollIntoView({
-      behavior: "instant",
-      block: "center",
-      inline: "center",
-    });
+  // const nav = document.querySelector("[data-nav]");
+
+  let scrollTop = 0;
+
+  document.addEventListener("astro:before-swap", () => {
+    const nav = document.querySelector("[data-nav]");
+
+    scrollTop = nav.scrollTop;
+    console.log(scrollTop);
+  });
+  // .querySelector(`[data-nav-item=${name}]`)
+  // .scrollIntoView({
+  //   behavior: "instant",
+  //   block: "center",
+  //   inline: "center",
+  // });
 </script>

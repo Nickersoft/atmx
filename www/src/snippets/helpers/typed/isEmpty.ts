@@ -1,7 +1,7 @@
-import { isNumber } from "www/src/snippets/helpers/typed/isNumber";
-import { isDate } from "www/src/snippets/helpers/typed/isDate";
-import { isFunction } from "www/src/snippets/helpers/typed/isFunction";
-import { isSymbol } from "www/src/snippets/helpers/typed/isSymbol";
+import { isNumber } from "@/snippets/helpers/typed/isNumber";
+import { isDate } from "@/snippets/helpers/typed/isDate";
+import { isFunction } from "@/snippets/helpers/typed/isFunction";
+import { isSymbol } from "@/snippets/helpers/typed/isSymbol";
 
 /**
  * Return true if the given value is empty.

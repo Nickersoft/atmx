@@ -1,4 +1,7 @@
-export type ImportGlob = Record<string, () => Promise<{ default: string }>>;
+export type ImportGlob = Record<
+  string,
+  () => Promise<{ default: string }> | { default: string }
+>;
 
 export interface Dependencies {
   local: string[];

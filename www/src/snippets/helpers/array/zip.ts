@@ -1,4 +1,4 @@
-import { unzip } from "www/src/snippets/helpers/array/unzip";
+import { unzip } from "@/snippets/helpers/array/unzip";
 
 /**
  * Creates an array of grouped elements, the first of which contains

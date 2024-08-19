@@ -1,4 +1,4 @@
-import { isPlainObject } from "www/src/snippets/helpers/typed/isPlainObject";
+import { isPlainObject } from "@/snippets/helpers/typed/isPlainObject";
 
 /**
  * Create a copy of the first object, and then merge the second object

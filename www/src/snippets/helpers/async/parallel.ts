@@ -1,8 +1,8 @@
-import { AggregateError } from "www/src/snippets/helpers/types";
-import { fork } from "www/src/snippets/helpers/array/fork";
-import { list } from "www/src/snippets/helpers/array/list";
-import { sort } from "www/src/snippets/helpers/array/sort";
-import { tryit } from "www/src/snippets/helpers/async/tryit";
+import { AggregateError } from "@/snippets/helpers/types";
+import { fork } from "@/snippets/helpers/array/fork";
+import { list } from "@/snippets/helpers/array/list";
+import { sort } from "@/snippets/helpers/array/sort";
+import { tryit } from "@/snippets/helpers/async/tryit";
 
 type WorkItemResult<K> = {
   index: number;

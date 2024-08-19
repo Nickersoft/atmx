@@ -1,4 +1,4 @@
-import { isString } from "www/src/snippets/helpers/typed/isString";
+import { isString } from "@/snippets/helpers/typed/isString";
 
 /**
  * Return true if the given value is a string that can be parsed as an

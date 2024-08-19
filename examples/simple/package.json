@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "utils": "codedex"
+    "utils": "NODE_ENV=development codedex"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codedex": "link:../../packages/codedex"
+    "codedex": "link:../../packages/cli"
   }
 }

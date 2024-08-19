@@ -3,9 +3,10 @@ import type { APIRoute } from "astro";
 import {
   type SnippetMetadata,
   getSnippetMetadata,
-  createSnippets,
   ts2js,
 } from "registry-tools";
+
+import { getSnippets } from "@/lib/snippets";
 
 export const GET: APIRoute<{ snippet: SnippetMetadata }> = async ({
   params,
@@ -26,9 +27,7 @@ export const GET: APIRoute<{ snippet: SnippetMetadata }> = async ({
 };
 
 export async function getStaticPaths() {
-  const snippets = await createSnippets(
-    await import.meta.glob("../../snippets/**/*.ts", { query: "raw" }),
-  );
+  const snippets = await getSnippets();
 
   return Promise.all(
     Object.entries(snippets).flatMap(([type, snippets]) =>

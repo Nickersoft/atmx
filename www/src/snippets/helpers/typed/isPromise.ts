@@ -1,4 +1,4 @@
-import { isFunction } from "www/src/snippets/helpers/typed/isFunction";
+import { isFunction } from "@/snippets/helpers/typed/isFunction";
 
 /**
  * Returns true if the value is a Promise or has a `then` method.

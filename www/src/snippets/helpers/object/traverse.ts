@@ -1,8 +1,8 @@
-import { isArray } from "www/src/snippets/helpers/typed/isArray";
-import { isFunction } from "www/src/snippets/helpers/typed/isFunction";
-import { isIterable } from "www/src/snippets/helpers/typed/isIterable";
-import { isPlainObject } from "www/src/snippets/helpers/typed/isPlainObject";
-import { last } from "www/src/snippets/helpers/array/last";
+import { isArray } from "@/snippets/helpers/typed/isArray";
+import { isFunction } from "@/snippets/helpers/typed/isFunction";
+import { isIterable } from "@/snippets/helpers/typed/isIterable";
+import { isPlainObject } from "@/snippets/helpers/typed/isPlainObject";
+import { last } from "@/snippets/helpers/array/last";
 
 export interface TraverseOptions<Key = string | number | symbol> {
   /**

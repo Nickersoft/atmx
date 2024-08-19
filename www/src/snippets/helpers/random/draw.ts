@@ -1,4 +1,4 @@
-import { random } from "www/src/snippets/helpers/random/random";
+import { random } from "@/snippets/helpers/random/random";
 
 /**
  * “Draw” a random item from an array. The item is not removed from

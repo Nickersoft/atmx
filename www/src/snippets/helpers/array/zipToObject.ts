@@ -1,5 +1,5 @@
-import { isArray } from "www/src/snippets/helpers/typed/isArray";
-import { isFunction } from "www/src/snippets/helpers/typed/isFunction";
+import { isArray } from "@/snippets/helpers/typed/isArray";
+import { isFunction } from "@/snippets/helpers/typed/isFunction";
 
 /**
  * Creates an object mapping the specified keys to their corresponding

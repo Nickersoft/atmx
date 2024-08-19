@@ -1,4 +1,4 @@
-import { isTagged } from "www/src/snippets/helpers/typed/isTagged";
+import { isTagged } from "@/snippets/helpers/typed/isTagged";
 
 /**
  * Return true if the given value is a Date object.

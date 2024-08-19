@@ -1,5 +1,5 @@
-import { isTagged } from "www/src/snippets/helpers/typed/isTagged";
-import type { StrictExtract } from "www/src/snippets/helpers/types";
+import { isTagged } from "@/snippets/helpers/typed/isTagged";
+import type { StrictExtract } from "@/snippets/helpers/types";
 
 /**
  * Return true if the given value is a Map.

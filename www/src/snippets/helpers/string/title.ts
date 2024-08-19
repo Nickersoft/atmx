@@ -1,4 +1,4 @@
-import { capitalize } from "www/src/snippets/helpers/string/capitalize";
+import { capitalize } from "@/snippets/helpers/string/capitalize";
 
 /**
  * Formats the given string in title case fashion.

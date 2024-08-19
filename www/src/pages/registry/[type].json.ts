@@ -1,9 +1,9 @@
 import "core-js/features/object/group-by";
 
 import type { APIRoute } from "astro";
+import type { Snippet } from "registry-tools";
 
-import type { Snippet } from "www/src/types";
-import { getSnippets } from "www/src/lib/snippets";
+import { getSnippets } from "@/lib/snippets";
 
 export const GET: APIRoute<{ snippets: Snippet[] }> = async ({
   url,

@@ -1,4 +1,4 @@
-import type { StrictExtract } from "www/src/snippets/helpers/types";
+import type { StrictExtract } from "@/snippets/helpers/types";
 
 /**
  * `Array.isArray` but with better type inference.

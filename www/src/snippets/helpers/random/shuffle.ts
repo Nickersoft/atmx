@@ -1,4 +1,4 @@
-import { random as randomFn } from "www/src/snippets/helpers/random/random";
+import { random as randomFn } from "@/snippets/helpers/random/random";
 
 /**
  * Clone an array and shuffle its items randomly.
