@@ -1,0 +1,26 @@
+{
+  "name": "registry-tools",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "cross-env NODE_ENV=development tsup --watch",
+    "prepare": "pnpm run build",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "tsup": "^8.2.4",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "@microsoft/tsdoc": "^0.15.0",
+    "core-js": "^3.38.0",
+    "detype": "^1.0.10",
+    "ts-morph": "^23.0.0",
+    "typescript": "^5.5.4"
+  }
+}

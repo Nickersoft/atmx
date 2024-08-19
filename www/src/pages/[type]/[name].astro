@@ -1,0 +1,69 @@
+---
+import type { GetStaticPaths } from "astro";
+import { marked } from "marked";
+
+import { getSnippetMetadata } from "registry-tools";
+
+import { getSnippets } from "@/lib/snippets";
+
+import Code from "@/components/Code.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import { Typography } from "@/components/ui/typography";
+import { Installation } from "@/components/Installation";
+
+export const getStaticPaths = (async () =>
+  Promise.all(
+    Object.entries(await getSnippets())
+      .map(
+        ([type, snippets]) =>
+          snippets?.map((snippet) => ({
+            params: { type, name: snippet.name },
+            props: { snippet },
+          })) ?? [],
+      )
+      .flat(),
+  )) satisfies GetStaticPaths;
+
+const { name, type } = Astro.params;
+const { snippet } = Astro.props;
+
+const { examples, content, ...docs } = await getSnippetMetadata(snippet);
+
+const description = await marked(docs.description);
+const exampleBlock = `import { ${name} } from "@/${type}/${name}";
+
+${examples.join("\n\n")}
+`.trim();
+---
+
+<BaseLayout>
+  <header class="mb-8">
+    <Typography variant="h1" className="mb-2">
+      {name}
+    </Typography>
+
+    <div class="text-lg text-muted-foreground" set:html={description} />
+  </header>
+
+  <Typography variant="h2">Usage</Typography>
+
+  <Code code={exampleBlock} lang="typescript" class="mb-12" />
+
+  <Typography variant="h2">Installation</Typography>
+
+  <Installation client:load>
+    <Typography slot="cli">
+      <Code code={`npx codedex add ${name}`} lang="bash" wrap />
+    </Typography>
+    <div slot="manual">
+      <Typography className="py-4 mb-0">
+        Copy and paste the following method into
+        <code class="text-muted-foreground">
+          @/utils/{name}.tsx:
+        </code>
+      </Typography>
+      <Code code={content} lang="typescript" class="mt-0" />
+    </div>
+  </Installation>
+</BaseLayout>
