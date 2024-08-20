@@ -2,7 +2,7 @@
   "name": "registry-tools",
   "version": "0.0.0",
   "type": "module",
-  "description": "", 
+  "description": "",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
     "@types/babel__traverse": "^7.20.6",
+    "@types/node": "^22.2.0",
     "cross-env": "^7.0.3",
     "tsup": "^8.2.4",
     "vitest": "^2.0.5"
@@ -28,7 +29,6 @@
     "@babel/preset-typescript": "^7.24.7",
     "@babel/traverse": "^7.25.3",
     "@microsoft/tsdoc": "^0.15.0",
-    "core-js": "^3.38.0",
     "prettier": "^3.3.3",
     "ts-morph": "^23.0.0",
     "typescript": "^5.5.4"
