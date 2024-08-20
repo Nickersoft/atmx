@@ -1,5 +1,3 @@
-import "core-js/features/object/group-by";
-
 import { createSnippets, type ImportGlob } from "registry-tools";
 
 export async function getSnippets() {

@@ -2,7 +2,11 @@
 import type { GetStaticPaths } from "astro";
 import { marked } from "marked";
 
-import { expandSnippet } from "registry-tools";
+import {
+  expandSnippet,
+  getRegistryName,
+  type SnippetType,
+} from "registry-tools";
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
@@ -11,7 +15,7 @@ import Code from "@/components/Code.astro";
 import { Typography } from "@/components/ui/typography";
 import { Installation } from "@/components/Installation";
 
-import { getSnippets } from "@/lib/snippets";
+import { getSnippets } from "@/lib/get-snippets";
 
 export const getStaticPaths = (async () =>
   Promise.all(
@@ -19,7 +23,10 @@ export const getStaticPaths = (async () =>
       .map(
         ([type, snippets]) =>
           snippets?.map((snippet) => ({
-            params: { type, name: snippet.name },
+            params: {
+              type: getRegistryName(type as SnippetType),
+              name: snippet.name,
+            },
             props: { snippet },
           })) ?? [],
       )

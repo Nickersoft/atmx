@@ -3,13 +3,17 @@ import { Link } from "@/components/ui/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Typography } from "@/components/ui/typography";
 
-import { getSnippets } from "@/lib/snippets";
+import { group } from "registry-tools";
+
 import { cn } from "@/lib/utils";
+import { getSnippets } from "@/lib/get-snippets";
 
 const type = Astro.params.type as string;
+
 const snippets = await getSnippets();
-const groupedByCategory = Object.groupBy(
-  snippets[type as keyof typeof snippets]!,
+
+const groupedByCategory = group(
+  snippets[type.slice(0, -1) as keyof typeof snippets]!,
   ({ category }) => category,
 );
 ---

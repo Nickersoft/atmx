@@ -8,7 +8,7 @@ import {
   transformToJS,
 } from "registry-tools";
 
-import { getSnippets } from "@/lib/snippets";
+import { getSnippets } from "@/lib/get-snippets";
 
 export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
   params,

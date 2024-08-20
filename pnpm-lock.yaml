@@ -163,12 +163,18 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      core-js:
-        specifier: ^3.38.0
-        version: 3.38.0
       marked:
         specifier: ^14.0.0
         version: 14.0.0
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
+      prettier-plugin-astro:
+        specifier: ^0.14.1
+        version: 0.14.1
+      prettier-plugin-tailwindcss:
+        specifier: ^0.6.6
+        version: 0.6.6(prettier-plugin-astro@0.14.1)(prettier@3.3.3)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -184,6 +190,9 @@ importers:
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.5.2
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.2
@@ -209,15 +218,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
-      prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
-      prettier-plugin-astro:
-        specifier: ^0.14.1
-        version: 0.14.1
-      prettier-plugin-tailwindcss:
-        specifier: ^0.6.6
-        version: 0.6.6(prettier-plugin-astro@0.14.1)(prettier@3.3.3)
       shadcn-ui:
         specifier: ^0.8.0
         version: 0.8.0(typescript@5.5.4)
@@ -227,12 +227,6 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.10)
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
-    dependenciesMeta:
-      registry-tools:
-        injected: true
 
 packages:
 
