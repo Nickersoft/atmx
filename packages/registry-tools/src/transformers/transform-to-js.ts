@@ -1,11 +1,11 @@
-// import { format, type Options as PrettierOptions } from "prettier";
+import { format, type Options as PrettierOptions } from "prettier";
 
-// import { type RemoveTypeOptions, removeTypes } from "@/utils/remove-types.js";
+import { type RemoveTypeOptions, removeTypes } from "@/utils/remove-types.js";
 
-// export interface TransformOptions extends RemoveTypeOptions {
-//   /** Prettier options */
-//   prettierOptions?: PrettierOptions | null;
-// }
+export interface TransformOptions extends RemoveTypeOptions {
+  /** Prettier options */
+  prettierOptions?: PrettierOptions | null;
+}
 
 /**
  * Transform TypeScript code into vanilla JavaScript without affecting the formatting
@@ -15,26 +15,25 @@
  */
 export async function transformToJS(
   code: string,
-  options: any = {},
+  options: TransformOptions = {},
 ): Promise<string> {
-  return "";
-  // const { prettierOptions, ...removeTypeOptions } = options;
+  const { prettierOptions, ...removeTypeOptions } = options;
 
-  // let propsContent = "";
-  // let emitsContent = "";
+  let propsContent = "";
+  let emitsContent = "";
 
-  // code = code.replaceAll("\r\n", "\n");
-  // code = await removeTypes(code, removeTypeOptions);
+  code = code.replaceAll("\r\n", "\n");
+  code = await removeTypes(code, removeTypeOptions);
 
-  // if (propsContent) {
-  //   code = code.replace("defineProps(", (str) => `${str}${propsContent}`);
-  // }
+  if (propsContent) {
+    code = code.replace("defineProps(", (str) => `${str}${propsContent}`);
+  }
 
-  // if (emitsContent) {
-  //   code = code.replace("defineEmits(", (str) => `${str}${emitsContent}`);
-  // }
+  if (emitsContent) {
+    code = code.replace("defineEmits(", (str) => `${str}${emitsContent}`);
+  }
 
-  // code = await format(code, { ...prettierOptions });
+  code = await format(code, { ...prettierOptions });
 
-  // return code;
+  return code;
 }
