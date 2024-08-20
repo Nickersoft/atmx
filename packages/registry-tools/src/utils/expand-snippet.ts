@@ -1,4 +1,4 @@
-import { ExpandedSnippet, Snippet } from "@/types.js";
+import type { ExpandedSnippet, Snippet } from "@/types.js";
 
 import { extractTSDoc } from "./extract-tsdoc.js";
 

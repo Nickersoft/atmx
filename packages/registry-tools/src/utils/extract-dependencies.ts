@@ -1,7 +1,6 @@
 import type { Dependencies } from "@/types.js";
 
-import { createSourceFile } from "./ast.js";
-import { SourceFile } from "ts-morph";
+import type { SourceFile } from "ts-morph";
 
 export async function extractDependencies(
   sourceFile: SourceFile,

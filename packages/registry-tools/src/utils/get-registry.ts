@@ -1,6 +1,6 @@
 import { REGISTRY_HOST } from "@/consts.js";
 
-import { RegistryName, Snippet, SnippetType } from "@/types.js";
+import type { RegistryName, Snippet, SnippetType } from "@/types.js";
 import { scoped } from "./scoped.js";
 
 export const getRegistry = scoped(() => {

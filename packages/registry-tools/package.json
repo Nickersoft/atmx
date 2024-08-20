@@ -9,6 +9,7 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "files": ["dist"],
   "sideEffects": false,
   "scripts": {
     "build": "tsup",

@@ -1,6 +1,6 @@
 import { basename, extname } from "node:path";
 
-import { ImportGlob, Snippet, SnippetType } from "@/types.js";
+import type { ImportGlob, Snippet, SnippetType } from "@/types.js";
 import { transformImports } from "@/transformers/transform-imports.js";
 
 import { extractDependencies } from "./extract-dependencies.js";

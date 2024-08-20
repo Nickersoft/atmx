@@ -1,11 +1,9 @@
 import {
   transformAsync,
-  TransformOptions as BabelTransformOptions,
+  type TransformOptions as BabelTransformOptions,
 } from "@babel/core";
 
 import type { VisitNodeObject, Node } from "@babel/traverse";
-
-import { type Options as PrettierOptions } from "prettier";
 
 // @ts-expect-error: No typings needed
 import babelTs from "@babel/preset-typescript";

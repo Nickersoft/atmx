@@ -13,9 +13,13 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
+  vite: {
+    ssr: {
+      external: ["ts-morph"],
+    },
+  },
   site: "https://codedex.dev",
   output: "hybrid",
-  adapter:
-    //  vercel({ webAnalytics: true }),
-    node({ mode: "standalone" }),
+  adapter: vercel({ webAnalytics: true }),
+  // node({ mode: "standalone" }),
 });
