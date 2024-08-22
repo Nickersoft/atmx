@@ -1,10 +1,10 @@
 {
-  "name": "codedex",
+  "name": "atmx",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "bin": {
-    "codedex": "./dist/main.js"
+    "atmx": "./dist/main.js"
   },
   "scripts": {
     "build": "tsup",

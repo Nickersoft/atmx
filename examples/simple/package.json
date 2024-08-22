@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "utils": "NODE_ENV=development codedex"
+    "utils": "NODE_ENV=development atmx"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codedex": "link:../../packages/cli"
+    "atmx": "link:../../packages/cli"
   }
 }

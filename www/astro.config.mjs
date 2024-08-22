@@ -18,7 +18,7 @@ export default defineConfig({
       external: ["ts-morph"],
     },
   },
-  site: "https://codedex.dev",
+  site: "https://atmx.dev",
   output: "hybrid",
   adapter: vercel({ webAnalytics: true }),
   // node({ mode: "standalone" }),
