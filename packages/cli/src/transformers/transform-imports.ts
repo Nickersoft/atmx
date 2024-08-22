@@ -3,7 +3,7 @@ import {
   SNIPPET_TYPES,
   transformImports as rewriteImports,
   type SnippetType,
-} from "registry-tools";
+} from "@atmx-org/common";
 import type { SourceFile } from "ts-morph";
 
 import type { ResolvedConfig, Transformer } from "@/types.js";

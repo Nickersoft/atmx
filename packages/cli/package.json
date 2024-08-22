@@ -33,7 +33,7 @@
     "fs-extra": "^11.2.0",
     "lilconfig": "^3.1.2",
     "ora": "^8.0.1",
-    "registry-tools": "workspace:*",
+    "@atmx-org/common": "workspace:*",
     "ts-morph": "^23.0.0",
     "tsconfig-paths": "^4.2.0",
     "zod": "^3.23.8"

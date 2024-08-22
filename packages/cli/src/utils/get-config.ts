@@ -2,7 +2,7 @@ import * as z from "zod";
 
 import { lilconfig } from "lilconfig";
 
-import { CLI_NAME } from "registry-tools";
+import { CLI_NAME } from "@atmx-org/common";
 
 import type { ResolvedConfig } from "@/types.js";
 

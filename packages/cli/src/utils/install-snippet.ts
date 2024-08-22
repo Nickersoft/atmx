@@ -2,7 +2,7 @@ import { join } from "node:path";
 import { writeFile } from "node:fs/promises";
 
 import { mkdirs, pathExists } from "fs-extra";
-import { type Snippet, getRegistryName } from "registry-tools";
+import { type Snippet, getRegistryName } from "@atmx-org/common";
 
 import { transform } from "@/transformers/transform.js";
 import type { ResolvedConfig } from "@/types.js";

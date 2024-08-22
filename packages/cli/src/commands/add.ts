@@ -17,7 +17,7 @@ import {
   SNIPPET_TYPES,
   type RegistryName,
   type SnippetType,
-} from "registry-tools";
+} from "@atmx-org/common";
 import { pathExists } from "fs-extra";
 
 interface AddOptions extends GlobalOptions {

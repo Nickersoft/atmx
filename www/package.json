@@ -10,6 +10,7 @@
     "astro": "astro",
     "ui": "shadcn-ui"
   },
+  "private": true,
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.20",
     "@radix-ui/react-icons": "^1.3.0",
@@ -24,7 +25,7 @@
     "marked": "^14.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "registry-tools": "workspace:*",
+    "@atmx-org/common": "workspace:*",
     "shiki": "^1.12.1",
     "tailwind-merge": "^2.4.0",
     "ts-morph": "^23.0.0"

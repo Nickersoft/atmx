@@ -6,7 +6,7 @@ import {
   expandSnippet,
   getRegistryName,
   transformToJS,
-} from "registry-tools";
+} from "@atmx-org/common";
 
 import { getSnippets } from "@/lib/get-snippets";
 

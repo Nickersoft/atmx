@@ -3,7 +3,7 @@ import {
   getRegistryName,
   type Snippet,
   type SnippetType,
-} from "registry-tools";
+} from "@atmx-org/common";
 
 import { getSnippets } from "@/lib/get-snippets";
 
