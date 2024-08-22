@@ -12,12 +12,14 @@ export const getRegistry = scoped(() => {
     }
 
     const url = new URL(`/registry/${name}.json`, REGISTRY_HOST);
-
-    const registry = await fetch(url).then((res) => res.json());
-
-    registryCache.set(name, registry);
-
-    return registry;
+    console.log(url);
+    try {
+      const registry = await fetch(url).then((res) => res.json());
+      registryCache.set(name, registry);
+      return registry;
+    } catch (e) {
+      throw new Error(`Failed to fetch registry from ${url.toString()}: ${e}`);
+    }
   };
 });
 

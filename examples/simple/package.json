@@ -5,13 +5,12 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "utils": "NODE_ENV=development atmx"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "atmx": "link:../../packages/cli"
+    "atmx": "workspace:*"
   }
 }

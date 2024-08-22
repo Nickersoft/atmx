@@ -4,7 +4,7 @@ import { Argument, Command } from "commander";
 
 import { confirm } from "@inquirer/prompts";
 
-import ora from "ora";
+import ora, { type Ora } from "ora";
 
 import type { GlobalOptions } from "@/types.js";
 import { installPackages } from "@/utils/install-packages.js";
@@ -44,6 +44,8 @@ async function installDeps(deps: string[], options: AddOptions) {
   );
 }
 
+let spinner: Ora | null = null;
+
 async function add(opts: AddOptions) {
   const { logging, name, type, registry: registryName } = opts;
 
@@ -58,20 +60,16 @@ async function add(opts: AddOptions) {
   const outputPath = await getOutputPath(snippet, config);
 
   if (logging && (await pathExists(outputPath))) {
+    spinner?.stop();
+
     const shouldOverwrite = await confirm({
       message: `A snippet for '${snippet.name}' already exists. Would you like to override it?`,
     });
 
     if (!shouldOverwrite) return;
-  } else if (logging) {
-    const shouldInstall = await confirm({
-      message: `This command will install the ${type} '${name}' to the directory '${relative(opts.cwd, dirname(outputPath))}'. Would you like to continue?`,
-    });
-
-    if (!shouldInstall) return;
   }
 
-  const spinner = ora({ isSilent: !logging }).start();
+  spinner = ora({ isSilent: !logging }).start();
 
   spinner.text = `Adding ${type} ${name}...`;
 
