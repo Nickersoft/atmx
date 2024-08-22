@@ -33,7 +33,7 @@ export async function transformToJS(
     code = code.replace("defineEmits(", (str) => `${str}${emitsContent}`);
   }
 
-  code = await format(code, { ...prettierOptions });
+  code = await format(code, { parser: "typescript", ...prettierOptions });
 
   return code;
 }

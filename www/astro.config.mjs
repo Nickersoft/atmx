@@ -13,11 +13,6 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
-  vite: {
-    ssr: {
-      external: ["ts-morph"],
-    },
-  },
   site: "https://atmx.dev",
   output: "hybrid",
   adapter: vercel({ webAnalytics: true }),
