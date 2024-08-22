@@ -1,6 +1,6 @@
 import { createMatchPath, loadConfig } from "tsconfig-paths";
 
-import { getRegistryName, type SnippetType } from "registry-tools";
+import { getRegistryName, type SnippetType } from "@atmx-org/common";
 
 import type { Config } from "@/types.js";
 

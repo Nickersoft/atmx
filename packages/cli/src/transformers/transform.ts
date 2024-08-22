@@ -1,5 +1,5 @@
 import type { ResolvedConfig, Transformer } from "@/types.js";
-import { createSourceFile } from "registry-tools";
+import { createSourceFile } from "@atmx-org/common";
 
 import { transformImports } from "./transform-imports.js";
 

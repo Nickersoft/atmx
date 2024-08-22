@@ -2,15 +2,15 @@
   "name": "simple",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "utils": "NODE_ENV=development codedex"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codedex": "link:../../packages/cli"
+    "atmx": "workspace:*"
   }
 }

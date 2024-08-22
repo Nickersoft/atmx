@@ -2,9 +2,11 @@ import * as z from "zod";
 
 import { lilconfig } from "lilconfig";
 
+import { CLI_NAME } from "@atmx-org/common";
+
 import type { ResolvedConfig } from "@/types.js";
 
-import { CLI_NAME, CONFIG_FILENAME } from "../consts.js";
+import { CONFIG_FILENAME } from "../consts.js";
 import { resolveAlias } from "./resolve-alias.js";
 
 const searcher = lilconfig("utils", { searchPlaces: ["utils.json"] });

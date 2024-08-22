@@ -6,9 +6,9 @@ import {
   expandSnippet,
   getRegistryName,
   transformToJS,
-} from "registry-tools";
+} from "@atmx-org/common";
 
-import { getSnippets } from "@/lib/snippets";
+import { getSnippets } from "@/lib/get-snippets";
 
 export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
   params,

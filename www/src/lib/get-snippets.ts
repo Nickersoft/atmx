@@ -1,6 +1,4 @@
-import "core-js/features/object/group-by";
-
-import { createSnippets, type ImportGlob } from "registry-tools";
+import { createSnippets, type ImportGlob } from "@atmx-org/common";
 
 export async function getSnippets() {
   const files = await import.meta.glob("../snippets/**/*.ts", { query: "raw" });

@@ -1,10 +1,11 @@
 import { basename, extname } from "node:path";
 
-import { ImportGlob, Snippet, SnippetType } from "@/types.js";
+import type { ImportGlob, Snippet, SnippetType } from "@/types.js";
 import { transformImports } from "@/transformers/transform-imports.js";
 
 import { extractDependencies } from "./extract-dependencies.js";
 import { createSourceFile } from "./ast.js";
+import { group } from "./group.js";
 
 export async function createSnippets(
   files: ImportGlob,
@@ -40,8 +41,5 @@ export async function createSnippets(
     }),
   );
 
-  return Object.groupBy(snippets, ({ type }) => type) as Record<
-    string,
-    Snippet[]
-  >;
+  return group(snippets, ({ type }) => type) as Record<string, Snippet[]>;
 }
