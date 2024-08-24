@@ -1,0 +1,59 @@
+---
+title: alphabetical
+---
+
+import { marked } from "marked";
+
+import { expandSnippet, getRegistryName } from "@atmx-org/common";
+
+import Code from "@/components/Code.astro";
+
+import { Typography } from "@/components/ui/typography";
+import { Installation } from "@/components/Installation";
+
+import { getSnippets } from "@/lib/get-snippets";
+
+Sorts an array of string in alphabetical order
+
+## Usage
+
+```ts
+alphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
+```
+
+## Installation
+
+<Installation client:load>
+  <div slot="cli">
+  
+  ```
+  npx atmx add alphabetical 
+  ```
+
+  </div>
+
+  <div slot="manual">
+    Copy and paste the following method into `@/utils/helpers/alphabetical`:
+
+    ```ts
+    /**
+     * Sorts an array of string in alphabetical order
+     *
+     * @param array - The array to sort
+     *
+     * @example alphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
+     */
+    export function alphabetical<T>(
+      array: readonly T[],
+      getter: (item: T) => string,
+      dir: "asc" | "desc" = "asc",
+    ) {
+      if (!array) return [];
+      const asc = (a: T, b: T) => `${getter(a)}`.localeCompare(getter(b));
+      const dsc = (a: T, b: T) => `${getter(b)}`.localeCompare(getter(a));
+      return array.slice().sort(dir === "desc" ? dsc : asc);
+    }
+    ```
+
+  </div>
+</Installation>
