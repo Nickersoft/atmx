@@ -12,6 +12,9 @@
   },
   "private": true,
   "dependencies": {
+    "@astrojs/mdx": "^3.1.4",
+    "@astrojs/starlight": "^0.26.1",
+    "@astrojs/starlight-tailwind": "^2.0.3",
     "@atmx-org/common": "workspace:*",
     "@babel/core": "^7.25.2",
     "@babel/preset-typescript": "^7.24.7",

@@ -1,6 +1,3 @@
-// Credit to
-// https://github.com/sindresorhus/is-plain-obj/blob/97f38e8836f86a642cce98fc6ab3058bc36df181/index.js
-
 /**
  * Return true if the given value is a plain object.
  *
