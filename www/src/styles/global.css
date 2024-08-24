@@ -4,6 +4,55 @@
 
 @layer base {
   :root {
+    --radius: 0.5rem;
+    --background: 240 6% 10%;
+    --foreground: 0 0% 98%;
+    --card: 240 4% 16%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 16%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    /* Starlight overrides */
+    --sl-color-bg-nav: hsl(var(--background));
+    --sl-color-bg-sidebar: hsl(var(--background));
+    --sl-color-hairline-shade: hsl(var(--border));
+    --sl-text-base: theme("fontSize.sm");
+    --sl-color-text-accent: hsl(var(--muted));
+    --sl-color-text-invert: hsl(var(--foreground));
+
+    .expressive-code .frame {
+      @apply shadow-none;
+
+      pre {
+        --code-background: hsl(var(--muted));
+      }
+    }
+
+    .expressive-code pre {
+      @apply rounded-md border-[rgba(255,255,255,0.1)];
+    }
+  }
+
+  &[data-theme="light"] :root,
+  &[data-theme="light"] :backdrop {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -31,56 +80,27 @@
     --chart-5: 27 87% 67%;
   }
 
-  .dark {
-    --background: 240 6% 10%;
-    --foreground: 0 0% 98%;
-    --card: 240 4% 16%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 4% 16%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  .expressive-code .frame {
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+  /* code {
+    @apply text-sm;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
-code {
-  @apply text-sm;
-}
+  pre {
+    @apply !bg-card mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-md border border-white/5 p-4;
 
-pre {
-  @apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-md border border-white/5 !bg-card p-4;
+    button.rehype-pretty-copy {
+      @apply hover:bg-muted top-4 !flex !items-center !justify-center !opacity-100;
 
-  button.rehype-pretty-copy {
-    @apply top-4 !flex !items-center !justify-center !opacity-100 hover:bg-muted;
-
-    .success,
-    .ready {
-      @apply !h-4 !w-4;
+      .success,
+      .ready {
+        @apply !h-4 !w-4;
+      }
     }
-  }
+  } */
+
+  /* :root[data-theme="light"],
+  [data-theme="light"] ::backdrop {
+    --sl-color-bg-sidebar: var(--sl-color-bg);
+  } */
 }

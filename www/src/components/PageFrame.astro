@@ -1,0 +1,15 @@
+---
+import Default from "@astrojs/starlight/components/PageFrame.astro";
+
+import type { Props } from "@astrojs/starlight/props";
+---
+
+<div transition:animate="none">
+  <Default {...Astro.props}>
+    <slot name="header" slot="header" />
+    <slot name="sidebar" slot="sidebar" />
+    <div class="px-8">
+      <slot />
+    </div>
+  </Default>
+</div>
