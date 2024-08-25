@@ -6,7 +6,7 @@
   :root {
     --radius: 0.5rem;
     --background: 240 6% 10%;
-    --foreground: 0 0% 98%;
+    --foreground: 0 0% 99%;
     --card: 240 4% 16%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
@@ -22,6 +22,7 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 4% 16%;
+    --border-foreground: 240 6% 24%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --chart-1: 220 70% 50%;
@@ -30,24 +31,56 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    /* Starlight overrides */
+    /* -------------------------------------------------------------------------- */
+    /*                             Starlight overrides                            */
+    /* -------------------------------------------------------------------------- */
+
     --sl-color-bg-nav: hsl(var(--background));
     --sl-color-bg-sidebar: hsl(var(--background));
+    --sl-color-bg: hsl(var(--background));
     --sl-color-hairline-shade: hsl(var(--border));
     --sl-text-base: theme("fontSize.sm");
     --sl-color-text-accent: hsl(var(--muted));
     --sl-color-text-invert: hsl(var(--foreground));
 
-    .expressive-code .frame {
-      @apply shadow-none;
+    [role="tablist"] {
+      @apply border-b;
+    }
 
-      pre {
-        --code-background: hsl(var(--muted));
+    .tab [role="tab"] {
+      @apply border-b py-2 text-sm font-semibold;
+
+      &[aria-selected="true"] {
+        @apply !border-primary border-b-2;
       }
     }
 
-    .expressive-code pre {
-      @apply rounded-md border-[rgba(255,255,255,0.1)];
+    .expressive-code {
+      .frame {
+        @apply shadow-none;
+
+        --code-background: hsl(var(--card));
+        --button-spacing: 0.5rem;
+
+        pre {
+          @apply border-border-foreground rounded-md;
+        }
+
+        .copy {
+          button {
+            @apply rounded-md;
+            @apply bg-foreground/15;
+
+            &:before {
+              @apply border-0;
+            }
+
+            &:after {
+              @apply inset-px h-4 w-4;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -70,6 +103,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
+    --border-foreground: 240 7.9% 100%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;

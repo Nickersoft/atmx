@@ -22,11 +22,14 @@ module.exports = {
       colors: {
         gray: colors.zinc,
         accent: colors.zinc,
-        border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        border: {
+          DEFAULT: "hsl(var(--border))",
+          foreground: "hsl(var(--border-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

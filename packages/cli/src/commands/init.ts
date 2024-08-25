@@ -10,15 +10,17 @@ import type { GlobalOptions } from "@/types.js";
 interface InitOptions extends GlobalOptions {}
 
 async function init(options: InitOptions) {
-  const ts =
-    isTypescriptProject(options.cwd) ||
-    (await select({
+  let ts = await isTypescriptProject(options.cwd);
+
+  if (!ts) {
+    ts = await select({
       message: "Would you like to use TypeScript?",
       choices: [
         { name: "Yes", value: true },
         { name: "No", value: false },
       ],
-    }));
+    });
+  }
 
   const helpers = await input({
     message: "What alias would you like to use for helper functions?",

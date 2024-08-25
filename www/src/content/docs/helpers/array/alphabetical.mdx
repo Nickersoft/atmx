@@ -5,12 +5,12 @@ description: Sorts an array of string in alphabetical order
 
 import { marked } from "marked";
 
-import { expandSnippet, getRegistryName } from "@atmx-org/common";
-
 import Code from "@/components/Code.astro";
 
 import { Typography } from "@/components/ui/typography";
 import { Installation } from "@/components/Installation";
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 import { getSnippets } from "@/lib/get-snippets";
 
@@ -23,16 +23,17 @@ alphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
 
 ## Installation
 
-<Installation client:load>
-  <div slot="cli">
-  
-  ```
-  npx atmx add alphabetical 
-  ```
+<Tabs>
+  <TabItem label="CLI">
 
-  </div>
+    ```
+    npx atmx add alphabetical 
+    ```
+    
+  </TabItem>
 
-  <div slot="manual">
+  <TabItem label="Manually">
+
     Copy and paste the following method into `@/utils/helpers/alphabetical`:
 
     ```ts
@@ -55,5 +56,5 @@ alphabetical(["foo", "bar", "baz"], (item) => item); // ["bar", "baz", "foo"]
     }
     ```
 
-  </div>
-</Installation>
+  </TabItem>
+</Tabs>
