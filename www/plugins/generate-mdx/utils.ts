@@ -38,6 +38,7 @@ async function processSnippet(snippet: Snippet): Promise<void> {
     description: expanded.description,
     example: expanded.examples[0] ?? "",
     code,
+    slug: expanded.urls.docs.slice(1),
   });
 
   const outputDir = resolve(

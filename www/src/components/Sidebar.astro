@@ -32,11 +32,11 @@ const topLevelLinks: Item[] = links
   .filter((link) => !link.id.includes("/"))
   .sort((a, b) => (a.data.sidebar?.order ?? 0) - (b.data.sidebar?.order ?? 0))
   .map(({ data, slug }) => {
-    const href = slug === "index" ? "/" : `/${slug}`;
+    const href = slug === "index" ? "" : slug;
     return {
       type: "link",
       label: data.title,
-      href: href,
+      href: `/${href}`,
       isCurrent: Astro.url.pathname === href,
       badge: undefined,
       attrs: {},
