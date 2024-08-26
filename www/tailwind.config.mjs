@@ -16,6 +16,7 @@ module.exports = {
       },
     },
     fontFamily: {
+      display: ["Space Grotesk Variable", "system-ui", "sans-serif"],
       sans: ["Inter Variable", "system-ui", "sans-serif"],
     },
     extend: {
