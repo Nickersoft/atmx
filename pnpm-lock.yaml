@@ -11,9 +11,6 @@ importers:
       eta:
         specifier: ^3.5.0
         version: 3.5.0
-      gray-matter:
-        specifier: ^4.0.3
-        version: 4.0.3
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.7
@@ -164,6 +161,9 @@ importers:
       '@fontsource-variable/space-grotesk':
         specifier: ^5.0.19
         version: 5.0.19
+      '@fontsource/geist-sans':
+        specifier: ^5.0.3
+        version: 5.0.3
       '@microsoft/tsdoc':
         specifier: ^0.15.0
         version: 0.15.0
@@ -907,6 +907,9 @@ packages:
 
   '@fontsource-variable/space-grotesk@5.0.19':
     resolution: {integrity: sha512-uYyY1jqW+71NkPCp0P6dwEcV6uO4MEiAZ5JylhrHbMMA7C2N0uO6EZUnq7rOMZT4e58Izia5Hy5HPZ18dan3ew==}
+
+  '@fontsource/geist-sans@5.0.3':
+    resolution: {integrity: sha512-oGwoSIqNPMvjtCwj1lZaEr47MeiG27XPhypwkF643u1TQduvwbm3V3hYB01JekeaT34SAGP4I1h+WCdRpJkcwA==}
 
   '@iconify/tools@4.0.5':
     resolution: {integrity: sha512-l8KoA1lxlN/FFjlMd3vjfD7BtcX/QnFWtlBapILMlJSBgM5zhDYak/ldw/LkKG3258q/0YmXa48sO/QpxX7ptg==}
@@ -5371,6 +5374,8 @@ snapshots:
   '@fontsource-variable/inter@5.0.20': {}
 
   '@fontsource-variable/space-grotesk@5.0.19': {}
+
+  '@fontsource/geist-sans@5.0.3': {}
 
   '@iconify/tools@4.0.5':
     dependencies:

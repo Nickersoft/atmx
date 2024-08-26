@@ -1,13 +1,16 @@
 import { defineConfig } from "astro/config";
+
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-// import vercel from "@astrojs/vercel/serverless";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless";
+// import node from "@astrojs/node";
 import starlight from "@astrojs/starlight";
 import mdx from "@astrojs/mdx";
-import theme from "./src/lib/code-theme.json";
 
 import icon from "astro-icon";
+
+import theme from "./src/lib/code-theme.json";
+import snippetMDX from "./plugins/generate-mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,10 +18,13 @@ export default defineConfig({
     starlight({
       title: "ATMX",
       customCss: [
-        "@fontsource-variable/inter",
+        "@fontsource/geist-sans/400.css",
+        "@fontsource/geist-sans/500.css",
+        "@fontsource/geist-sans/600.css",
         "@fontsource-variable/space-grotesk",
         "./src/styles/global.postcss",
       ],
+      plugins: [snippetMDX],
       expressiveCode: {
         themes: [theme],
       },
@@ -46,9 +52,8 @@ export default defineConfig({
   prefetch: true,
   site: "https://atmx.dev",
   output: "hybrid",
-  adapter:
-    //  vercel(),
-    node({
-      mode: "standalone",
-    }),
+  adapter: vercel({ webAnalytics: { enabled: true } }),
+  // node({
+  //   mode: "standalone",
+  // }),
 });

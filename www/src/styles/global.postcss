@@ -43,6 +43,14 @@
     --sl-color-text-accent: hsl(var(--muted));
     --sl-color-text-invert: hsl(var(--foreground));
 
+    site-search dialog {
+      @apply bg-muted/70 border-border-foreground backdrop-blur-md;
+
+      &::backdrop {
+        @apply bg-transparent backdrop-blur-none;
+      }
+    }
+
     [role="tablist"] {
       @apply border-b;
     }
