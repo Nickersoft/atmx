@@ -1,0 +1,26 @@
+---
+import { InteractiveSearch } from "./InteractiveSearch";
+
+import SearchIcon from "~icons/mdi/search";
+
+import { getSnippets } from "@/lib/get-snippets";
+
+import KBD from "./KBD.astro";
+import { getRegistryName, type SnippetType } from "@atmx-org/common";
+
+const snippets = await getSnippets();
+
+const sections = Object.entries(snippets).map(([section, snippets]) => ({
+  name: getRegistryName(section as SnippetType),
+  items: snippets.map((snippet) => ({
+    name: snippet.name,
+    link: snippet.urls.docs,
+  })),
+}));
+---
+
+<InteractiveSearch sections={sections} hotkey="k" client:load>
+  <SearchIcon width={16} height={16} />
+  <span class="flex-1 text-left">Search all utilities</span>
+  <KBD>&#8984;K</KBD>
+</InteractiveSearch>

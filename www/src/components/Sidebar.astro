@@ -1,8 +1,10 @@
 ---
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 import type { Props } from "@astrojs/starlight/props";
+
+import { cn } from "@/lib/utils";
+
 import { getCollection } from "astro:content";
-import clsx from "clsx";
 
 type Item = Props["sidebar"][number];
 
@@ -11,7 +13,7 @@ const { sidebar, ...props } = Astro.props;
 function updateLinks(items: Item[], child: boolean = false) {
   for (const link of items) {
     if (link.type === "link") {
-      link.attrs.class = clsx(
+      link.attrs.class = cn(
         "p-2 hover:!text-foreground-muted tracking-tight text-foreground-muted overflow-hidden rounded-md",
         link.isCurrent && "text-foreground",
         child && link.isCurrent && "!font-normal",

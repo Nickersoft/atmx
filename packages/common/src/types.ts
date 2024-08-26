@@ -21,6 +21,7 @@ export interface Snippet {
     ts: string;
     js: string;
     metadata: string;
+    docs: string;
   };
   dependencies: Dependencies;
 }
@@ -36,3 +37,5 @@ export interface ExpandedSnippet extends Omit<Snippet, "urls">, TSDoc {
 }
 
 export type RegistryName = `${SnippetType}s`;
+
+export type { SourceFile } from "ts-morph";

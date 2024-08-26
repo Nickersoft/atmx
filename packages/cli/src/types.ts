@@ -1,7 +1,8 @@
 import * as z from "zod";
 
+import type { SourceFile } from "@atmx-org/common";
+
 import { configSchema, resolvedConfigSchema } from "./utils/get-config.js";
-import { SourceFile } from "ts-morph";
 
 export type PromiseLike<T> = T | Promise<T>;
 

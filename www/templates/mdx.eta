@@ -1,6 +1,7 @@
 ---
 title: "<%= it.name %>"
 description: "<%= it.description %>"
+slug: "<%= it.slug %>"
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
