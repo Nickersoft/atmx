@@ -12,7 +12,7 @@ export const getRegistry = scoped(() => {
     }
 
     const url = new URL(`/registry/${name}.json`, REGISTRY_HOST);
-    console.log(url);
+
     try {
       const registry = await fetch(url).then((res) => res.json());
       registryCache.set(name, registry);

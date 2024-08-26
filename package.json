@@ -6,7 +6,11 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "preview": "turbo run preview",
+    "www": "pnpm --filter www run",
+    "cli": "pnpm --filter cli run",
+    "common": "pnpm --filter common run"
   },
   "workspaces": [
     "packages/*",
@@ -15,7 +19,7 @@
   ],
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
-    "@types/node": "^22.2.0",
+    "@types/node": "^22.5.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
@@ -23,5 +27,8 @@
     "typescript": "^5.5.4"
   },
   "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "eta": "^3.5.0"
+  }
 }

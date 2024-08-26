@@ -1,7 +1,11 @@
+import colors from "tailwindcss/colors";
+import animate from "tailwindcss-animate";
+import starlight from "@astrojs/starlight-tailwind";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["./src/**/*.{ts,astro,tsx}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   prefix: "",
   theme: {
     container: {
@@ -12,15 +16,21 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Inter Variable", "system-ui", "sans-serif"],
+      display: ["Space Grotesk Variable", "system-ui", "sans-serif"],
+      sans: ["Geist", "system-ui", "sans-serif"],
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
+        gray: colors.zinc,
+        accent: colors.zinc,
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        border: {
+          DEFAULT: "hsl(var(--border))",
+          foreground: "hsl(var(--border-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -71,5 +81,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate, starlight()],
 };

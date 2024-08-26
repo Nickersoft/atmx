@@ -1,0 +1,37 @@
+---
+title: "<%= it.name %>"
+description: "<%= it.description %>"
+slug: "<%= it.slug %>"
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Usage
+
+```ts
+
+<%~ it.example %>
+
+```
+
+## Installation
+
+<Tabs>
+  <TabItem label="CLI">
+
+    ```
+    npx atmx add <%= it.name %>  
+    ```
+    
+  </TabItem>
+
+  <TabItem label="Manually">
+
+    Copy and paste the following method into \`@/utils/helpers/<%= it.name %>\`:
+
+    ```ts
+    <%~ it.code %>
+    ```
+
+  </TabItem>
+</Tabs>

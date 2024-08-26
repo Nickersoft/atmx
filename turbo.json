@@ -1,6 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "preview": {
+      "outputs": ["dist/**", ".vercel/**", ".astro/**"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]

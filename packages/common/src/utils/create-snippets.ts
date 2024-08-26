@@ -34,6 +34,7 @@ export async function createSnippets(
         urls: {
           ts: `${baseURL}/${name}.ts`,
           js: `${baseURL}/${name}.js`,
+          docs: `/${registry}/${name}`,
           metadata: `${baseURL}/${name}.json`,
         },
         content: code.getFullText(),
