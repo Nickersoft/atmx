@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import path from "path";
+import path, { dirname } from "path";
 import { Eta } from "eta";
 import { getSnippets } from "../src/lib/get-snippets";
 import { expandSnippet, getRegistryName, type Snippet } from "@atmx-org/common";
@@ -8,8 +8,8 @@ import matter from "gray-matter";
 
 import type {
   StarlightPlugin,
-  StarlightUserConfig,
 } from "@astrojs/starlight/types";
+import { fileURLToPath } from "url";
 
 interface SnippetData {
   functionName: string;
