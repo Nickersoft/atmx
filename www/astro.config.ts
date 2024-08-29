@@ -45,6 +45,7 @@ export default defineConfig({
         PageTitle: "./src/components/PageTitle.astro",
         ContentPanel: "./src/components/ContentPanel.astro",
         SiteTitle: "./src/components/SiteTitle.astro",
+        Hero: "./src/components/Hero.astro",
         // Header: "./src/components/Header.astro",
       },
     }),

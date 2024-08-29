@@ -2,6 +2,8 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { format } from "prettier";
+
 import { Eta } from "eta";
 
 import {
@@ -37,7 +39,7 @@ async function processSnippet(snippet: Snippet): Promise<void> {
     name: snippet.name,
     description: expanded.description,
     example: expanded.examples[0] ?? "",
-    code,
+    code: await format(code, { parser: "typescript" }),
     slug: expanded.urls.docs.slice(1),
   });
 

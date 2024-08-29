@@ -77,9 +77,14 @@ export function InteractiveSearch({ hotkey, children, sections }: SearchProps) {
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           {sections.map(({ name: section, items }) => (
-            <CommandGroup heading={section}>
+            <CommandGroup key={section} heading={section}>
               {items.map((item) => (
-                <CommandItem>{item.name}</CommandItem>
+                <CommandItem
+                  onSelect={() => (window.location.href = item.link)}
+                  key={item.name}
+                >
+                  {item.name}
+                </CommandItem>
               ))}
             </CommandGroup>
           ))}
