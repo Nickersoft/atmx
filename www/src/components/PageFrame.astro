@@ -1,15 +1,48 @@
 ---
-import Default from "@astrojs/starlight/components/PageFrame.astro";
-
+import MobileMenuToggle from "@astrojs/starlight/components/MobileMenuToggle.astro";
 import type { Props } from "@astrojs/starlight/props";
+
+import SidebarPane from "./SidebarPane.astro";
+import SidebarContent from "./SidebarContent.astro";
+import PageHeader from "./PageHeader.astro";
+
+const { hasSidebar, labels } = Astro.props;
 ---
 
-<div transition:animate="none">
-  <Default {...Astro.props}>
-    <slot name="header" slot="header" />
-    <slot name="sidebar" slot="sidebar" />
-    <div class="px-8">
+<div class="page sl-flex">
+  <PageHeader>
+    <slot name="header" />
+  </PageHeader>
+
+  <div class="container flex flex-row">
+    {
+      hasSidebar && (
+        <nav class="sidebar" aria-label={labels["sidebarNav.accessibleLabel"]}>
+          <MobileMenuToggle {...Astro.props} />
+
+          <SidebarPane>
+            <SidebarContent>
+              <slot name="sidebar" />
+            </SidebarContent>
+          </SidebarPane>
+        </nav>
+      )
+    }
+
+    <div class="main-frame flex-1 w-full">
       <slot />
     </div>
-  </Default>
+  </div>
 </div>
+
+<style>
+  .page {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .main-frame {
+    padding-inline-start: var(--sl-content-inline-start);
+    padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+  }
+</style>

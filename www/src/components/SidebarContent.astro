@@ -1,0 +1,19 @@
+<div
+  class:list={[
+    "h-full min-h-max pt-4 pb-0 px-[var(--sl-sidebar-pad-x)] flex-col gap-4",
+    "sidebar-content",
+  ]}
+>
+  <slot />
+</div>
+
+<style>
+  .sidebar-content {
+    @media (min-width: 50rem) {
+      &::after {
+        content: "";
+        padding-bottom: 1px;
+      }
+    }
+  }
+</style>

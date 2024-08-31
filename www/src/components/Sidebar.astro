@@ -14,7 +14,7 @@ function updateLinks(items: Item[], child: boolean = false) {
   for (const link of items) {
     if (link.type === "link") {
       link.attrs.class = cn(
-        "p-2 hover:!text-foreground-muted tracking-tight text-foreground-muted overflow-hidden rounded-md",
+        "p-2 hover:!text-foreground-muted text-foreground-muted overflow-hidden rounded-md",
         link.isCurrent && "text-foreground",
         child && link.isCurrent && "!font-normal",
         "active:opacity-50 transition-all duration-150",
@@ -50,6 +50,8 @@ const updatedSidebar = updateLinks([...topLevelLinks, ...sidebar]);
 
 <style is:global>
   #starlight__sidebar {
+    @apply border-0;
+
     .top-level {
       & > li {
         @apply mt-0;

@@ -12,9 +12,18 @@ export default {
         sidebar: [
           ...(config.sidebar ?? []),
           {
-            label: "Helpers",
-            collapsed: true,
-            autogenerate: { directory: "generated/helpers", collapsed: true },
+            label: "Snippets",
+            collapsed: false,
+            items: [
+              {
+                label: "Helpers",
+                collapsed: true,
+                autogenerate: {
+                  directory: "generated/helpers",
+                  collapsed: true,
+                },
+              },
+            ],
           },
         ],
       });

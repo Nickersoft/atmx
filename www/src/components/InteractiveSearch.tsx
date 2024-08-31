@@ -19,7 +19,7 @@ function SearchBox({ children, className, ...props }: SearchBoxProps) {
       {...props}
       className={cn(
         "cursor-pointer",
-        "bg-muted/75",
+        "bg-muted",
         "flex flex-row items-center justify-start gap-2",
         "h-10 w-full",
         "rounded-md",

@@ -1,10 +1,35 @@
 ---
-import logo from "@/assets/logo.svg?raw";
+import Logo from "@/components/Logo.astro";
 ---
 
-<atmx-logo data-svg={btoa(logo)} class="absolute inset-0"></atmx-logo>
+<div
+  class="container h-screen max-w-2xl mx-auto flex flex-col justify-center items-center gap-8"
+>
+  <Logo width={700} class="text-white glowing" />
+
+  <p class="text-center text-lg opacity-85">
+    atmx ("atomics") is a collection of copy-and-pastable code snippets that
+    help you build JavaScript projects at lightspeed.
+  </p>
+</div>
 
 <atmx-waves class="absolute bottom-0 inset-x-0 w-screen h-1/2"></atmx-waves>
+
+<style>
+  @keyframes glowing {
+    from {
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255));
+    }
+
+    to {
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    }
+  }
+
+  .glowing {
+    animation: glowing 2.5s infinite alternate ease-in-out;
+  }
+</style>
 
 <script>
   class Waves extends HTMLElement {
@@ -63,186 +88,4 @@ import logo from "@/assets/logo.svg?raw";
   }
 
   customElements.define("atmx-waves", Waves);
-</script>
-
-<script>
-  import { Particle } from "@/lib/particles";
-
-  type Position = { x: number; y: number };
-  type Mouse = { x: number | null; y: number | null; radius: number };
-
-  class Logo extends HTMLElement {
-    #ctx: CanvasRenderingContext2D;
-    #particlesArray: Particle[];
-    #svgPaths: string[];
-    #mouse: Mouse;
-    #canvas: HTMLCanvasElement;
-    #particleColor = "#fff"; // Color of particles
-    #particleSize = 1; // Size of each particle
-    #particleSpacing = 3.5; // Spacing between particles for higher density
-    #mouseRadius = 25; // Radius of mouse interaction
-
-    constructor() {
-      super();
-
-      this.#canvas = document.createElement("canvas");
-
-      this.appendChild(this.#canvas);
-
-      this.width = window.innerWidth;
-      this.height = window.innerHeight;
-
-      this.#mouse = {
-        x: 0,
-        y: 0,
-        radius: this.#mouseRadius,
-      };
-
-      this.#ctx = this.#canvas.getContext("2d") as CanvasRenderingContext2D;
-      this.#particlesArray = [];
-      this.#svgPaths = this.#loadSVG();
-
-      this.#setupListeners();
-    }
-
-    get width() {
-      return this.#canvas.width;
-    }
-
-    get height() {
-      return this.#canvas.height;
-    }
-
-    set width(value: number) {
-      this.#canvas.width = value;
-    }
-
-    set height(value: number) {
-      this.#canvas.height = value;
-    }
-
-    #loadSVG() {
-      const svg = atob(this.dataset.svg as string);
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(svg, "image/svg+xml");
-      const paths = xmlDoc.getElementsByTagName("path");
-      return Array.from(paths).map((path) =>
-        path.getAttribute("d"),
-      ) as string[];
-    }
-
-    #setupListeners() {
-      window.addEventListener("mousemove", (event) => {
-        this.#mouse.x = event.x;
-        this.#mouse.y = event.y;
-      });
-
-      window.addEventListener("resize", () => {
-        this.width = window.innerWidth;
-        this.height = window.innerHeight;
-        this.#initialize();
-      });
-
-      window.addEventListener("DOMContentLoaded", () => {
-        this.#initialize();
-        this.#animate();
-      });
-    }
-
-    #initialize() {
-      this.#particlesArray = [];
-
-      let allPositions: Position[] = [];
-
-      let minX = this.width,
-        maxX = 0,
-        minY = this.height,
-        maxY = 0;
-
-      this.#svgPaths.forEach((pathData) => {
-        const {
-          positions,
-          minX: pathMinX,
-          maxX: pathMaxX,
-          minY: pathMinY,
-          maxY: pathMaxY,
-        } = this.#getParticlePositionsFromPathData(pathData);
-
-        allPositions = allPositions.concat(positions);
-
-        if (pathMinX < minX) minX = pathMinX;
-        if (pathMaxX > maxX) maxX = pathMaxX;
-        if (pathMinY < minY) minY = pathMinY;
-        if (pathMaxY > maxY) maxY = pathMaxY;
-      });
-
-      const offsetX = (this.width - (maxX - minX)) / 2 - minX;
-      const offsetY = (this.height - (maxY - minY)) / 2 - minY;
-
-      // Adjust positions to center the SVG
-      allPositions = allPositions.map((pos) => ({
-        x: pos.x + offsetX,
-        y: pos.y + offsetY,
-      }));
-
-      allPositions.forEach((pos) => {
-        this.#particlesArray.push(
-          new Particle({
-            color: this.#particleColor,
-            x: pos.x,
-            y: pos.y,
-            particleSize: this.#particleSize,
-            width: this.width,
-            height: this.height,
-            ctx: this.#ctx,
-          }),
-        );
-      });
-    }
-
-    #animate() {
-      this.#ctx.clearRect(0, 0, this.width, this.height);
-
-      for (let i = 0; i < this.#particlesArray.length; i++) {
-        this.#particlesArray[i]?.draw();
-        this.#particlesArray[i]?.update(
-          this.#mouse.x,
-          this.#mouse.y,
-          this.#mouse.radius,
-        );
-      }
-
-      requestAnimationFrame(this.#animate.bind(this));
-    }
-
-    #getParticlePositionsFromPathData(pathData: string) {
-      const positions = [];
-      const path = new Path2D(pathData);
-      const canvasWidth = this.width;
-      const canvasHeight = this.height;
-
-      let minX = canvasWidth,
-        maxX = 0,
-        minY = canvasHeight,
-        maxY = 0;
-
-      for (let y = 0; y < canvasHeight; y += this.#particleSpacing) {
-        // Adjust spacing for higher density
-        for (let x = 0; x < canvasWidth; x += this.#particleSpacing) {
-          // Adjust spacing for higher density
-          if (this.#ctx.isPointInPath(path, x, y)) {
-            positions.push({ x, y });
-            if (x < minX) minX = x;
-            if (x > maxX) maxX = x;
-            if (y < minY) minY = y;
-            if (y > maxY) maxY = y;
-          }
-        }
-      }
-
-      return { positions, minX, maxX, minY, maxY };
-    }
-  }
-
-  customElements.define("atmx-logo", Logo);
 </script>

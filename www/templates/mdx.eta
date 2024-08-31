@@ -20,7 +20,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   <TabItem label="CLI">
 
     ```
-    npx atmx add <%= it.name %>  
+    npx atmx add <%= it.type %> <%= it.name %>  
     ```
     
   </TabItem>

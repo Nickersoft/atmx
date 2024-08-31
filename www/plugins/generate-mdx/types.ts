@@ -3,5 +3,6 @@ export interface TemplateData {
   description: string;
   example: string;
   code: string;
+  type: string;
   slug: string;
 }

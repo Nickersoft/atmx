@@ -43,6 +43,13 @@
     --sl-color-text-accent: hsl(var(--muted));
     --sl-color-text-invert: hsl(var(--foreground));
 
+    #starlight__on-this-page {
+      @apply text-foreground border-border mb-4 border-b py-4 text-base;
+    }
+
+    .right-sidebar {
+      @apply border-0;
+    }
     site-search dialog {
       @apply bg-muted/70 border-border-foreground backdrop-blur-md;
 
@@ -64,28 +71,14 @@
     }
 
     .expressive-code {
-      .frame {
-        @apply shadow-none;
+      .copy {
+        button {
+          /* @apply !bg-transparent !opacity-30 hover:!opacity-90; */
+          @apply active:!opacity-75;
 
-        --code-background: hsl(var(--card));
-        --button-spacing: 0.5rem;
-
-        pre {
-          @apply border-border-foreground rounded-md;
-        }
-
-        .copy {
-          button {
-            @apply rounded-md;
-            @apply bg-foreground/15;
-
-            &:before {
-              @apply border-0;
-            }
-
-            &:after {
-              @apply inset-px h-4 w-4;
-            }
+          &:hover > div,
+          &:active > div {
+            @apply bg-transparent;
           }
         }
       }

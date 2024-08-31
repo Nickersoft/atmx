@@ -1,0 +1,27 @@
+<div id="starlight__sidebar" class="sidebar-pane">
+  <slot />
+</div>
+
+<style>
+  .sidebar-pane {
+    position: fixed;
+    background-color: var(--sl-color-black);
+    z-index: var(--sl-z-index-menu);
+    visibility: var(--sl-sidebar-visibility, hidden);
+    height: 100%;
+    width: 100%;
+    inset-block: var(--sl-nav-height) 0;
+    overflow-y: auto;
+
+    @media (min-width: 50rem) {
+      --sl-sidebar-visibility: visible;
+      width: var(--sl-sidebar-width);
+      background-color: var(--sl-color-bg-sidebar);
+      border-inline-end: 1px solid var(--sl-color-hairline-shade);
+    }
+  }
+
+  :global([aria-expanded="true"]) ~ .sidebar-pane {
+    --sl-sidebar-visibility: visible;
+  }
+</style>
