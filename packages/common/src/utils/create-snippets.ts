@@ -28,7 +28,7 @@ export async function createSnippets(
 
       return {
         type,
-        category,
+        category: category[0].toUpperCase() + category.slice(1),
         dependencies,
         name,
         urls: {

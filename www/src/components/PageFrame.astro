@@ -9,12 +9,12 @@ import PageHeader from "./PageHeader.astro";
 const { hasSidebar, labels } = Astro.props;
 ---
 
-<div class="page sl-flex">
+<div class="flex flex-col min-h-screen">
   <PageHeader>
     <slot name="header" />
   </PageHeader>
 
-  <div class="container flex flex-row">
+  <div class="container flex-1 flex flex-row">
     {
       hasSidebar && (
         <nav class="sidebar" aria-label={labels["sidebarNav.accessibleLabel"]}>
@@ -29,20 +29,15 @@ const { hasSidebar, labels } = Astro.props;
       )
     }
 
-    <div class="main-frame flex-1 w-full">
+    <div class="main-frame flex-1 relative w-full">
       <slot />
     </div>
   </div>
 </div>
 
 <style>
-  .page {
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
   .main-frame {
     padding-inline-start: var(--sl-content-inline-start);
-    padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height));
+    padding-top: var(--sl-nav-height);
   }
 </style>

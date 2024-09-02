@@ -30,6 +30,18 @@ export default defineConfig({
         "@fontsource-variable/space-grotesk",
         "./src/styles/global.postcss",
       ],
+      social: {
+        github: "https://github.com/Nickersoft/atmx",
+      },
+      sidebar: [
+        {
+          label: "Getting Started",
+          collapsed: false,
+          autogenerate: {
+            directory: "getting-started",
+          },
+        },
+      ],
       plugins: [snippetMDX],
       expressiveCode: {
         themes: [theme],
@@ -56,7 +68,6 @@ export default defineConfig({
         Header: "./src/components/Header.astro",
         ContentPanel: "./src/components/ContentPanel.astro",
         Hero: "./src/components/Hero.astro",
-        // Header: "./src/components/Header.astro",
       },
     }),
     tailwind({

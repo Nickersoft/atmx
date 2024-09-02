@@ -40,22 +40,19 @@
     --sl-color-bg: hsl(var(--background));
     --sl-color-hairline-shade: hsl(var(--border));
     --sl-text-base: theme("fontSize.sm");
-    --sl-color-text-accent: hsl(var(--muted));
+    --sl-color-text-accent: hsl(var(--foreground));
     --sl-color-text-invert: hsl(var(--foreground));
 
     #starlight__on-this-page {
       @apply text-foreground border-border mb-4 border-b py-4 text-base;
     }
 
+    mobile-starlight-toc {
+      @apply hidden h-0;
+    }
+
     .right-sidebar {
       @apply border-0;
-    }
-    site-search dialog {
-      @apply bg-muted/70 border-border-foreground backdrop-blur-md;
-
-      &::backdrop {
-        @apply bg-transparent backdrop-blur-none;
-      }
     }
 
     [role="tablist"] {

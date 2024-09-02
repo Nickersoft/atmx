@@ -36,6 +36,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
+    "fuzzysort": "^3.0.2",
     "lucide-react": "^0.436.0",
     "marked": "^14.0.0",
     "prettier": "^3.3.3",

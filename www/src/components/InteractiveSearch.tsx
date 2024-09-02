@@ -2,6 +2,8 @@ import { useEffect, useState, type HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
+import fuzzysort from "fuzzysort";
+
 import {
   CommandDialog,
   CommandInput,
@@ -19,10 +21,12 @@ function SearchBox({ children, className, ...props }: SearchBoxProps) {
       {...props}
       className={cn(
         "cursor-pointer",
-        "bg-muted",
+        "bg-muted/50",
+        "border-border-foreground border",
         "flex flex-row items-center justify-start gap-2",
         "h-10 w-full",
-        "rounded-md",
+        "rounded-lg",
+        "min-w-96",
         "px-3 py-2",
         "transition-all duration-300 ease-in-out",
         "text-muted-foreground text-sm",
@@ -41,6 +45,7 @@ function SearchBox({ children, className, ...props }: SearchBoxProps) {
 interface Item {
   name: string;
   link: string;
+  description: string;
 }
 
 interface Section {
@@ -55,6 +60,7 @@ interface SearchProps {
 
 export function InteractiveSearch({ hotkey, children, sections }: SearchProps) {
   const [open, setOpen] = useState(false);
+  const [results, setResults] = useState<Section[]>(sections);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -69,21 +75,48 @@ export function InteractiveSearch({ hotkey, children, sections }: SearchProps) {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
+  function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+
+    if (!value) {
+      setResults(sections);
+      return;
+    }
+
+    const results = sections.map(({ name, items }) => ({
+      name,
+      items: fuzzysort
+        .go(value, items, {
+          keys: [(x) => x.name, (x) => x.description],
+        })
+        .map((result) => result.obj),
+    }));
+
+    setResults(results);
+  }
+
   return (
     <>
       <SearchBox onClick={() => setOpen(true)}>{children}</SearchBox>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
+        <CommandInput
+          className="py-8 text-lg"
+          placeholder="Search for a utility by name..."
+        />
+        <CommandList onChange={handleSearch}>
           <CommandEmpty>No results found.</CommandEmpty>
-          {sections.map(({ name: section, items }) => (
+          {results.map(({ name: section, items }) => (
             <CommandGroup key={section} heading={section}>
               {items.map((item) => (
                 <CommandItem
                   onSelect={() => (window.location.href = item.link)}
                   key={item.name}
+                  className="flex flex-col items-start justify-start gap-1"
                 >
-                  {item.name}
+                  <h6 className="text-base font-semibold">{item.name}</h6>
+                  <p className="text-muted-foreground">
+                    {item.description.split(".")[0] + "."}
+                  </p>
                 </CommandItem>
               ))}
             </CommandGroup>

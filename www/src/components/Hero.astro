@@ -1,29 +1,71 @@
 ---
 import Logo from "@/components/Logo.astro";
+
+import ArrowRight from "~icons/mdi/arrow-right";
+import GitHub from "~icons/mdi/github";
+
+import Link from "./Link.astro";
 ---
 
-<div
-  class="container h-screen max-w-2xl mx-auto flex flex-col justify-center items-center gap-8"
->
-  <Logo width={700} class="text-white glowing" />
+<atmx-waves
+  class="fixed pointer-events-none left-0 -bottom-6 inset-x-0 w-screen h-1/2"
+></atmx-waves>
 
-  <p class="text-center text-lg opacity-85">
+<div
+  class="container pb-16 absolute inset-0 max-w-2xl mx-auto flex flex-col justify-center items-center gap-8"
+>
+  <div class="blur-in w-full w-max-[700px]">
+    <Logo class="text-foreground glowing" />
+  </div>
+
+  <p
+    class="animate-in slide-in-from-top-3 fade-in delay-500 fill-mode-both ease-in-out [animation-duration:1.5s] text-center text-lg opacity-85"
+  >
     atmx ("atomics") is a collection of copy-and-pastable code snippets that
     help you build JavaScript projects at lightspeed.
   </p>
-</div>
 
-<atmx-waves class="absolute bottom-0 inset-x-0 w-screen h-1/2"></atmx-waves>
+  <div class="flex flex-col gap-4 lg:flex-row">
+    <Link size="lg" href="/getting-started/welcome">
+      Get Started <ArrowRight width={16} height={16} className="ml-2" />
+    </Link>
+    <Link size="lg" variant="outline" href="/getting-started/welcome">
+      <GitHub width={16} height={16} className="mr-2" />
+      View GitHub
+    </Link>
+  </div>
+
+  <pre
+    class="border-border border rounded-lg text-sm text-muted-foreground px-3 py-1.5"><code>npx atmx init</code></pre>
+</div>
 
 <style>
   @keyframes glowing {
     from {
-      filter: drop-shadow(0 0 8px rgba(255, 255, 255));
+      filter: drop-shadow(0 0 12px theme("textColor.foreground"));
     }
 
     to {
-      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+      filter: drop-shadow(0 0 8px theme("textColor.foreground/0.5"));
     }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      filter: blur(24px);
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: scale(1);
+    }
+  }
+
+  .blur-in {
+    animation: fadeIn 2s ease-out;
   }
 
   .glowing {
@@ -51,6 +93,11 @@ import Logo from "@/components/Logo.astro";
       this.#t = 0;
 
       this.#draw();
+
+      window.addEventListener("resize", () => {
+        this.#canvas.width = this.clientWidth;
+        this.#canvas.height = this.clientHeight;
+      });
     }
 
     #draw() {

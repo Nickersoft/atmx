@@ -6,17 +6,33 @@ import SearchIcon from "~icons/mdi/search";
 import { getSnippets } from "@/lib/get-snippets";
 
 import KBD from "./KBD.astro";
-import { getRegistryName, type SnippetType } from "@atmx-org/common";
+import {
+  expandSnippet,
+  getRegistryName,
+  SNIPPET_TYPES,
+  type SnippetType,
+} from "@atmx-org/common";
 
 const snippets = await getSnippets();
 
-const sections = Object.entries(snippets).map(([section, snippets]) => ({
-  name: getRegistryName(section as SnippetType),
-  items: snippets.map((snippet) => ({
-    name: snippet.name,
-    link: snippet.urls.docs,
+let sections = await Promise.all(
+  Object.entries(snippets).map(async ([section, snippets]) => ({
+    name: getRegistryName(section as SnippetType),
+    items: await Promise.all(
+      snippets
+        .filter((s) => SNIPPET_TYPES.includes(s.type))
+        .map(async (snippet) => ({
+          name: snippet.name,
+          description: await expandSnippet(snippet).then(
+            (expanded) => expanded.description,
+          ),
+          link: snippet.urls.docs,
+        })),
+    ),
   })),
-}));
+);
+
+sections = sections.filter((section) => section.items.length > 0);
 ---
 
 <InteractiveSearch sections={sections} hotkey="k" client:load>

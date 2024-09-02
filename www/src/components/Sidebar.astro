@@ -14,8 +14,9 @@ function updateLinks(items: Item[], child: boolean = false) {
   for (const link of items) {
     if (link.type === "link") {
       link.attrs.class = cn(
-        "p-2 hover:!text-foreground-muted text-foreground-muted overflow-hidden rounded-md",
-        link.isCurrent && "text-foreground",
+        "p-2 hover:!text-muted-foreground text-muted-foreground overflow-hidden rounded-md",
+        (link.isCurrent || link.attrs["data-top-level"]) &&
+          "bg-muted text-foreground hover:bg-muted hover:!text-foreground",
         child && link.isCurrent && "!font-normal",
         "active:opacity-50 transition-all duration-150",
       );
@@ -32,14 +33,15 @@ const topLevelLinks: Item[] = links
   .filter((link) => !link.id.includes("/"))
   .sort((a, b) => (a.data.sidebar?.order ?? 0) - (b.data.sidebar?.order ?? 0))
   .map(({ data, slug }) => {
-    const href = slug === "index" ? "" : slug;
     return {
       type: "link",
       label: data.title,
-      href: `/${href}`,
-      isCurrent: Astro.url.pathname === href,
+      href: slug,
+      isCurrent: Astro.url.pathname === slug,
       badge: undefined,
-      attrs: {},
+      attrs: {
+        "data-top-level": true,
+      },
     };
   });
 
@@ -54,11 +56,11 @@ const updatedSidebar = updateLinks([...topLevelLinks, ...sidebar]);
 
     .top-level {
       & > li {
-        @apply mt-0;
+        @apply mt-4;
       }
 
       li {
-        @apply border-0;
+        @apply border-0 py-px;
       }
     }
 

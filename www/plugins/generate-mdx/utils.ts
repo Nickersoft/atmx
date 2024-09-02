@@ -1,6 +1,7 @@
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, rm } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { existsSync } from "node:fs";
 
 import { format } from "prettier";
 
@@ -41,14 +42,18 @@ async function processSnippet(snippet: Snippet): Promise<void> {
     description: expanded.description,
     example: expanded.examples[0] ?? "",
     code: await format(code, { parser: "typescript" }),
-    slug: expanded.urls.docs.slice(1),
+    slug: expanded.urls.docs.slice(1).toLowerCase(),
   });
 
-  const outputDir = resolve(
-    fileURLToPath(new URL("../../src/content/docs/generated", import.meta.url)),
-    registry,
-    expanded.category,
+  const generatedDir = fileURLToPath(
+    new URL("../../src/content/docs/generated", import.meta.url),
   );
+
+  if (existsSync(generatedDir)) {
+    await rm(generatedDir, { recursive: true });
+  }
+
+  const outputDir = resolve(generatedDir, registry, expanded.category);
 
   await mkdir(outputDir, { recursive: true });
 
