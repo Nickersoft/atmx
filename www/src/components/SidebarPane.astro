@@ -8,14 +8,15 @@
     background-color: var(--sl-color-black);
     z-index: var(--sl-z-index-menu);
     visibility: var(--sl-sidebar-visibility, hidden);
-    height: 100%;
     width: 100%;
     inset-block: var(--sl-nav-height) 0;
+    inset-inline-start: 0;
     overflow-y: auto;
 
     @media (min-width: 50rem) {
       --sl-sidebar-visibility: visible;
       width: var(--sl-sidebar-width);
+      inset-inline-start: auto;
       background-color: var(--sl-color-bg-sidebar);
       border-inline-end: 1px solid var(--sl-color-hairline-shade);
     }
