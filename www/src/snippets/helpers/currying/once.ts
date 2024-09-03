@@ -45,8 +45,8 @@ type OnceImplementation = {
  * fn() // 0.5
  * fn() // 0.5
  */
-export const once: OnceImplementation = /* @__PURE__ */ (() => {
-  const once: OnceImplementation = (fn) => {
+export const once: OnceImplementation = (() => {
+  const onceImpl: OnceImplementation = (fn) => {
     const onceFn = function (...args: any) {
       if (onceFn[onceSymbol] === onceSymbol) {
         onceFn[onceSymbol] = fn.apply(this as any, args);
@@ -59,9 +59,9 @@ export const once: OnceImplementation = /* @__PURE__ */ (() => {
     return onceFn as typeof fn;
   };
 
-  once.reset = (fn: OnceFunction): void => {
+  onceImpl.reset = (fn: OnceFunction): void => {
     fn[onceSymbol] = onceSymbol;
   };
 
-  return once;
+  return onceImpl;
 })();

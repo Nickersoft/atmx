@@ -81,7 +81,10 @@ function getJSDocCommentRanges(node: Node, text: string): CommentRange[] {
   }
 
   commentRanges.push(...(getLeadingCommentRanges(text, node.pos) || []));
-
+  // console.log(
+  //   text.substring(node.pos, node.end),
+  //   getLeadingCommentRanges(text, node.pos),
+  // );
   // True if the comment starts with '/**' but not if it is '/**/'
   return commentRanges.filter(
     (comment) =>
@@ -113,12 +116,13 @@ function walkCompilerAstAndFindComments(
 
   // Only consider nodes that are part of a declaration form.  Without this, we could discover
   // the same comment twice (e.g. for a MethodDeclaration and its PublicKeyword).
+
   if (isDeclarationKind(node.kind)) {
     const foundIdentifier = node
       .getChildren()
       .filter((n) => n.kind === SyntaxKind.Identifier)
       .map((n) => n.getText())
-      .filter((n) => n === func);
+      .filter((n) => n === func)[0];
 
     if (!foundIdentifier) {
       return;
@@ -194,5 +198,11 @@ export function extractTSDoc(snippet: Snippet): TSDoc {
     return extractDocs(foundComments[0].textRange.toString());
   }
 
-  throw new Error("Couldn't find TSDocs for function: " + snippet.name);
+  console.warn("Couldn't find TSDocs for function: " + snippet.name);
+
+  return {
+    description: "",
+    parameters: [],
+    examples: [],
+  };
 }

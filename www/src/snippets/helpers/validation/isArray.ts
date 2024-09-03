@@ -7,7 +7,7 @@ import type { StrictExtract } from "@/snippets/helpers/types";
  * isArray([]) // => true
  * isArray('hello') // => false
  */
-export const isArray = /* @__PURE__ */ (() => Array.isArray)() as <Input>(
+export const isArray = (() => Array.isArray)() as <Input>(
   value: Input,
 ) => value is ExtractArray<Input>;
 

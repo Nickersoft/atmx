@@ -9,10 +9,10 @@
  * @param append - If true, append the new item to the end of the list if a match is not found.
  *
  * @example
- * replaceOrAppend([1, 2, 3], 4, (n) => n > 1) // [1, 4, 3]
- * replaceOrAppend([1, 2, 3], 4, (n) => n > 100) // [1, 2, 3, 4]
+ * replace([1, 2, 3], 4, (n) => n > 1) // [1, 4, 3]
+ * replace([1, 2, 3], 4, (n) => n > 100) // [1, 2, 3, 4]
  */
-export function replaceOrAppend<T>(
+export function replace<T>(
   array: readonly T[],
   newItem: T,
   match: (a: T, idx: number) => boolean,
