@@ -44,6 +44,7 @@ export default defineConfig({
       ],
       plugins: [snippetMDX],
       expressiveCode: {
+        // themes: ["starlight-dark"],
         themes: [theme],
         styleOverrides: {
           borderRadius: "calc(var(--radius) - 2px)",
@@ -51,6 +52,10 @@ export default defineConfig({
           borderColor: "hsl(var(--border-foreground))",
           codeBackground: "hsl(var(--card))",
           frames: {
+            terminalBackground: "hsl(var(--card))",
+            terminalTitlebarBackground: "hsl(var(--card))",
+            terminalTitlebarBorderBottomColor: "hsl(var(--border-foreground))",
+            terminalTitlebarForeground: "hsl(var(--foreground))",
             shadowColor: "transparent",
             inlineButtonBackground: "transparent",
             inlineButtonBorder: "0px",

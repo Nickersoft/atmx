@@ -11,7 +11,11 @@ import "@astrojs/starlight/style/markdown.css";
 <style lang="postcss">
   .sl-markdown-content {
     :global(h2) {
-      @apply border-b-border scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+      @apply border-b-border scroll-m-20 border-b pb-2 mt-0.5 text-3xl font-semibold tracking-tight first:mt-0;
+    }
+
+    :global(p) {
+      @apply text-foreground;
     }
   }
 </style>

@@ -19,7 +19,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 <Tabs>
   <TabItem label="CLI">
 
-    ```
+    ```bash
     npx atmx add <%= it.type %> <%= it.name %>  
     ```
     
@@ -27,7 +27,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
   <TabItem label="Manually">
 
-    Copy and paste the following method into `@/utils/helpers/<%= it.name %>`:
+    Copy and paste the following method into `@/utils/helpers/<%= it.name %>.ts`:
 
     ```ts
     <%~ it.code %>
