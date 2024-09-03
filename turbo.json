@@ -8,6 +8,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]
     },
+    "test": {
+      "dependsOn": ["^test"]
+    },
     "check-types": {
       "dependsOn": ["^check-types"]
     },

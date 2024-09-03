@@ -1,20 +1,12 @@
-import { Argument, Command } from "commander";
-import { pathExists } from "fs-extra";
-import { confirm } from "@inquirer/prompts";
-import ora, { type Ora } from "ora";
+import ora from "ora";
 
-import {
-  getRegistry,
-  getRegistryName,
-  SNIPPET_TYPES,
-  type RegistryName,
-} from "@atmx-org/common";
+import { type RegistryName } from "@atmx-org/common";
 
 import { installPackages } from "@/utils/install-packages.js";
 
 import { getConfig } from "@/config/get-config.js";
 
-import type { AddOptions, AddSummary } from "./types.js";
+import type { AddOptions } from "./types.js";
 import { resolveSnippet } from "./resolve-snippet.js";
 import { getOutputPath } from "./get-output-path.js";
 import { installSnippet } from "@/utils/install-snippet.js";
@@ -40,7 +32,7 @@ export async function add(opts: AddOptions) {
   const { overwrite, logging, name, type, registry: registryName } = opts;
 
   // Retrieve the user config
-  const config = await getConfig();
+  const config = await getConfig(opts.cwd);
 
   // Find the snippet by name and error if not found
   const snippet = await resolveSnippet({ type, name, registryName });

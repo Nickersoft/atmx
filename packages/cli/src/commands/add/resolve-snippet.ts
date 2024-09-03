@@ -20,9 +20,6 @@ export async function resolveSnippet({
 }: ResolveRegistryOptions) {
   const spinner = ora("Resolving code...").start();
 
-  // Retrieve the user configuration
-  const config = await getConfig();
-
   // Retrieve the target registry as JSON
   const registry = await getRegistry(registryName);
 

@@ -2,10 +2,10 @@ import { createMatchPath, loadConfig } from "tsconfig-paths";
 
 import { getRegistryName, type SnippetType } from "@atmx-org/common";
 
-import type { Config } from "@/types.js";
+import type { Config, Input } from "@/types.js";
 
-export function resolveAlias(type: SnippetType, config: Config) {
-  const aliasKey = getRegistryName(type) as keyof Config["aliases"];
+export function resolveAlias(type: SnippetType, config: Input<Config>) {
+  const aliasKey = getRegistryName(type) as keyof Input<Config>["aliases"];
   const alias = config.aliases?.[aliasKey];
   const tsConfig = loadConfig();
 

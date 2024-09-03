@@ -13,10 +13,18 @@
     "generate-schema": "tsx scripts/generate-schema.ts",
     "test": "vitest"
   },
-  "keywords": ["atmx", "atomics", "lodash", "utilities", "hooks", "cli"],
+  "keywords": [
+    "atmx",
+    "atomics",
+    "lodash",
+    "utilities",
+    "hooks",
+    "cli"
+  ],
   "author": "Tyler Nickerson",
   "license": "MIT",
   "devDependencies": {
+    "@atmx-org/registry": "workspace:*",
     "@types/fs-extra": "^11.0.4",
     "tsup": "^8.2.4",
     "tsx": "^4.17.0",

@@ -4,7 +4,7 @@ import { createSourceFile } from "./ast.js";
 
 export const code = `
 import f1 from "some-external-lib";
-import f2 from "@/snippets/helpers/array/groupBy";
+import f2 from "@/helpers/arrays/groupBy";
 `.trim();
 
 test("Dependencies to be extracted correctly", async () => {

@@ -7,6 +7,7 @@ export default defineConfig({
   target: "esnext",
   minify: process.env.NODE_ENV !== "development",
   sourcemap: true,
+  noExternal: ["@atmx-org/registry"],
   clean: true,
   outDir: "dist",
 });

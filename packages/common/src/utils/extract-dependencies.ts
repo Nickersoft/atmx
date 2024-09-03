@@ -10,9 +10,9 @@ export async function extractDependencies(
     .map((node) => node.getModuleSpecifierValue())
     .reduce(
       (acc, source) => {
-        const match = source.match(/@\/snippets\/(.+)\/.+\/(.+)/);
+        const match = source.match(/@\/(.+)\/.+\/(.+)/);
 
-        if (source === "@/snippets/helpers/types") {
+        if (source === "@/helpers/types") {
           acc.local.push("helpers/types");
           return acc;
         } else if (match) {

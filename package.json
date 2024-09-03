@@ -7,6 +7,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "test": "turbo run test",
     "preview": "turbo run preview",
     "www": "pnpm --filter www run",
     "cli": "pnpm --filter cli run",

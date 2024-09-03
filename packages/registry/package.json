@@ -1,0 +1,16 @@
+{
+  "name": "@atmx-org/registry",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^2.0.5"
+  }
+}
