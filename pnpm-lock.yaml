@@ -42,9 +42,6 @@ importers:
 
   packages/cli:
     dependencies:
-      '@antfu/ni':
-        specifier: ^0.22.4
-        version: 0.22.4
       '@atmx-org/common':
         specifier: workspace:*
         version: link:../common
@@ -54,6 +51,9 @@ importers:
       commander:
         specifier: ^12.1.0
         version: 12.1.0
+      detect-package-manager:
+        specifier: ^3.0.2
+        version: 3.0.2
       execa:
         specifier: ^9.3.1
         version: 9.3.1
@@ -69,9 +69,9 @@ importers:
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+      valibot:
+        specifier: ^0.41.0
+        version: 0.41.0(typescript@5.5.4)
     devDependencies:
       '@types/fs-extra':
         specifier: ^11.0.4
@@ -295,10 +295,6 @@ packages:
 
   '@antfu/ni@0.21.12':
     resolution: {integrity: sha512-2aDL3WUv8hMJb2L3r/PIQWsTLyq7RQr3v9xD16fiz6O8ys1xEyLhhTOv8gxtZvJiTzjTF5pHoArvRdesGL1DMQ==}
-    hasBin: true
-
-  '@antfu/ni@0.22.4':
-    resolution: {integrity: sha512-uCzh43cmUwQQcgv2BPyo0JWOMgXhcaE+F2I6Ucmfc7f9ir52lfA4OtZXdfL5D8cMa5GAwuCSNqOshIol8YN82g==}
     hasBin: true
 
   '@antfu/utils@0.7.10':
@@ -2534,6 +2530,10 @@ packages:
   detect-node-es@1.1.0:
     resolution: {integrity: sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==}
 
+  detect-package-manager@3.0.2:
+    resolution: {integrity: sha512-8JFjJHutStYrfWwzfretQoyNGoZVW1Fsrp4JO9spa7h/fBfwgTMEIy4/LBzRDGsxwVPHU0q+T9YvwLDJoOApLQ==}
+    engines: {node: '>=12'}
+
   deterministic-object-hash@2.0.2:
     resolution: {integrity: sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==}
     engines: {node: '>=18'}
@@ -4683,6 +4683,14 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  valibot@0.41.0:
+    resolution: {integrity: sha512-igDBb8CTYr8YTQlOKgaN9nSS0Be7z+WRuaeYqGf3Cjz3aKmSnqEmYnkfVjzIuumGqfHpa3fLIvMEAfhrpqN8ng==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
 
@@ -5042,8 +5050,6 @@ snapshots:
       tinyexec: 0.2.0
 
   '@antfu/ni@0.21.12': {}
-
-  '@antfu/ni@0.22.4': {}
 
   '@antfu/utils@0.7.10': {}
 
@@ -7472,6 +7478,10 @@ snapshots:
   detect-libc@2.0.3: {}
 
   detect-node-es@1.1.0: {}
+
+  detect-package-manager@3.0.2:
+    dependencies:
+      execa: 5.1.1
 
   deterministic-object-hash@2.0.2:
     dependencies:
@@ -10105,6 +10115,10 @@ snapshots:
       '@types/react': 18.3.5
 
   util-deprecate@1.0.2: {}
+
+  valibot@0.41.0(typescript@5.5.4):
+    optionalDependencies:
+      typescript: 5.5.4
 
   vfile-location@5.0.3:
     dependencies:

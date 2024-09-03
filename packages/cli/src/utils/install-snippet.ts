@@ -10,7 +10,6 @@ import type { ResolvedConfig } from "@/types.js";
 export async function getCode(snippet: Snippet, config: ResolvedConfig) {
   const url = new URL(snippet.urls[config.ts ? "ts" : "js"]);
   const rawCode = await fetch(url).then((res) => res.text());
-
   return transform(snippet.name, rawCode, config);
 }
 
@@ -31,9 +30,16 @@ export async function getOutputPath(snippet: Snippet, config: ResolvedConfig) {
   return join(alias, `${snippet.name}.${ext}`);
 }
 
-export async function installSnippet(snippet: Snippet, config: ResolvedConfig) {
-  const code = await getCode(snippet, config);
-  const outputPath = await getOutputPath(snippet, config);
+interface InstallSnippetOptions {
+  snippet: Snippet;
+  config: ResolvedConfig;
+  outputPath: string;
+}
 
-  return writeFile(outputPath, code);
+export async function installSnippet({
+  snippet,
+  config,
+  outputPath,
+}: InstallSnippetOptions) {
+  return writeFile(outputPath, await getCode(snippet, config));
 }

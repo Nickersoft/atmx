@@ -1,14 +1,14 @@
-import * as z from "zod";
+import * as v from "valibot";
 
 import type { SourceFile } from "@atmx-org/common";
 
-import { configSchema, resolvedConfigSchema } from "./utils/get-config.js";
+import { configSchema, resolvedConfigSchema } from "./config/get-config.js";
 
 export type PromiseLike<T> = T | Promise<T>;
 
-export type Config = z.infer<typeof configSchema>;
+export type Config = v.InferOutput<typeof configSchema>;
 
-export type ResolvedConfig = z.infer<typeof resolvedConfigSchema>;
+export type ResolvedConfig = v.InferOutput<typeof resolvedConfigSchema>;
 
 export interface GlobalOptions {
   cwd: string;

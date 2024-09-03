@@ -3,7 +3,7 @@ import type { Props } from "@astrojs/starlight/props";
 
 import LanguageSelect from "@astrojs/starlight/components/LanguageSelect.astro";
 import SocialIcons from "@astrojs/starlight/components/SocialIcons.astro";
-import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
+// import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
 
 import Search from "./Search.astro";
 import SiteTitle from "./SiteTitle.astro";
@@ -27,7 +27,7 @@ import SiteTitle from "./SiteTitle.astro";
   <div class="lg:block hidden"><Search {...Astro.props} /></div>
   <div class="flex-row items-center gap-4 lg:flex hidden">
     <SocialIcons {...Astro.props} />
-    <ThemeSelect {...Astro.props} />
+    <!-- <ThemeSelect {...Astro.props} /> -->
     <LanguageSelect {...Astro.props} />
   </div>
 </div>

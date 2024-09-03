@@ -55,6 +55,7 @@ function isDeclarationKind(kind: SyntaxKind): boolean {
     kind === SyntaxKind.TypeAliasDeclaration ||
     kind === SyntaxKind.TypeParameter ||
     kind === SyntaxKind.VariableDeclaration ||
+    kind === SyntaxKind.VariableStatement ||
     kind === SyntaxKind.JSDocTypedefTag ||
     kind === SyntaxKind.JSDocCallbackTag ||
     kind === SyntaxKind.JSDocPropertyTag
@@ -120,8 +121,28 @@ function walkCompilerAstAndFindComments(
   if (isDeclarationKind(node.kind)) {
     const foundIdentifier = node
       .getChildren()
-      .filter((n) => n.kind === SyntaxKind.Identifier)
-      .map((n) => n.getText())
+      .map((n) => {
+        const isIdentifier = n.kind === SyntaxKind.Identifier;
+
+        if (isIdentifier) {
+          return n.getText();
+        }
+
+        // Workaround for `export const` declarations
+        if (n.kind === SyntaxKind.VariableDeclarationList) {
+          return n
+            ?.getChildren()
+            .find((child) => child.kind === SyntaxKind.SyntaxList)
+            ?.getChildren()
+            .find((child) => child.kind === SyntaxKind.VariableDeclaration)
+            ?.getChildren()
+            .find((child) => child.kind === SyntaxKind.Identifier)
+            ?.getText();
+        }
+
+        return null;
+      })
+      .filter(Boolean)
       .filter((n) => n === func)[0];
 
     if (!foundIdentifier) {

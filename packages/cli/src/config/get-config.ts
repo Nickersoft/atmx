@@ -1,32 +1,15 @@
-import * as z from "zod";
-
+import { parse } from "valibot";
 import { lilconfig } from "lilconfig";
 
 import { CLI_NAME } from "@atmx-org/common";
 
 import type { ResolvedConfig } from "@/types.js";
+import { CONFIG_FILENAME } from "@/consts.js";
+import { resolveAlias } from "@/utils/resolve-alias.js";
 
-import { CONFIG_FILENAME } from "../consts.js";
-import { resolveAlias } from "./resolve-alias.js";
+import { resolvedConfigSchema } from "./schema.js";
 
 const searcher = lilconfig("utils", { searchPlaces: ["utils.json"] });
-
-export const configSchema = z
-  .object({
-    ts: z.boolean(),
-    aliases: z.object({
-      helpers: z.string(),
-      hooks: z.string(),
-    }),
-  })
-  .strict();
-
-export const resolvedConfigSchema = configSchema.extend({
-  resolvedAliases: z.object({
-    helpers: z.string(),
-    hooks: z.string(),
-  }),
-});
 
 /**
  * Reads the configuration from the file system
@@ -41,7 +24,7 @@ export async function getConfig(): Promise<ResolvedConfig> {
     );
   }
 
-  return resolvedConfigSchema.parse({
+  return parse(resolvedConfigSchema, {
     ...configFile.config,
     resolvedAliases: {
       helpers: resolveAlias("helper", configFile.config),
