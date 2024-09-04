@@ -1,11 +1,10 @@
+import ora from "ora";
+
 import {
   getRegistry,
   type RegistryName,
   type SnippetType,
 } from "@atmx-org/common";
-
-import { getConfig } from "@/config/get-config.js";
-import ora from "ora";
 
 interface ResolveRegistryOptions {
   type: SnippetType;

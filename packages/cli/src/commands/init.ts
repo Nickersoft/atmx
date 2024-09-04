@@ -3,9 +3,9 @@ import { writeFile } from "node:fs/promises";
 import { Command } from "commander";
 import { input, select } from "@inquirer/prompts";
 
-import { CONFIG_FILENAME } from "@/consts.js";
 import { isTypescriptProject } from "@/utils/is-typescript-project.js";
 import type { GlobalOptions } from "@/types.js";
+import { CONFIG_FILE_NAME } from "@/config/consts.js";
 
 interface InitOptions extends GlobalOptions {}
 
@@ -40,7 +40,7 @@ async function init(options: InitOptions) {
     },
   };
 
-  await writeFile(CONFIG_FILENAME, JSON.stringify(config, null, 2));
+  await writeFile(CONFIG_FILE_NAME, JSON.stringify(config, null, 2));
 }
 
 export default new Command("init").action(init);

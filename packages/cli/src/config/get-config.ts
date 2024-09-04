@@ -2,10 +2,9 @@ import { lilconfig } from "lilconfig";
 
 import { CLI_NAME } from "@atmx-org/common";
 
-import type { Config, ResolvedConfig } from "@/types.js";
-
-import { resolveConfig } from "./parse-config.js";
+import { resolveConfig } from "./resolve-config.js";
 import { CONFIG_FILE_NAME } from "./consts.js";
+import type { Config, ResolvedConfig } from "./types.js";
 
 const searcher = lilconfig("utils", { searchPlaces: [CONFIG_FILE_NAME] });
 
@@ -22,5 +21,5 @@ export async function getConfig(cwd: string): Promise<ResolvedConfig> {
     );
   }
 
-  return resolveConfig(cwd, configFile.config as Config);
+  return resolveConfig({ ...(configFile.config as Config), cwd });
 }

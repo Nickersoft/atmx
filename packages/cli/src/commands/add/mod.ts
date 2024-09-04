@@ -11,12 +11,12 @@ export default new Command("add")
     ).choices(SNIPPET_TYPES),
   )
   .argument("<name>", "Name of the component to import")
-  .action((type, name, cmd: Command) =>
-    add({
+  .action((type, name, _, cmd: Command) => {
+    return add({
       ...cmd.optsWithGlobals(),
       registry: getRegistryName(type),
       type,
       name,
       logging: true,
-    }),
-  );
+    });
+  });
