@@ -1,4 +1,4 @@
-import { isArray } from "@/helpers/validation/isArray.js";
+import { isArray } from "@/helpers/validation/is-array.js";
 import { AggregateError } from "@/helpers/types.js";
 
 type PromiseValues<T extends Promise<any>[]> = {

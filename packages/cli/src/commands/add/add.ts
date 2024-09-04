@@ -1,5 +1,3 @@
-import ora from "ora";
-
 import { type RegistryName } from "@atmx-org/common";
 
 import { installPackages } from "@/utils/install-packages.js";
@@ -10,6 +8,7 @@ import type { AddOptions } from "./types.js";
 import { resolveSnippet } from "./resolve-snippet.js";
 import { getOutputPath } from "./get-output-path.js";
 import { installSnippet } from "@/utils/install-snippet.js";
+import { createSpinner } from "@/spinners.js";
 
 async function installDeps(deps: string[], options: AddOptions) {
   if (deps.length === 0) return;
@@ -38,9 +37,13 @@ export async function add(opts: AddOptions) {
   const snippet = await resolveSnippet({ type, name, registryName });
 
   if (snippet) {
-    const outputPath = await getOutputPath({ snippet, overwrite, config });
+    const { outputPath, force } = await getOutputPath({
+      snippet,
+      overwrite,
+      config,
+    });
 
-    const spinner = ora({ isSilent: !logging }).start();
+    const spinner = createSpinner({ isSilent: !logging }).start();
 
     spinner.text = `Adding ${type} ${name}...`;
 
@@ -50,7 +53,11 @@ export async function add(opts: AddOptions) {
 
     if (local.length > 0 || external.length > 0) {
       spinner.text = "Installing dependencies...";
-      await Promise.all([installDeps(local, opts), installPackages(external)]);
+
+      await Promise.all([
+        installDeps(local, { ...opts, overwrite: force }),
+        installPackages(external),
+      ]);
     }
 
     spinner.text = `Installing '${name}'...`;

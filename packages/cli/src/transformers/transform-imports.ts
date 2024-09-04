@@ -1,3 +1,5 @@
+import { basename, dirname, extname } from "node:path";
+
 import {
   getRegistryName,
   SNIPPET_TYPES,
@@ -6,31 +8,48 @@ import {
   type SourceFile,
 } from "@atmx-org/common";
 
-import type { Output, ResolvedConfig, Transformer } from "@/types.js";
+import type { Transformer } from "@/types.js";
+import type { ResolvedConfig } from "@/config/types.js";
+import { caseString } from "@/utils/case-string.js";
 
 export const transformImports: Transformer = (
   sourceFile: SourceFile,
-  config: Output<ResolvedConfig>,
+  config: ResolvedConfig,
 ) =>
   rewriteImports(sourceFile, (moduleSpecifier) => {
     let specifier = moduleSpecifier;
 
-    if (config.isESM && moduleSpecifier.endsWith(".js")) {
+    if (moduleSpecifier.startsWith("node:")) {
+      return moduleSpecifier;
+    }
+
+    if (!moduleSpecifier.startsWith("@/")) {
+      return moduleSpecifier;
+    }
+
+    const ext = extname(specifier);
+    const base = basename(specifier, ext);
+
+    // Remove the .js extension from non-ESM imports
+    if (!config.isESM && ext === ".js") {
       specifier = specifier.slice(0, -3);
     }
 
     for (const type of SNIPPET_TYPES) {
       const prefix = `@/${getRegistryName(type as SnippetType)}`;
 
+      // Replace local imports with the user's chosen alias
       if (specifier.startsWith(prefix)) {
-        return specifier.replace(
-          prefix,
-          config.aliases[
-            getRegistryName(type) as keyof Output<ResolvedConfig>["aliases"]
-          ],
-        );
+        const aliasKey = getRegistryName(
+          type,
+        ) as keyof ResolvedConfig["aliases"];
+
+        specifier = specifier.replace(prefix, config.aliases[aliasKey]);
       }
     }
 
-    return specifier;
+    const dir = dirname(specifier);
+    const fileName = caseString(base, config);
+
+    return `${dir}/${fileName}${ext}`;
   });

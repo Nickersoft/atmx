@@ -3,6 +3,8 @@ import { basename, extname } from "node:path";
 import type { ImportGlob, Snippet, SnippetType } from "@/types.js";
 import { transformImports } from "@/transformers/transform-imports.js";
 
+import { camel } from "@/helpers/strings/camel.js";
+
 import { extractDependencies } from "./extract-dependencies.js";
 import { createSourceFile } from "./ast.js";
 import { group } from "./group.js";
@@ -17,25 +19,27 @@ export async function createSnippets(
       const type = registry.slice(0, -1);
       const baseURL = `/registry/${registry}`;
 
-      const name = basename(snippetName, extname(snippetName));
+      const id = basename(snippetName, extname(snippetName));
+      const name = camel(id);
       const content = ((await getContent()) as { default: string }).default;
 
       const file = await createSourceFile(snippetName, content);
       const dependencies = await extractDependencies(file);
       const code = await transformImports(file, (source) =>
-        source.replaceAll(/snippets\/(.+?)\/.+?\/(.+?)/g, "helpers/$2"),
+        source.replaceAll(/\/(.+?)\/.+?\/(.+?)/g, "/helpers/$2"),
       );
 
       return {
+        id,
         type,
-        category: category[0].toUpperCase() + category.slice(1),
+        category,
         dependencies,
         name,
         urls: {
-          ts: `${baseURL}/${name}.ts`,
-          js: `${baseURL}/${name}.js`,
-          docs: `/${registry}/${name}`,
-          metadata: `${baseURL}/${name}.json`,
+          ts: `${baseURL}/${id}.ts`,
+          js: `${baseURL}/${id}.js`,
+          docs: `/${registry}/${id}`,
+          metadata: `${baseURL}/${id}.json`,
         },
         content: code.getFullText(),
       };

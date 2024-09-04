@@ -1,8 +1,12 @@
-import type { ResolvedConfig } from "@/types.js";
+import { exit } from "node:process";
+
+import type { ResolvedConfig } from "@/config/types.js";
 import type { Snippet } from "@atmx-org/common";
 import { pathExists } from "fs-extra";
+import { confirm } from "@inquirer/prompts";
 
-import { getOutputPath as getOutPath } from "@/utils/install-snippet.js";
+import { getOutputPath as getOutPath } from "@/utils/get-output-path.js";
+import { clearSpinners } from "@/spinners.js";
 
 interface GetOutputPathOptions {
   snippet: Snippet;
@@ -18,8 +22,16 @@ export async function getOutputPath({
   const outputPath = await getOutPath(snippet, config);
 
   if (!overwrite && (await pathExists(outputPath))) {
-    throw new Error(`Code already exists at path: ${outputPath}`);
+    clearSpinners();
+
+    const shouldOverwrite = await confirm({
+      message: `Code already exists at path: ${outputPath}. Do you wish to overwrite it and its dependencies?`,
+    });
+
+    if (!shouldOverwrite) {
+      exit();
+    }
   }
 
-  return outputPath;
+  return { outputPath, force: false };
 }

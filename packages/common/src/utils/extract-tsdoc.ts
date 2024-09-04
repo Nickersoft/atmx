@@ -221,9 +221,5 @@ export function extractTSDoc(snippet: Snippet): TSDoc {
 
   console.warn("Couldn't find TSDocs for function: " + snippet.name);
 
-  return {
-    description: "",
-    parameters: [],
-    examples: [],
-  };
+  return { description: "", parameters: [], examples: [] };
 }

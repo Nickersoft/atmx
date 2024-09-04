@@ -42,7 +42,7 @@ async function processSnippet(snippet: Snippet): Promise<void> {
     description: expanded.description,
     example: expanded.examples[0] ?? "",
     code: await format(code, { parser: "typescript" }),
-    slug: expanded.urls.docs.slice(1).toLowerCase(),
+    slug: expanded.urls.docs.slice(1),
   });
 
   const generatedDir = fileURLToPath(

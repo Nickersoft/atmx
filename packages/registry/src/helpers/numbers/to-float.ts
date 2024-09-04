@@ -1,4 +1,4 @@
-import { isSymbol } from "@/helpers/validation/isSymbol.js";
+import { isSymbol } from "@/helpers/validation/is-symbol.js";
 
 /**
  * Combines `Number.parseFloat` with NaN handling. By default, a zero

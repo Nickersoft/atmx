@@ -1,5 +1,5 @@
-import { isArray } from "@/helpers/validation/isArray.js";
-import { isPlainObject } from "@/helpers/validation/isPlainObject.js";
+import { isArray } from "@/helpers/validation/is-array.js";
+import { isPlainObject } from "@/helpers/validation/is-plainObject.js";
 
 /**
  * Get a string list of all key names that exist in an object (deep).

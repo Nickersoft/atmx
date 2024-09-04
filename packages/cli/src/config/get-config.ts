@@ -2,7 +2,7 @@ import { lilconfig } from "lilconfig";
 
 import { CLI_NAME } from "@atmx-org/common";
 
-import { resolveConfig } from "./resolve-config.js";
+import { parseConfig } from "./parse-config.js";
 import { CONFIG_FILE_NAME } from "./consts.js";
 import type { Config, ResolvedConfig } from "./types.js";
 
@@ -21,5 +21,5 @@ export async function getConfig(cwd: string): Promise<ResolvedConfig> {
     );
   }
 
-  return resolveConfig({ ...(configFile.config as Config), cwd });
+  return parseConfig({ ...(configFile.config as Config), cwd });
 }

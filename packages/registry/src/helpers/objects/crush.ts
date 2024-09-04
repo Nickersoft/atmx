@@ -1,5 +1,5 @@
-import { isArray } from "@/helpers/validation/isArray.js";
-import { isObject } from "@/helpers/validation/isObject.js";
+import { isArray } from "@/helpers/validation/is-array.js";
+import { isObject } from "@/helpers/validation/is-object.js";
 import type { Simplify, Intersect } from "@/helpers/types";
 
 /**

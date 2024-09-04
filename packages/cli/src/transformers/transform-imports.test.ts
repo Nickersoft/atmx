@@ -1,8 +1,9 @@
 import { it } from "vitest";
 
-import { transformImports } from "./transform-imports.js";
 import { createSourceFile } from "@atmx-org/common";
 import { parseConfig } from "@/config/parse-config.js";
+
+import { transformImports } from "./transform-imports.js";
 
 it("should trim JS extensions for non-ESM modules", async () => {
   const source = await createSourceFile(

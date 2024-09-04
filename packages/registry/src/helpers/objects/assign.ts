@@ -1,4 +1,4 @@
-import { isPlainObject } from "@/helpers/validation/isPlainObject.js";
+import { isPlainObject } from "@/helpers/validation/is-plainObject.js";
 
 /**
  * Create a copy of the first object, and then merge the second object

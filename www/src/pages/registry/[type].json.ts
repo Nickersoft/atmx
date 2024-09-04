@@ -27,7 +27,7 @@ export const GET: APIRoute<{ snippets: Snippet[] }> = async ({
         .reduce(
           (acc, snippet) => ({
             ...acc,
-            [snippet.name]: snippet,
+            [snippet.id]: snippet,
           }),
           {},
         ),

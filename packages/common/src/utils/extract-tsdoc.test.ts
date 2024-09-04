@@ -7,7 +7,7 @@ const code = `
 /**
  * Given an array of arrays, returns a single dimensional array with
  * all items in it.
- *Ho
+ *
  * @example
  * flat([[1, 2], [[3], 4], [5]]) // [1, 2, [3], 4, 5]
  */
@@ -17,6 +17,7 @@ export function flat<T>(lists: readonly T[][]): T[] {}
 test("extracts docs correctly", async () => {
   const snippet = {
     name: "flat",
+    id: "flat",
     content: code,
     type: "helper" as SnippetType,
     category: "array",

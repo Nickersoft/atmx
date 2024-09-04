@@ -40,15 +40,15 @@ export async function getStaticPaths() {
 
           return [
             {
-              params: { type, name: `${snippet.name}.json` },
+              params: { type, name: `${snippet.id}.json` },
               props: { snippet: metadata },
             },
             {
-              params: { type, name: `${snippet.name}.ts` },
+              params: { type, name: `${snippet.id}.ts` },
               props: { snippet: metadata },
             },
             {
-              params: { type, name: `${snippet.name}.js` },
+              params: { type, name: `${snippet.id}.js` },
               props: { snippet: metadata },
             },
           ];

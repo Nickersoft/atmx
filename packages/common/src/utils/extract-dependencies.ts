@@ -10,14 +10,14 @@ export async function extractDependencies(
     .map((node) => node.getModuleSpecifierValue())
     .reduce(
       (acc, source) => {
-        const match = source.match(/@\/(.+)\/.+\/(.+)/);
+        const match = source.match(/^@\/(.+)\/.+\/([^.]+)(?:.js?)?$/);
 
         if (source === "@/helpers/types") {
           acc.local.push("helpers/types");
           return acc;
         } else if (match) {
           acc.local.push(`${match[1]}/${match[2]}`);
-        } else {
+        } else if (!source.startsWith("node:")) {
           acc.external.push(source);
         }
 

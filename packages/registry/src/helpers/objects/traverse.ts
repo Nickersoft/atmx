@@ -1,7 +1,7 @@
-import { isArray } from "@/helpers/validation/isArray.js";
-import { isFunction } from "@/helpers/validation/isFunction.js";
-import { isIterable } from "@/helpers/validation/isIterable.js";
-import { isPlainObject } from "@/helpers/validation/isPlainObject.js";
+import { isArray } from "@/helpers/validation/is-array.js";
+import { isFunction } from "@/helpers/validation/is-function.js";
+import { isIterable } from "@/helpers/validation/is-iterable.js";
+import { isPlainObject } from "@/helpers/validation/is-plainObject.js";
 import { last } from "@/helpers/arrays/last.js";
 
 export interface TraverseOptions<Key = string | number | symbol> {

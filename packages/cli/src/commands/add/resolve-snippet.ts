@@ -1,10 +1,9 @@
-import ora from "ora";
-
 import {
   getRegistry,
   type RegistryName,
   type SnippetType,
 } from "@atmx-org/common";
+import { createSpinner } from "@/spinners.js";
 
 interface ResolveRegistryOptions {
   type: SnippetType;
@@ -17,7 +16,7 @@ export async function resolveSnippet({
   name,
   registryName,
 }: ResolveRegistryOptions) {
-  const spinner = ora("Resolving code...").start();
+  const spinner = createSpinner("Resolving code...").start();
 
   // Retrieve the target registry as JSON
   const registry = await getRegistry(registryName);
@@ -26,8 +25,7 @@ export async function resolveSnippet({
   const snippet = registry[name];
 
   if (!snippet) {
-    spinner.fail(`No ${type} found with the name "${name}"!`);
-    return null;
+    throw new Error(`No ${type} found with the name "${name}"!`);
   }
 
   spinner.succeed("Found code!");

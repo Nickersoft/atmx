@@ -1,4 +1,4 @@
-import { isPromise } from "@/helpers/validation/isPromise.js";
+import { isPromise } from "@/helpers/validation/is-promise.js";
 
 /**
  * The result of a `tryit` function.

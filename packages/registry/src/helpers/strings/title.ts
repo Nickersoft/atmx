@@ -1,4 +1,4 @@
-import { capitalize } from "@/helpers/string/capitalize.js";
+import { capitalize } from "@/helpers/strings/capitalize.js";
 
 /**
  * Formats the given string in title case fashion.

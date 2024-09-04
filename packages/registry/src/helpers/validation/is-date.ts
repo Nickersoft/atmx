@@ -1,4 +1,4 @@
-import { isTagged } from "@/helpers/validation/isTagged.js";
+import { isTagged } from "@/helpers/validation/is-tagged.js";
 
 /**
  * Return true if the given value is a Date object.

@@ -8,17 +8,17 @@ export const stringCasing = v.enum({
   camel: "camel",
 });
 
-export const configSchema = v.pipe(
+export const configSchema = v.pipeAsync(
   v.object({
-    cwd: v.string(),
-    ts: v.boolean(),
+    cwd: v.optional(v.string(), "."),
+    ts: v.optional(v.boolean(), false),
     casing: v.optional(stringCasing, "kebab"),
     aliases: v.object({
       helpers: v.string(),
       hooks: v.string(),
     }),
   }),
-  v.transform(async (config) => ({
+  v.transformAsync(async (config) => ({
     ...config,
     isESM: await isESM(config.cwd),
     resolvedAliases: {

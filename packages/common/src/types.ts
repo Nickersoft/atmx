@@ -13,6 +13,7 @@ export interface Dependencies {
 }
 
 export interface Snippet {
+  id: string;
   type: SnippetType;
   category: string;
   name: string;
