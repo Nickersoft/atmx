@@ -4,6 +4,7 @@ import type { ImportGlob, Snippet, SnippetType } from "@/types.js";
 import { transformImports } from "@/transformers/transform-imports.js";
 
 import { camel } from "@/helpers/strings/camel.js";
+import { pascal } from "@/helpers/strings/pascal.js";
 
 import { extractDependencies } from "./extract-dependencies.js";
 import { createSourceFile } from "./ast.js";
@@ -20,7 +21,7 @@ export async function createSnippets(
       const baseURL = `/registry/${registry}`;
 
       const id = basename(snippetName, extname(snippetName));
-      const name = camel(id);
+      const name = type === "type" ? pascal(id) : camel(id);
       const content = ((await getContent()) as { default: string }).default;
 
       const file = await createSourceFile(snippetName, content);

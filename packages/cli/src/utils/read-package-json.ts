@@ -4,6 +4,7 @@
  */
 
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 async function read(filename: string) {
   try {
@@ -25,9 +26,15 @@ function parse(data: string) {
   }
 }
 
-async function readPackage(filename: string) {
-  const data = await read(filename);
-  return parse(data);
+interface PackageJSON {
+  type?: string;
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
 }
 
-export { read, parse, readPackage };
+async function readPackageJSON(cwd: string): Promise<PackageJSON> {
+  const data = await read(join(cwd, "package.json"));
+  return parse(data) as PackageJSON;
+}
+
+export { read, parse, readPackageJSON };

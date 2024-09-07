@@ -1,14 +1,16 @@
 import { type RegistryName } from "@atmx-org/common";
 
-import { installPackages } from "@/utils/install-packages.js";
-
 import { getConfig } from "@/config/get-config.js";
+
+import { installPackages } from "@/utils/install-packages.js";
+import { installSnippet } from "@/utils/install-snippet.js";
+import { filterInstalled } from "@/utils/filter-installed.js";
+
+import { createSpinner } from "@/spinners.js";
 
 import type { AddOptions } from "./types.js";
 import { resolveSnippet } from "./resolve-snippet.js";
 import { getOutputPath } from "./get-output-path.js";
-import { installSnippet } from "@/utils/install-snippet.js";
-import { createSpinner } from "@/spinners.js";
 
 async function installDeps(deps: string[], options: AddOptions) {
   if (deps.length === 0) return;
@@ -56,7 +58,7 @@ export async function add(opts: AddOptions) {
 
       await Promise.all([
         installDeps(local, { ...opts, overwrite: force }),
-        installPackages(external),
+        installPackages(await filterInstalled(opts.cwd, external)),
       ]);
     }
 

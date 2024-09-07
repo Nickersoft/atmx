@@ -1,8 +1,6 @@
-import { join } from "node:path";
-
-import { readPackage } from "./read-package-json.js";
+import { readPackageJSON } from "./read-package-json.js";
 
 export async function isESM(cwd: string) {
-  const pkgJson = await readPackage(join(cwd, "package.json"));
+  const pkgJson = await readPackageJSON(cwd);
   return pkgJson.type === "module";
 }

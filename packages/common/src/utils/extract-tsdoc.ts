@@ -143,7 +143,7 @@ function walkCompilerAstAndFindComments(
         return null;
       })
       .filter(Boolean)
-      .filter((n) => n === func)[0];
+      .filter((n) => n?.toLowerCase() === func.toLowerCase())[0];
 
     if (!foundIdentifier) {
       return;
@@ -189,12 +189,7 @@ function extractDocs(code: string): TSDoc {
 
   const examples = customBlocks
     .filter((block) => block.blockTag.tagName === "@example")
-    .map((ex) =>
-      Formatter.renderDocNode(ex.content)
-        .replaceAll("```ts", "")
-        .replaceAll("```", "")
-        .trim(),
-    );
+    .map((ex) => Formatter.renderDocNode(ex.content).trim());
 
   return { description, parameters, examples };
 }

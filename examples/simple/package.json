@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "atmx": "workspace:*"
+    "atmx": "workspace:*",
+    "svelte": "^4.2.19"
   }
 }

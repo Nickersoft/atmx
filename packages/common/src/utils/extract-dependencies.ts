@@ -2,6 +2,10 @@ import type { Dependencies } from "@/types.js";
 
 import type { SourceFile } from "ts-morph";
 
+const LOCAL_REGEX = /^@\/(.+)\/.+\/([^.]+)(?:.js?)?$/;
+const ORG_REGEX = /^(@[^\/]+\/[^\/]+)\/?.*$/;
+const PKG_REGEX = /^([^@][^\/]+)\/?.*$/;
+
 export async function extractDependencies(
   sourceFile: SourceFile,
 ): Promise<Dependencies> {
@@ -10,15 +14,22 @@ export async function extractDependencies(
     .map((node) => node.getModuleSpecifierValue())
     .reduce(
       (acc, source) => {
-        const match = source.match(/^@\/(.+)\/.+\/([^.]+)(?:.js?)?$/);
+        const fromLocal = source.match(LOCAL_REGEX);
 
-        if (source === "@/helpers/types") {
-          acc.local.push("helpers/types");
-          return acc;
-        } else if (match) {
-          acc.local.push(`${match[1]}/${match[2]}`);
-        } else if (!source.startsWith("node:")) {
-          acc.external.push(source);
+        if (fromLocal) {
+          acc.local.push(fromLocal.slice(1).join("/"));
+        } else {
+          const fromOrg = source.match(ORG_REGEX);
+
+          if (fromOrg) {
+            acc.external.push(fromOrg[1]);
+          } else {
+            const fromPkg = source.match(PKG_REGEX);
+
+            if (fromPkg) {
+              acc.external.push(fromPkg[1]);
+            }
+          }
         }
 
         return acc;

@@ -38,6 +38,7 @@ async function processSnippet(snippet: Snippet): Promise<void> {
 
   const result = eta.render<TemplateData>("mdx", {
     name: snippet.name,
+    id: snippet.id,
     type: snippet.type,
     description: expanded.description,
     example: expanded.examples[0] ?? "",

@@ -1,18 +1,28 @@
 ---
 title: "<%= it.name %>"
-description: "<%= it.description %>"
+description: "<%~ it.description %>"
 slug: "<%= it.slug %>"
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
+<% if (it.example && it.example.length > 0) { %>
+
 ## Usage
 
-```ts
+  <% if (it.example.startsWith('```')) { %>
 
-<%~ it.example %>
+    <%~ it.example %>
 
-```
+  <% } else { %>
+
+    ```ts  
+    <%~ it.example %>    
+    ```
+
+  <% } %>
+
+<% } %>
 
 ## Installation
 
@@ -20,7 +30,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   <TabItem label="CLI">
 
     ```bash
-    npx atmx add <%= it.type %> <%= it.name %>  
+    npx atmx add <%= it.type %> <%= it.id %>  
     ```
     
   </TabItem>

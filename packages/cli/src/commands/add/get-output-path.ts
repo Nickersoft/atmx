@@ -25,7 +25,7 @@ export async function getOutputPath({
     clearSpinners();
 
     const shouldOverwrite = await confirm({
-      message: `Code already exists at path: ${outputPath}. Do you wish to overwrite it and its dependencies?`,
+      message: `It looks like you already have "${snippet.id}" added to your project. Do you wish to overwrite it and its dependencies?`,
     });
 
     if (!shouldOverwrite) {

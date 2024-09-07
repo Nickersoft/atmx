@@ -17,5 +17,5 @@ npx atmx
 npm -g atmx
 
 # Install in your project
-npm i -D atmx
+npm i -D atmx # Then npm run atmx
 ```

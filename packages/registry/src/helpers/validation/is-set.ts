@@ -1,5 +1,6 @@
 import { isTagged } from "@/helpers/validation/is-tagged.js";
-import type { StrictExtract } from "@/helpers/types";
+
+import type { StrictExtract } from "@/types/utility/strict-extract.js";
 
 /**
  * Checks if the given value is a Set.

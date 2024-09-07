@@ -1,5 +1,5 @@
-import { clone } from "@/helpers/object/clone.js";
-import { isIntString } from "@/helpers/validation/is-intString.js";
+import { clone } from "@/helpers/objects/clone.js";
+import { isIntString } from "@/helpers/validation/is-int-string.js";
 
 /**
  * Opposite of get, dynamically set a nested value into an object

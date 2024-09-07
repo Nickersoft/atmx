@@ -5,16 +5,15 @@
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "registry#check"],
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]
     },
     "test": {
       "dependsOn": ["^test"]
     },
-    "check-types": {
-      "dependsOn": ["^check-types"]
-    },
+    "check": {},
     "dev": {
+      "dependsOn": ["@atmx-org/registry#check"],
       "persistent": true,
       "cache": false
     }

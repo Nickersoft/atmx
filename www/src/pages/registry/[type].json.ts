@@ -16,7 +16,7 @@ export const GET: APIRoute<{ snippets: Snippet[] }> = async ({
   return new Response(
     JSON.stringify(
       snippets
-        .map(({ urls, ...snippet }) => ({
+        .map(({ urls, content: _content, ...snippet }) => ({
           ...snippet,
           urls: {
             ts: new URL(urls.ts, url).toString(),

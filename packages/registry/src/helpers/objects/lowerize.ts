@@ -1,4 +1,4 @@
-import { mapKeys } from "@/helpers/object/mapKeys.js";
+import { mapKeys } from "@/helpers/objects/map-keys.js";
 
 export type LowercaseKeys<T extends Record<string, any>> = {
   [P in keyof T & string as Lowercase<P>]: T[P];

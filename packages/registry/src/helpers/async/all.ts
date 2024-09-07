@@ -1,5 +1,4 @@
 import { isArray } from "@/helpers/validation/is-array.js";
-import { AggregateError } from "@/helpers/types.js";
 
 type PromiseValues<T extends Promise<any>[]> = {
   [K in keyof T]: T[K] extends Promise<infer U> ? U : never;

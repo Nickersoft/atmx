@@ -26,5 +26,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+__screenshots__
+
 .vercel
 .turbo

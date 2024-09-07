@@ -2,6 +2,8 @@
   "ts": true,
   "aliases": {
     "helpers": "@/lib/helpers",
-    "hooks": "@/lib/hooks"
+    "hooks": "@/lib/hooks",
+    "types": "@/lib/types",
+    "actions": "@/lib/actions"
   }
 }
