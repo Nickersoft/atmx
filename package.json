@@ -9,6 +9,7 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "preview": "turbo run preview",
+    "check": "turbo run check",
     "www": "pnpm --filter www run",
     "cli": "pnpm --filter cli run",
     "common": "pnpm --filter common run"

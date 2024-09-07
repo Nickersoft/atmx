@@ -9,9 +9,11 @@
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]
     },
     "test": {
-      "dependsOn": ["^test"]
+      "dependsOn": ["^test", "@atmx-org/registry#check"]
     },
-    "check": {},
+    "check": {
+      "outputs": [".astro/**"]
+    },
     "dev": {
       "dependsOn": ["@atmx-org/registry#check"],
       "persistent": true,

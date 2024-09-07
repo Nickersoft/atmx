@@ -15,6 +15,8 @@ it("should trim JS extensions for non-ESM modules", async () => {
     aliases: {
       helpers: "@/helpers",
       hooks: "@/hooks",
+      actions: "@/actions",
+      types: "@/types",
     },
   });
 
