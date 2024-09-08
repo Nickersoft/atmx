@@ -16,9 +16,9 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
-      - name: Typcheck
-        run: bun run check
       - name: Run build
         run: bun run build
+      - name: Typcheck
+        run: bun run check
       - name: Running tests
         run: bun run test
