@@ -265,8 +265,8 @@ importers:
         specifier: ^18.3.0
         version: 18.3.0
       shadcn-ui:
-        specifier: ^0.8.0
-        version: 0.8.0(typescript@5.5.4)
+        specifier: ^0.9.0
+        version: 0.9.0(typescript@5.5.4)
       tailwindcss:
         specifier: ^3.4.10
         version: 3.4.10
@@ -4198,8 +4198,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn-ui@0.8.0:
-    resolution: {integrity: sha512-avqRgjJ6PIQQXdfvoCAWQpyLTLk6oHhtU5DQKmLeYcgu1ZIsgMqA9MKWAkr0HpEdCAenCCZvFbvJ2C2m5ZXRiA==}
+  shadcn-ui@0.9.0:
+    resolution: {integrity: sha512-Um4DldJaSk89OAgcT5aa2fU7euxg5Gzn8qOL8R4+I7UhFAMm3RyjECCYF05wP4Dfe/rFxh4g22LBSbieeE5Pgg==}
     hasBin: true
 
   sharp@0.33.5:
@@ -9541,7 +9541,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn-ui@0.8.0(typescript@5.5.4):
+  shadcn-ui@0.9.0(typescript@5.5.4):
     dependencies:
       '@antfu/ni': 0.21.12
       '@babel/core': 7.25.2
