@@ -8,7 +8,6 @@
     "release": "turbo run build && changesets publish",
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "test": "turbo run test",
     "clean": "rimraf -g packages/**/dist www/**/.vercel packages/**/.turbo www/**/.turbo www/**/.astro",
     "preview": "turbo run preview",
     "check": "turbo run check",

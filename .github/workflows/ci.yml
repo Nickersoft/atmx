@@ -21,4 +21,4 @@ jobs:
       - name: Typcheck
         run: bun run check
       - name: Running tests
-        run: bun run test
+        run: bun test
