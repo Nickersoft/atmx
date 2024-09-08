@@ -4,7 +4,8 @@ import type { Command } from "commander";
 
 import { clearSpinners } from "@/spinners.ts";
 
-function handleError(error: Error) {
+function handleError(error: Error, debug?: boolean) {
+  if (debug) throw error;
   clearSpinners();
   console.error(`❌ ${error.message}`);
   exit(1);
@@ -16,9 +17,9 @@ interface ActionOptions {
 }
 
 export function createAction(fn: (opts: ActionOptions) => Promise<any>) {
-  return (...args: any[]) =>
-    fn({
-      args: args.slice(0, -1),
-      cmd: args[args.length - 1] as Command,
-    }).catch(handleError);
+  return (...args_: any[]) => {
+    const args = args_.slice(0, -1);
+    const cmd = args_[args_.length - 1] as Command;
+    fn({ args, cmd }).catch((e) => handleError(e, cmd.optsWithGlobals().debug));
+  };
 }

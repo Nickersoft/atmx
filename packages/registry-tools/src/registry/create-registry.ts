@@ -34,7 +34,7 @@ export async function createRegistry(
       const file = await createSourceFile(snippetName, content);
       const dependencies = await extractDependencies(file);
       const code = await transformImports(file, (source) =>
-        source.replaceAll(/\/(.+?)\/.+?\/(.+?)/g, "/helpers/$2"),
+        source.replaceAll(/\/(.+?)\/.+?\/(.+?)/g, "/$1/$2"),
       );
 
       return {

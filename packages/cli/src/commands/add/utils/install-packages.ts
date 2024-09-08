@@ -1,6 +1,6 @@
 import { execa } from "execa";
 
-import { getPackageManager } from "./get-package-manager.ts";
+import { detectPackageManager } from "@/utils/environment.ts";
 
 /**
  * Installs external packages using the detected package manager.
@@ -23,16 +23,16 @@ export async function installPackages(
 ): Promise<void> {
   if (packages.length === 0) return;
 
-  const pm = await getPackageManager(cwd);
+  let pm = await detectPackageManager(cwd);
 
   const packageList =
     typeof packages === "string" ? packages : packages.join(" ");
 
   const command = pm === "npm" ? "install" : "add";
 
-  const { stderr } = await execa`${pm} ${command} ${packageList}`;
+  const { stderr, exitCode } = await execa`${pm} ${command} ${packageList}`;
 
-  if (stderr) {
+  if (exitCode !== 0) {
     throw new Error(`An error occurred installing dependencies: ${stderr}`);
   }
 }

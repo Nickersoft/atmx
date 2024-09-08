@@ -7,7 +7,7 @@ import {
   type RegistryName,
 } from "@atmx-org/common";
 
-import { isESM } from "@/utils/is-esm.ts";
+import { isESM } from "@/utils/environment.ts";
 import { resolveAlias } from "@/utils/resolve-alias.ts";
 
 export const configSchema = v.pipeAsync(

@@ -5,7 +5,7 @@ import { input, select } from "@inquirer/prompts";
 
 import type { Config } from "@atmx-org/common";
 
-import { isTypescriptProject } from "@/utils/is-typescript-project.ts";
+import { isTypescriptProject } from "@/utils/environment.ts";
 import type { GlobalOptions } from "@/types.ts";
 import { CONFIG_FILE_NAME } from "@/config/consts.ts";
 

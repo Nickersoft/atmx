@@ -28,7 +28,7 @@ export async function resolveSnippet({
     throw new Error(`No ${type} found with the name "${name}"!`);
   }
 
-  spinner.succeed("Found code!");
+  spinner.stop();
 
   return snippet;
 }

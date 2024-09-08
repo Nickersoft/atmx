@@ -1,11 +1,14 @@
+import { readFile } from "node:fs/promises";
+import { resolve, join } from "node:path";
+
+import { detect } from "detect-package-manager";
+
+import { pathExists } from "@atmx-org/registry/helpers/filesystem/path-exists.ts";
+
 /**
  * Taken from
  * https://github.com/npm/package-json/blob/main/lib/read-package.js
  */
-
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-
 async function read(filename: string) {
   try {
     const data = await readFile(filename, "utf8");
@@ -37,4 +40,26 @@ async function readPackageJSON(cwd: string): Promise<PackageJSON> {
   return parse(data) as PackageJSON;
 }
 
-export { read, parse, readPackageJSON };
+async function isESM(cwd: string) {
+  const pkgJson = await readPackageJSON(cwd);
+  return pkgJson.type === "module";
+}
+
+function isTypescriptProject(cwd: string = process.cwd()): Promise<boolean> {
+  return pathExists(resolve(cwd, "tsconfig.json"));
+}
+
+async function detectPackageManager(
+  targetDir: string,
+): Promise<ReturnType<typeof detect>> {
+  return detect({ cwd: targetDir, includeGlobalBun: true });
+}
+
+export {
+  detectPackageManager,
+  read,
+  parse,
+  readPackageJSON,
+  isESM,
+  isTypescriptProject,
+};

@@ -1,4 +1,4 @@
-import { readPackageJSON } from "./read-package-json.ts";
+import { readPackageJSON } from "@/utils/environment.ts";
 
 /**
  * Only returns the packages that are not already installed.
