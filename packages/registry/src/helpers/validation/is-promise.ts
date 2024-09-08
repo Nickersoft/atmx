@@ -1,4 +1,4 @@
-import { isFunction } from "@/helpers/validation/is-function.js";
+import { isFunction } from "@/helpers/validation/is-function.ts";
 
 /**
  * Returns true if the value is a Promise or has a `then` method.

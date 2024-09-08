@@ -21,7 +21,7 @@ export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
     return new Response(snippet.content);
   }
 
-  if (name?.endsWith(".js")) {
+  if (name?.endsWith(".ts")) {
     return new Response(await transformToJS(snippet.content));
   }
 

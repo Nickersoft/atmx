@@ -1,4 +1,4 @@
-import { random } from "@/helpers/random/random.js";
+import { random } from "@/helpers/random/random.ts";
 
 /**
  * “Draw” a random item from an array. The item is not removed from

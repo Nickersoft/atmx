@@ -1,26 +1,26 @@
 import {
   describe,
   beforeAll,
-  vi,
+  jest,
   beforeEach,
   afterEach,
   it,
   expect,
-} from "vitest";
+} from "bun:test";
 
 // Needed for r e a s o n s
 // https://github.com/vitest-dev/vitest/issues/6104
 import { spyOn, type SpyImpl } from "tinyspy";
 
-import { lazyload } from "./lazyload.js";
+import { lazyload } from "./lazyload.ts";
 
 describe("lazyload", function () {
   let element: HTMLElement;
   let action: ReturnType<typeof lazyload>;
   let intersectionObserverConstructorSpy: SpyImpl;
 
-  const observeFake = vi.fn();
-  const unobserveFake = vi.fn();
+  const observeFake = jest.fn();
+  const unobserveFake = jest.fn();
 
   beforeAll(function () {
     setupIntersectionObserverMock({
@@ -47,7 +47,7 @@ describe("lazyload", function () {
   it("observes node", function () {
     action = lazyload(element, {});
     expect(intersectionObserverConstructorSpy.callCount).toBe(1);
-    expect(observeFake).toHaveBeenCalledOnce();
+    expect(observeFake).toHaveBeenCalledTimes(1);
   });
 
   it("sets attribute on intersection", function () {
@@ -57,7 +57,7 @@ describe("lazyload", function () {
 
     intersectionCallback([{ isIntersecting: true, target: element }]);
 
-    expect(unobserveFake).toHaveBeenCalledOnce();
+    expect(unobserveFake).toHaveBeenCalledTimes(1);
     expect(element.className).toBe("test");
   });
 

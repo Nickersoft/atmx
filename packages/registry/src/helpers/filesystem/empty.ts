@@ -1,8 +1,8 @@
 import { join } from "node:path";
 import { readdir } from "node:fs/promises";
 
-import { rimraf } from "@/helpers/filesystem/rimraf.js";
-import { mkdirs } from "@/helpers/filesystem/mkdirs.js";
+import { rimraf } from "@/helpers/filesystem/rimraf.ts";
+import { mkdirs } from "@/helpers/filesystem/mkdirs.ts";
 
 /**
  * Deletes all the files in a given directory asynchronously while preserving the original directory.

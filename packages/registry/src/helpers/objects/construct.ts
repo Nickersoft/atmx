@@ -1,4 +1,4 @@
-import { set } from "@/helpers/objects/set.js";
+import { set } from "@/helpers/objects/set.ts";
 
 /**
  * The opposite of crush, given an object that was crushed into key

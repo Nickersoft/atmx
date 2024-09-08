@@ -11,18 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+      - name: Setup bun
+        uses: bun/action-setup@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: "pnpm"
+          cache: "bun"
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: Install Playwright Browsers
-        run: pnpm dlx playwright install chromium --with-deps
+        run: bun dlx playwright install chromium --with-deps
       - name: Typechecking
-        run: pnpm run check
+        run: bun run check
       - name: Running tests
-        run: pnpm run test
+        run: bun run test

@@ -3,10 +3,11 @@ import { writeFile } from "node:fs/promises";
 import { Command } from "commander";
 import { input, select } from "@inquirer/prompts";
 
-import { isTypescriptProject } from "@/utils/is-typescript-project.js";
-import type { GlobalOptions } from "@/types.js";
-import { CONFIG_FILE_NAME } from "@/config/consts.js";
-import type { Config } from "@/config/types.js";
+import type { Config } from "@atmx-org/common";
+
+import { isTypescriptProject } from "@/utils/is-typescript-project.ts";
+import type { GlobalOptions } from "@/types.ts";
+import { CONFIG_FILE_NAME } from "@/config/consts.ts";
 
 interface InitOptions extends GlobalOptions {}
 
@@ -43,7 +44,7 @@ async function init(options: InitOptions) {
     default: "@/lib/types",
   });
 
-  const config = {
+  const config: Config = {
     ts,
     aliases: {
       helpers,
@@ -51,7 +52,7 @@ async function init(options: InitOptions) {
       types,
       actions,
     },
-  } satisfies Config;
+  };
 
   await writeFile(CONFIG_FILE_NAME, JSON.stringify(config, null, 2));
 

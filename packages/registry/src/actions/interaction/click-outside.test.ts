@@ -1,14 +1,14 @@
 import {
   expect,
   describe,
+  jest,
   beforeAll,
-  vi,
   afterAll,
   afterEach,
   it,
-} from "vitest";
+} from "bun:test";
 
-import { clickOutside } from "./click-outside.js";
+import { clickOutside } from "./click-outside.ts";
 
 describe("clickOutside", function () {
   let element: HTMLElement;
@@ -32,28 +32,28 @@ describe("clickOutside", function () {
   });
 
   it("calls callback on outside click", function () {
-    const cb = vi.fn();
+    const cb = jest.fn();
     action = clickOutside(element, { enabled: true, cb });
     sibling.click();
-    expect(cb).toHaveBeenCalledOnce();
+    expect(cb).toHaveBeenCalledTimes(1);
   });
 
   it("does not call callback when disabled", function () {
-    const cb = vi.fn();
+    const cb = jest.fn();
     action = clickOutside(element, { enabled: false, cb });
     sibling.click();
     expect(cb).not.toHaveBeenCalled();
   });
 
   it("does not call callback when element clicked", function () {
-    const cb = vi.fn();
+    const cb = jest.fn();
     action = clickOutside(element, { enabled: true, cb });
     element.click();
     expect(cb).not.toHaveBeenCalled();
   });
 
   it("updates parameters", function () {
-    const cb = vi.fn();
+    const cb = jest.fn();
     action = clickOutside(element, { enabled: true, cb });
     action?.update?.({ enabled: false, cb });
     sibling.click();

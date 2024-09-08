@@ -1,5 +1,5 @@
-import { sleep } from "@/helpers/async/sleep.js";
-import { tryit } from "@/helpers/async/tryit.js";
+import { sleep } from "@/helpers/async/sleep.ts";
+import { tryit } from "@/helpers/async/tryit.ts";
 
 export type RetryOptions = {
   times?: number;

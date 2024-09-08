@@ -1,4 +1,4 @@
-import type { StrictExtract } from "@/types/utility/strict-extract.js";
+import type { StrictExtract } from "@/types/utility/strict-extract.ts";
 
 /**
  * `Array.isArray` but with better type inference.

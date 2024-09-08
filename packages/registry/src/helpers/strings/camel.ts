@@ -1,4 +1,4 @@
-import { capitalize } from "@/helpers/strings/capitalize.js";
+import { capitalize } from "@/helpers/strings/capitalize.ts";
 
 /**
  * Formats the given string in camel case fashion.

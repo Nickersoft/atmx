@@ -1,7 +1,7 @@
-import { isNumber } from "@/helpers/validation/is-number.js";
-import { isDate } from "@/helpers/validation/is-date.js";
-import { isFunction } from "@/helpers/validation/is-function.js";
-import { isSymbol } from "@/helpers/validation/is-symbol.js";
+import { isNumber } from "@/helpers/validation/is-number.ts";
+import { isDate } from "@/helpers/validation/is-date.ts";
+import { isFunction } from "@/helpers/validation/is-function.ts";
+import { isSymbol } from "@/helpers/validation/is-symbol.ts";
 
 /**
  * Return true if the given value is empty.

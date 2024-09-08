@@ -1,4 +1,4 @@
-import { random as randomFn } from "@/helpers/random/random.js";
+import { random as randomFn } from "@/helpers/random/random.ts";
 
 /**
  * Clone an array and shuffle its items randomly.

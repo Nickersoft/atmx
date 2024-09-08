@@ -1,4 +1,4 @@
-import { isString } from "@/helpers/validation/is-string.js";
+import { isString } from "@/helpers/validation/is-string.ts";
 
 /**
  * Return true if the given value is a string that can be parsed as an

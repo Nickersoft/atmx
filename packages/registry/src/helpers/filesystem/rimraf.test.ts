@@ -3,11 +3,11 @@ import { join } from "node:path";
 import { randomBytes } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
-import { describe, beforeEach, it, assert, afterEach } from "vitest";
+import { describe, beforeEach, it, expect, afterEach } from "bun:test";
 
-import { empty } from "@/helpers/filesystem/empty.js";
-import { rimraf } from "@/helpers/filesystem/rimraf.js";
-import { pathExists } from "@/helpers/filesystem/path-exists.js";
+import { empty } from "@/helpers/filesystem/empty.ts";
+import { rimraf } from "@/helpers/filesystem/rimraf.ts";
+import { pathExists } from "@/helpers/filesystem/path-exists.ts";
 
 describe("removes directories", () => {
   let TEST_DIR: string;
@@ -20,7 +20,7 @@ describe("removes directories", () => {
   describe("> when the directory does not exist", () => {
     it("should not throw an error", async () => {
       const someDir = join(TEST_DIR, "some-dir/");
-      assert.strictEqual(existsSync(someDir), false);
+      expect(existsSync(someDir)).toStrictEqual(false);
       await rimraf(someDir);
     });
   });
@@ -54,33 +54,33 @@ describe("remove", () => {
 
   describe("+ remove()", () => {
     it("should delete an empty directory", async () => {
-      assert(existsSync(TEST_DIR));
+      expect(existsSync(TEST_DIR)).toBeTrue();
       await rimraf(TEST_DIR);
-      assert(!existsSync(TEST_DIR));
+      expect(existsSync(TEST_DIR)).toBeFalse();
     });
 
     it("should delete a directory full of directories and files", async () => {
       buildFixtureDir();
-      assert(existsSync(TEST_DIR));
+      expect(existsSync(TEST_DIR)).toBeTrue();
       await rimraf(TEST_DIR);
-      assert(!existsSync(TEST_DIR));
+      expect(existsSync(TEST_DIR)).toBeFalse();
     });
 
     it("should delete a file", async () => {
       const file = join(TEST_DIR, "file");
 
       writeFileSync(file, "hello");
-      assert(existsSync(file));
+      expect(existsSync(file)).toBeTrue();
       await rimraf(file);
-      assert(!existsSync(file));
+      expect(existsSync(file)).toBeFalse();
     });
 
-    it("should delete without a callback", async (done) => {
+    it("should delete without a callback", async () => {
       const file = join(TEST_DIR, "file");
 
       writeFileSync(file, "hello");
 
-      assert(existsSync(file));
+      expect(existsSync(file)).toBeTrue();
 
       let existsChecker = setInterval(async () => {
         const exists = await pathExists(file);
@@ -92,13 +92,12 @@ describe("remove", () => {
       await rimraf(file);
     });
 
-    it("shouldn’t delete glob matches", async ({ skip }) => {
+    it("shouldn’t delete glob matches", async () => {
       const file = join(TEST_DIR, "file?");
 
       try {
         writeFileSync(file, "hello");
       } catch (ex) {
-        if ((ex as any).code === "ENOENT") return skip();
         throw ex;
       }
 
@@ -106,13 +105,13 @@ describe("remove", () => {
 
       writeFileSync(wrongFile, "yo");
 
-      assert(existsSync(file));
-      assert(existsSync(wrongFile));
+      expect(existsSync(file)).toBeTrue();
+      expect(existsSync(wrongFile)).toBeTrue();
 
       await rimraf(file);
 
-      assert(!existsSync(file));
-      assert(existsSync(wrongFile));
+      expect(existsSync(file)).toBeFalse();
+      expect(existsSync(wrongFile)).toBeTrue();
     });
 
     it("shouldn’t delete glob matches when file doesn’t exist", async () => {
@@ -122,13 +121,13 @@ describe("remove", () => {
 
       writeFileSync(wrongFile, "yo");
 
-      assert(!existsSync(nonexistentFile));
-      assert(existsSync(wrongFile));
+      expect(existsSync(nonexistentFile)).toBeFalse();
+      expect(existsSync(wrongFile)).toBeTrue();
 
       await rimraf(nonexistentFile);
 
-      assert(!existsSync(nonexistentFile));
-      assert(existsSync(wrongFile));
+      expect(existsSync(nonexistentFile)).toBeFalse();
+      expect(existsSync(wrongFile)).toBeTrue();
     });
   });
 });

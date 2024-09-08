@@ -1,4 +1,4 @@
-import { mapKeys } from "@/helpers/objects/map-keys.js";
+import { mapKeys } from "@/helpers/objects/map-keys.ts";
 
 export type UppercaseKeys<T extends Record<string, any>> = {
   [P in keyof T & string as Uppercase<P>]: T[P];

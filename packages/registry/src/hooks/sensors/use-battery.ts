@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import type { Nullable } from "@/types/utility/nullable.js";
+import type { Nullable } from "@/types/utility/nullable.ts";
 
 interface BatteryState {
   level: Nullable<number>;

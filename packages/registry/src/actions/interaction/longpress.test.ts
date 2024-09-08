@@ -1,32 +1,33 @@
 import {
   describe,
-  vi,
   beforeAll,
   afterEach,
+  jest,
   it,
   afterAll,
-  type VitestUtils,
   expect,
-} from "vitest";
+} from "bun:test";
 
-import { longpress } from "./longpress.js";
+import { install, type InstalledClock } from "@sinonjs/fake-timers";
+
+import { longpress } from "./longpress.ts";
 
 describe("longpress", function () {
   let element: HTMLElement;
-  let cb = vi.fn();
+  let cb = jest.fn();
   let action: ReturnType<typeof longpress>;
-  let clock: VitestUtils;
+  let clock: InstalledClock;
 
   beforeAll(function () {
     element = document.createElement("div");
     element.addEventListener("longpress", cb);
     document.body.appendChild(element);
-    clock = vi.useFakeTimers();
+    clock = install();
   });
 
   afterAll(() => {
     element.remove();
-    clock.restoreAllMocks();
+    clock.uninstall();
   });
 
   afterEach(() => {
@@ -38,15 +39,15 @@ describe("longpress", function () {
     const duration = 10;
     action = longpress(element, duration);
     element.dispatchEvent(new window.MouseEvent("mousedown"));
-    clock.advanceTimersByTime(duration);
+    clock.tick(duration);
     element.dispatchEvent(new window.MouseEvent("mouseup"));
-    expect(cb).toHaveBeenCalledOnce();
+    expect(cb).toHaveBeenCalledTimes(1);
   });
 
   it("does not dispatch longpress event when mousedown less than duration", function () {
     action = longpress(element, 100);
     element.dispatchEvent(new window.MouseEvent("mousedown"));
-    clock.advanceTimersByTime(10);
+    clock.tick(10);
     element.dispatchEvent(new window.MouseEvent("mouseup"));
     expect(cb).not.toHaveBeenCalled();
   });
@@ -56,8 +57,8 @@ describe("longpress", function () {
     action = longpress(element, 500);
     action?.update?.(newDuration);
     element.dispatchEvent(new window.MouseEvent("mousedown"));
-    clock.advanceTimersByTime(newDuration);
+    clock.tick(newDuration);
     element.dispatchEvent(new window.MouseEvent("mouseup"));
-    expect(cb).toHaveBeenCalledOnce();
+    expect(cb).toHaveBeenCalledTimes(1);
   });
 });

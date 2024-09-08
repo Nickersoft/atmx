@@ -1,6 +1,6 @@
 import { execa } from "execa";
 
-import { getPackageManager } from "./get-package-manager.js";
+import { getPackageManager } from "./get-package-manager.ts";
 
 /**
  * Installs external packages using the detected package manager.

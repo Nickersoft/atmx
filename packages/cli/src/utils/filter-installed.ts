@@ -1,4 +1,4 @@
-import { readPackageJSON } from "./read-package-json.js";
+import { readPackageJSON } from "./read-package-json.ts";
 
 /**
  * Only returns the packages that are not already installed.

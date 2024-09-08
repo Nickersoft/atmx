@@ -1,4 +1,4 @@
-import { isTagged } from "@/helpers/validation/is-tagged.js";
+import { isTagged } from "@/helpers/validation/is-tagged.ts";
 
 /**
  * Checks if the given value is a WeakSet.

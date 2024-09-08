@@ -1,5 +1,5 @@
-import type { Comparable } from "@/types/extensions/comparable.js";
-import type { CompatibleProperty } from "@/types/utility/compatible-property.js";
+import type { Comparable } from "@/types/extensions/comparable.ts";
+import type { CompatibleProperty } from "@/types/utility/compatible-property.ts";
 
 /**
  * Extract a string union of property names from type `T` whose value

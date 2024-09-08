@@ -6,13 +6,13 @@
 
 import { join } from "node:path";
 
-import { beforeEach, afterEach, it, describe, assert } from "vitest";
+import { beforeEach, afterEach, it, describe, expect } from "bun:test";
 import { tmpdir } from "node:os";
 
-import { rimraf } from "@/helpers/filesystem/rimraf.js";
-import { empty } from "@/helpers/filesystem/empty.js";
-import { pathExists } from "@/helpers/filesystem/path-exists.js";
-import { ensureFile } from "./ensure-file.js";
+import { rimraf } from "@/helpers/filesystem/rimraf.ts";
+import { empty } from "@/helpers/filesystem/empty.ts";
+import { pathExists } from "@/helpers/filesystem/path-exists.ts";
+import { ensureFile } from "./ensure-file.ts";
 
 describe("pathExists()", () => {
   let TEST_DIR: string;
@@ -26,13 +26,13 @@ describe("pathExists()", () => {
 
   it("should return false if file does not exist", () => {
     return pathExists(join(TEST_DIR, "somefile")).then((exists) =>
-      assert(!exists),
+      expect(exists).toBe(false),
     );
   });
 
   it("should return true if file does exist", async () => {
     const file = join(TEST_DIR, "exists");
     await ensureFile(file);
-    return pathExists(file).then((exists) => assert(exists));
+    return pathExists(file).then((exists) => expect(exists).toBe(true));
   });
 });

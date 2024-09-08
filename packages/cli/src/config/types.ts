@@ -1,6 +1,6 @@
 import type { InferInput, InferOutput } from "valibot";
 
-import type { configSchema } from "./schema.js";
+import type { configSchema } from "./schema.ts";
 
 export type ResolvedConfig = InferOutput<typeof configSchema>;
 

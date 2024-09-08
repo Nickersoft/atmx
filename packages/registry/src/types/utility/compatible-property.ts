@@ -1,5 +1,5 @@
-import type { BoxedPrimitive } from "@/types/extensions/boxed-primitive.js";
-import type { Any } from "@/types/extensions/any.js";
+import type { BoxedPrimitive } from "@/types/extensions/boxed-primitive.ts";
+import type { Any } from "@/types/extensions/any.ts";
 
 /**
  * Resolves a type union of property name literals within type `T`

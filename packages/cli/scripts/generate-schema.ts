@@ -1,4 +1,4 @@
-import { configSchema } from "@/config.js";
+import { configSchema } from "@/config.ts";
 import { writeFile } from "node:fs/promises";
 
 import { zodToJsonSchema } from "zod-to-json-schema";

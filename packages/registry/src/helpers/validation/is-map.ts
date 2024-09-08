@@ -1,6 +1,6 @@
-import { isTagged } from "@/helpers/validation/is-tagged.js";
+import { isTagged } from "@/helpers/validation/is-tagged.ts";
 
-import type { StrictExtract } from "@/types/utility/strict-extract.js";
+import type { StrictExtract } from "@/types/utility/strict-extract.ts";
 
 /**
  * Return true if the given value is a Map.

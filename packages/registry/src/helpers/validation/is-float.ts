@@ -1,4 +1,4 @@
-import { isNumber } from "@/helpers/validation/is-number.js";
+import { isNumber } from "@/helpers/validation/is-number.ts";
 
 /**
  * Return true if the given value is a number that is not an integer.

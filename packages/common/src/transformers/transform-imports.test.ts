@@ -1,13 +1,13 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 
-import { transformImports } from "./transform-imports.js";
-import { createSourceFile } from "@/utils/ast.js";
+import { transformImports } from "./transform-imports.ts";
+import { createSourceFile } from "@/utils/ast.ts";
 
 const code = `
 import groupBy from '@/helpers/arrays/groupBy';
 `.trim();
 
-test("Transforms imports correctly", async () => {
+test("transforms imports correctly", async () => {
   const file = await createSourceFile("test", code);
 
   const result = await transformImports(file, (source) =>

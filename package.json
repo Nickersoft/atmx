@@ -10,9 +10,9 @@
     "test": "turbo run test",
     "preview": "turbo run preview",
     "check": "turbo run check",
-    "www": "pnpm --filter www run",
-    "cli": "pnpm --filter cli run",
-    "common": "pnpm --filter common run"
+    "www": "bun --filter www run",
+    "cli": "bun --filter cli run",
+    "common": "bun --filter common run"
   },
   "workspaces": [
     "packages/*",
@@ -28,7 +28,7 @@
     "turbo": "^2.1.1",
     "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
+  "packageManager": "bun@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
   "license": "MIT",
   "dependencies": {
     "eta": "^3.5.0"

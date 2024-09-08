@@ -8,16 +8,16 @@ import {
   type SourceFile,
 } from "@atmx-org/common";
 
-import type { Transformer } from "@/types.js";
-import type { ResolvedConfig } from "@/config/types.js";
-import { caseString } from "@/utils/case-string.js";
+import type { Transformer } from "@/types.ts";
+import type { ResolvedConfig } from "@/config/types.ts";
+import { caseString } from "@/utils/case-string.ts";
 
 export const transformImports: Transformer = (
   sourceFile: SourceFile,
   config: ResolvedConfig,
 ) =>
   rewriteImports(sourceFile, (moduleSpecifier) => {
-    let specifier = moduleSpecifier;
+    let specifier = moduleSpecifier.replace(/.ts$/, ".js");
 
     if (moduleSpecifier.startsWith("node:")) {
       return moduleSpecifier;

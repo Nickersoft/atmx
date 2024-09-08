@@ -1,6 +1,8 @@
-{../registry-tools../registry-tools/src/*../registry-tools/node_modules/@atmx-org/registry/src/*
+{
   "compilerOptions": {
+    "noEmit": true,
     "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
     "target": "ESNext", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "module": "NodeNext", /* Specify what module code is generated. */
     "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
@@ -9,7 +11,7 @@
     "skipLibCheck": true, /* Skip type checking all .d.ts files. */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*", "node_modules/@atmx-org/registry/src/*"]
+      "@/*": ["src/*", "../../node_modules/@atmx-org/registry/src/*"]
     }
   }
 }

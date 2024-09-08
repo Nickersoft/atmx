@@ -3,7 +3,7 @@ import {
   type RegistryName,
   type SnippetType,
 } from "@atmx-org/common";
-import { createSpinner } from "@/spinners.js";
+import { createSpinner } from "@/spinners.ts";
 
 interface ResolveRegistryOptions {
   type: SnippetType;

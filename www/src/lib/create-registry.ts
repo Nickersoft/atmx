@@ -1,6 +1,6 @@
 import { createRegistry as createRegistry_ } from "@atmx-org/registry-tools";
 
-import { mapValues } from "@atmx-org/registry/helpers/objects/map-values.js";
+import { mapValues } from "@atmx-org/registry/helpers/objects/map-values.ts";
 
 export async function createRegistry() {
   const files = await import.meta.glob(

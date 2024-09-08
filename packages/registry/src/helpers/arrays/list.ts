@@ -1,4 +1,4 @@
-import { range } from "@/helpers/arrays/range.js";
+import { range } from "@/helpers/arrays/range.ts";
 
 /**
  * Creates a list of given start, end, value, and step parameters.

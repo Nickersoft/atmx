@@ -1,5 +1,5 @@
-import { list } from "@/helpers/arrays/list.js";
-import { range } from "@/helpers/arrays/range.js";
+import { list } from "@/helpers/arrays/list.ts";
+import { range } from "@/helpers/arrays/range.ts";
 
 export interface Series<T> {
   min: (a: T, b: T) => T;

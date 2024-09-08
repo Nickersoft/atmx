@@ -1,4 +1,4 @@
-import { isFunction } from "@/helpers/validation/is-function.js";
+import { isFunction } from "@/helpers/validation/is-function.ts";
 
 /**
  * Creates a generator that will produce an iteration through the

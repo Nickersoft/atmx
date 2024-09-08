@@ -1,8 +1,8 @@
-import { isArray } from "@/helpers/validation/is-array.js";
-import { isObject } from "@/helpers/validation/is-object.js";
+import { isArray } from "@/helpers/validation/is-array.ts";
+import { isObject } from "@/helpers/validation/is-object.ts";
 
-import type { Intersect } from "@/types/utility/intersect.js";
-import type { Simplify } from "@/types/utility/simplify.js";
+import type { Intersect } from "@/types/utility/intersect.ts";
+import type { Simplify } from "@/types/utility/simplify.ts";
 
 /**
  * Flattens a deep object to a single dimension, converting the keys

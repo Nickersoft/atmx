@@ -1,4 +1,4 @@
-import { isArray } from "@/helpers/validation/is-array.js";
+import { isArray } from "@/helpers/validation/is-array.ts";
 
 type PromiseValues<T extends Promise<any>[]> = {
   [K in keyof T]: T[K] extends Promise<infer U> ? U : never;

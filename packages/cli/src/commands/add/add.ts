@@ -1,16 +1,16 @@
 import type { RegistryName } from "@atmx-org/common";
 
-import { getConfig } from "@/config/get-config.js";
+import { getConfig } from "@/config/get-config.ts";
 
-import { installPackages } from "@/utils/install-packages.js";
-import { installSnippet } from "@/utils/install-snippet.js";
-import { filterInstalled } from "@/utils/filter-installed.js";
+import { installPackages } from "@/utils/install-packages.ts";
+import { installSnippet } from "@/utils/install-snippet.ts";
+import { filterInstalled } from "@/utils/filter-installed.ts";
 
-import { createSpinner } from "@/spinners.js";
+import { createSpinner } from "@/spinners.ts";
 
-import type { AddOptions } from "./types.js";
-import { resolveSnippet } from "./resolve-snippet.js";
-import { getOutputPath } from "./get-output-path.js";
+import type { AddOptions } from "./types.ts";
+import { resolveSnippet } from "./resolve-snippet.ts";
+import { getOutputPath } from "./get-output-path.ts";
 
 async function installDeps(deps: string[], options: AddOptions) {
   if (deps.length === 0) return;

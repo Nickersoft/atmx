@@ -2,7 +2,7 @@ import { exit } from "node:process";
 
 import type { Command } from "commander";
 
-import { clearSpinners } from "@/spinners.js";
+import { clearSpinners } from "@/spinners.ts";
 
 function handleError(error: Error) {
   clearSpinners();

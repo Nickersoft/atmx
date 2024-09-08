@@ -2,9 +2,9 @@ import { lilconfig } from "lilconfig";
 
 import { CLI_NAME } from "@atmx-org/common";
 
-import { parseConfig } from "./parse-config.js";
-import { CONFIG_FILE_NAME } from "./consts.js";
-import type { Config, ResolvedConfig } from "./types.js";
+import { parseConfig } from "./parse-config.ts";
+import { CONFIG_FILE_NAME } from "./consts.ts";
+import type { Config, ResolvedConfig } from "./types.ts";
 
 const searcher = lilconfig("utils", { searchPlaces: [CONFIG_FILE_NAME] });
 

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import type { Nullable } from "@/types/utility/nullable.js";
+import type { Nullable } from "@/types/utility/nullable.ts";
 
 /**
  * Copies the given value to the clipboard using the Navigator API.

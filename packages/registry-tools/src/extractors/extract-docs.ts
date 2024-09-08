@@ -20,7 +20,7 @@ import formatSvelte from "prettier-plugin-svelte";
 
 import type { Snippet, TSDoc } from "@atmx-org/common";
 
-import { Formatter } from "./formatter.js";
+import { Formatter } from "./formatter.ts";
 
 /**
  * Returns true if the specified SyntaxKind is part of a declaration form.
@@ -195,7 +195,7 @@ async function formatExample(code: string) {
     c = await format(code, { parser: "typescript" });
   }
 
-  return [`\`\`\`${lang}`, c, "```"].join("\n");
+  return [`\`\`\`${lang}`, c.trim(), "```"].join("\n");
 }
 
 async function extractDocs(code: string): Promise<TSDoc> {

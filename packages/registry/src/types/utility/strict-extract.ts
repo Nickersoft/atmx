@@ -1,4 +1,4 @@
-import type { Any } from "@/types/extensions/any.js";
+import type { Any } from "@/types/extensions/any.ts";
 
 export type SwitchAny<T, U> = [T] extends [Any] ? U : T;
 

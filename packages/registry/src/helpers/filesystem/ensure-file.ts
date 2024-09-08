@@ -1,7 +1,7 @@
 import { readdir, stat, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 
-import { mkdirs } from "@/helpers/filesystem/mkdirs.js";
+import { mkdirs } from "@/helpers/filesystem/mkdirs.ts";
 
 async function ensureDirectory(file: string) {
   const dir = dirname(file);

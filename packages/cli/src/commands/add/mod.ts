@@ -1,9 +1,9 @@
 import { getRegistryName, SNIPPET_TYPES } from "@atmx-org/common";
 import { Argument, Command } from "commander";
 
-import { createAction } from "@/utils/create-action.js";
+import { createAction } from "@/utils/create-action.ts";
 
-import { add } from "./add.js";
+import { add } from "./add.ts";
 
 const typeArg = new Argument(
   `<${SNIPPET_TYPES.join("|")}>`,

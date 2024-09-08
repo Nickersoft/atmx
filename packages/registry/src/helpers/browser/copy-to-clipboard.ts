@@ -1,4 +1,4 @@
-import { deselect } from "./deselect.js";
+import { deselect } from "./deselect.ts";
 
 /**
  * Fallback to copy text to clipboard.

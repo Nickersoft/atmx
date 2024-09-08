@@ -7,16 +7,18 @@
     "./*": "./src/*"
   },
   "scripts": {
-    "test": "vitest",
     "check": "tsc --noEmit",
     "test:browser": "vitest --workspace=vitest.workspace.ts"
   },
   "license": "MIT",
   "devDependencies": {
+    "@happy-dom/global-registrator": "^15.7.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.1",
+    "@types/bun": "^1.1.8",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
+    "@types/sinonjs__fake-timers": "^8.1.5",
     "@vitest/browser": "^2.0.5",
     "jsdom": "^25.0.0",
     "playwright": "^1.47.0",
@@ -25,6 +27,6 @@
     "tinyspy": "^3.0.0",
     "typescript": "^5.5.4",
     "vite-tsconfig-paths": "^5.0.1",
-    "vitest": "^2.0.5"
+    "@sinonjs/fake-timers": "^13.0.1"
   }
 }

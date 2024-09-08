@@ -16,7 +16,7 @@
     "build": "tsup --env.NODE_ENV production",
     "dev": "tsup --watch",
     "test": "vitest",
-    "prepare": "pnpm run build"
+    "prepare": "bun run build"
   },
   "author": "Tyler Nickerson",
   "license": "MIT",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
     "@types/babel__traverse": "^7.20.6",
-    "tsup": "^8.2.4",
-    "vitest": "^2.0.5"
+    "@types/bun": "^1.1.8",
+    "tsup": "^8.2.4"
   }
 }

@@ -1,4 +1,4 @@
-import { tryit } from "@/helpers/async/tryit.js";
+import { tryit } from "@/helpers/async/tryit.ts";
 
 /**
  * Useful when for script like things where cleanup should be done on

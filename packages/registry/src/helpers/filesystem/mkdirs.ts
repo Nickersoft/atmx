@@ -1,6 +1,6 @@
 import { mkdir } from "node:fs/promises";
 
-import { isPathValid } from "@/helpers/filesystem/is-path-valid.js";
+import { isPathValid } from "@/helpers/filesystem/is-path-valid.ts";
 
 interface MakeDirsOptions {
   mode?: number;

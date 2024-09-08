@@ -1,4 +1,4 @@
-import { isPrimitive } from "@/helpers/validation/is-primitive.js";
+import { isPrimitive } from "@/helpers/validation/is-primitive.ts";
 
 /**
  * Creates a shallow copy of the given object/value.

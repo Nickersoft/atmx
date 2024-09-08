@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
     "dev": "cross-env NODE_ENV=development tsup --watch",
-    "prepare": "pnpm run build",
+    "prepare": "bun run build",
     "generate-schema": "tsx scripts/generate-schema.ts",
     "test": "vitest"
   },
@@ -25,12 +25,12 @@
   "license": "MIT",
   "devDependencies": {
     "@atmx-org/registry": "workspace:*",
+    "@types/bun": "^1.1.8",
     "cross-env": "^7.0.3",
     "tsup": "^8.2.4",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
     "vite-tsconfig-paths": "^5.0.1",
-    "vitest": "^2.0.5",
     "zod-to-json-schema": "^3.23.2"
   },
   "dependencies": {

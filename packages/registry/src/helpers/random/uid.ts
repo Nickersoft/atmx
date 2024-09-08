@@ -1,5 +1,5 @@
-import { iterate } from "@/helpers/arrays/iterate.js";
-import { random } from "@/helpers/random/random.js";
+import { iterate } from "@/helpers/arrays/iterate.ts";
+import { random } from "@/helpers/random/random.ts";
 
 /**
  * Generate a random string of a given length.

@@ -1,7 +1,7 @@
 import { Command } from "commander";
 
-import add from "./commands/add/mod.js";
-import init from "./commands/init.js";
+import add from "./commands/add/mod.ts";
+import init from "./commands/init.ts";
 
 const program = new Command().option(
   "-c, --cwd <cwd>",

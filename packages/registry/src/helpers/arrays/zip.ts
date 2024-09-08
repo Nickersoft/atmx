@@ -1,4 +1,4 @@
-import { unzip } from "@/helpers/arrays/unzip.js";
+import { unzip } from "@/helpers/arrays/unzip.ts";
 
 /**
  * Creates an array of grouped elements, the first of which contains

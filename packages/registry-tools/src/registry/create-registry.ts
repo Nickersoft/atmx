@@ -6,13 +6,13 @@ import {
   transformImports,
 } from "@atmx-org/common";
 
-import { camel } from "@/helpers/strings/camel.js";
-import { pascal } from "@/helpers/strings/pascal.js";
-import { group } from "@/helpers/arrays/group.js";
+import { camel } from "@/helpers/strings/camel.ts";
+import { pascal } from "@/helpers/strings/pascal.ts";
+import { group } from "@/helpers/arrays/group.ts";
 
-import { extractDependencies } from "@/extractors/extract-dependencies.js";
+import { extractDependencies } from "@/extractors/extract-dependencies.ts";
 
-import { createSourceFile } from "../../../common/src/utils/ast.js";
+import { createSourceFile } from "../../../common/src/utils/ast.ts";
 
 type FilePath = string;
 

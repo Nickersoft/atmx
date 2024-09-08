@@ -1,8 +1,8 @@
-import { isArray } from "@/helpers/validation/is-array.js";
-import { isFunction } from "@/helpers/validation/is-function.js";
-import { isIterable } from "@/helpers/validation/is-iterable.js";
-import { isPlainObject } from "@/helpers/validation/is-plain-object.js";
-import { last } from "@/helpers/arrays/last.js";
+import { isArray } from "@/helpers/validation/is-array.ts";
+import { isFunction } from "@/helpers/validation/is-function.ts";
+import { isIterable } from "@/helpers/validation/is-iterable.ts";
+import { isPlainObject } from "@/helpers/validation/is-plain-object.ts";
+import { last } from "@/helpers/arrays/last.ts";
 
 export interface TraverseOptions<Key = string | number | symbol> {
   /**

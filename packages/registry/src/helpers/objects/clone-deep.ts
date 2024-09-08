@@ -1,7 +1,7 @@
-import { isArray } from "@/helpers/validation/is-array.js";
-import { isMap } from "@/helpers/validation/is-map.js";
-import { isObject } from "@/helpers/validation/is-object.js";
-import { isSet } from "@/helpers/validation/is-set.js";
+import { isArray } from "@/helpers/validation/is-array.ts";
+import { isMap } from "@/helpers/validation/is-map.ts";
+import { isObject } from "@/helpers/validation/is-object.ts";
+import { isSet } from "@/helpers/validation/is-set.ts";
 
 /**
  * A strategy for cloning objects with `cloneDeep`.

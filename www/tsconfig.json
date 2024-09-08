@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*", "../../node_modules/@atmx-org/registry/src/*"]
     },
     "types": ["unplugin-icons/types/react"]
   },

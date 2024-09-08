@@ -1,5 +1,5 @@
-import { isArray } from "@/helpers/validation/is-array.js";
-import { isFunction } from "@/helpers/validation/is-function.js";
+import { isArray } from "@/helpers/validation/is-array.ts";
+import { isFunction } from "@/helpers/validation/is-function.ts";
 
 /**
  * Creates an object mapping the specified keys to their corresponding

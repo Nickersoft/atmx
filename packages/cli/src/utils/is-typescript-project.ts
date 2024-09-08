@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 
-import { pathExists } from "@atmx-org/registry/helpers/filesystem/path-exists.js";
+import { pathExists } from "@atmx-org/registry/helpers/filesystem/path-exists.ts";
 
 export function isTypescriptProject(
   cwd: string = process.cwd(),

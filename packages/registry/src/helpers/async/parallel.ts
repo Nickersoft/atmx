@@ -1,7 +1,7 @@
-import { fork } from "@/helpers/arrays/fork.js";
-import { list } from "@/helpers/arrays/list.js";
-import { sort } from "@/helpers/arrays/sort.js";
-import { tryit } from "@/helpers/async/tryit.js";
+import { fork } from "@/helpers/arrays/fork.ts";
+import { list } from "@/helpers/arrays/list.ts";
+import { sort } from "@/helpers/arrays/sort.ts";
+import { tryit } from "@/helpers/async/tryit.ts";
 
 type WorkItemResult<K> = {
   index: number;

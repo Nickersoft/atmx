@@ -2,8 +2,8 @@ import { writeFile } from "node:fs/promises";
 
 import { type Snippet } from "@atmx-org/common";
 
-import type { ResolvedConfig } from "@/config/types.js";
-import { transform } from "@/transformers/transform.js";
+import type { ResolvedConfig } from "@/config/types.ts";
+import { transform } from "@/transformers/transform.ts";
 
 interface InstallSnippetOptions {
   snippet: Snippet;

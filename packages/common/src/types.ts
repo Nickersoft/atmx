@@ -1,4 +1,4 @@
-import { SNIPPET_TYPES } from "./consts.js";
+import { SNIPPET_TYPES } from "./consts.ts";
 
 export type SnippetType = (typeof SNIPPET_TYPES)[number];
 

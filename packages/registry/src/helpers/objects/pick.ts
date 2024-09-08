@@ -24,7 +24,7 @@ export type FilteredKeys<
   F extends KeyFilter<T> | null | undefined,
 > = Extract<keyof T, F extends readonly any[] ? F[number] : any>;
 
-import { isArray } from "@/helpers/validation/is-array.js";
+import { isArray } from "@/helpers/validation/is-array.ts";
 
 /**
  * Pick a list of properties from an object into a new object.

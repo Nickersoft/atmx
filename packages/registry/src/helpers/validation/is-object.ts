@@ -1,4 +1,4 @@
-import { isTagged } from "@/helpers/validation/is-tagged.js";
+import { isTagged } from "@/helpers/validation/is-tagged.ts";
 
 /**
  * Returns true if `value` is a plain object, a class instance

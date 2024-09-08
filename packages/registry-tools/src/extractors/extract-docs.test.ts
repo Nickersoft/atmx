@@ -1,8 +1,8 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 
 import type { SnippetType } from "@atmx-org/common";
 
-import { extractDocs } from "./extract-docs.js";
+import { extractDocs } from "./extract-docs.ts";
 
 const code = `
 /**
@@ -24,7 +24,7 @@ test("extracts docs correctly", async () => {
     category: "array",
     urls: {
       ts: "/registry/helpers/flat.ts",
-      js: "/registry/helpers/flat.js",
+      js: "/registry/helpers/flat.ts",
       docs: "/helpers/flat",
       metadata: "/registry/helpers/flat.json",
     },
@@ -40,6 +40,8 @@ test("extracts docs correctly", async () => {
     description:
       "Given an array of arrays, returns a single dimensional array with\nall items in it.",
     parameters: [],
-    examples: ["flat([[1, 2], [[3], 4], [5]]) // [1, 2, [3], 4, 5]"],
+    examples: [
+      "```ts\nflat([[1, 2], [[3], 4], [5]]); // [1, 2, [3], 4, 5]\n```",
+    ],
   });
 });

@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 
-import type { Nullable } from "@/types/utility/nullable.js";
+import type { Nullable } from "@/types/utility/nullable.ts";
 
 interface CounterOptions {
   min?: Nullable<number>;

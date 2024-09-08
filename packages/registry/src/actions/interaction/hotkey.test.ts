@@ -2,13 +2,13 @@ import {
   expect,
   describe,
   beforeAll,
-  vi,
+  jest,
   afterAll,
   afterEach,
   it,
-} from "vitest";
+} from "bun:test";
 
-import { hotkey } from "./hotkey.js";
+import { hotkey } from "./hotkey.ts";
 
 describe("hotkey", function () {
   let element: HTMLElement;
@@ -30,44 +30,44 @@ describe("hotkey", function () {
   });
 
   it("calls callback when callback provided", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback });
     dispatchKeydownEvent({ code: spaceKeyCode });
-    expect(callback).toHaveBeenCalledOnce();
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 
   it("clicks node when callback not provided", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode });
     element.addEventListener("click", callback);
     dispatchKeydownEvent({ code: spaceKeyCode });
-    expect(callback).toHaveBeenCalledOnce();
+    expect(callback).toHaveBeenCalledTimes(1);
     element.removeEventListener("click", callback);
   });
 
   it("does not call callback when different key pressed", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback });
     dispatchKeydownEvent({ code: "KeyA" });
     expect(callback).not.toHaveBeenCalled();
   });
 
   it("handles alt key", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback, alt: true });
     dispatchKeydownEvent({ code: spaceKeyCode, altKey: true });
-    expect(callback).toHaveBeenCalledOnce();
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 
   it("handles shift key", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback, shift: true });
     dispatchKeydownEvent({ code: spaceKeyCode, shiftKey: true });
-    expect(callback).toHaveBeenCalledOnce();
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 
   it("handles ctrl and meta key", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback, control: true });
     dispatchKeydownEvent({ code: spaceKeyCode, ctrlKey: true });
     dispatchKeydownEvent({ code: spaceKeyCode, metaKey: true });
@@ -75,16 +75,16 @@ describe("hotkey", function () {
   });
 
   it("updates key code", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback });
     action?.update?.({ code: "KeyA", callback });
     dispatchKeydownEvent({ code: "KeyA" });
     dispatchKeydownEvent({ code: spaceKeyCode });
-    expect(callback).toHaveBeenCalledOnce();
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 
   it("does not fire callback when it is inactive", function () {
-    const callback = vi.fn();
+    const callback = jest.fn();
     action = hotkey(element, { code: spaceKeyCode, callback });
     dispatchKeydownEvent({ code: spaceKeyCode });
     action?.update?.({ active: false, code: spaceKeyCode, callback });
