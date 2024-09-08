@@ -5,6 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "release": "turbo run build && changesets publish",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "test": "turbo run test",
