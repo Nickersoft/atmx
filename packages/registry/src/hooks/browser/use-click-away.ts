@@ -13,7 +13,7 @@ type ClickCallback = (e: Event) => void;
  *   const ref = useClickAway(() => console.log("Clicked outside!"));
  *   return <div ref={ref}>Click outside of me</div>;
  * };
- * ````
+ * ```
  */
 export function useClickAway(cb: ClickCallback) {
   const ref = useRef(null);

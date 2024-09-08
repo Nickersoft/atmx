@@ -26,7 +26,7 @@ export interface HotkeyConfig {
  *
  * @example
  * ```svelte
- * <div use:hotkey={{ code: 'KeyA', callback: () => alert('A') }}>
+ * <div use:hotkey={{ code: 'KeyA', callback: () => alert('A') }} />
  * ```
  */
 export const hotkey: Action<HTMLElement, HotkeyConfig> = (node, config) => {

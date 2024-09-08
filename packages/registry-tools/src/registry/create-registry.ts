@@ -1,24 +1,28 @@
 import { basename, extname } from "node:path";
 
 import {
-  type ImportGlob,
   type Snippet,
   type SnippetType,
   transformImports,
 } from "@atmx-org/common";
 
-import { camel } from "@/helpers/strings/camel";
-import { pascal } from "@/helpers/strings/pascal";
-import { group } from "@/helpers/arrays/group";
+import { camel } from "@/helpers/strings/camel.js";
+import { pascal } from "@/helpers/strings/pascal.js";
+import { group } from "@/helpers/arrays/group.js";
 
-import { extractDependencies } from "./extract-dependencies.js";
-import { createSourceFile } from "../../../../packages/common/src/utils/ast.js";
+import { extractDependencies } from "@/extractors/extract-dependencies.js";
 
-export async function createSnippets(
-  files: ImportGlob,
+import { createSourceFile } from "../../../common/src/utils/ast.js";
+
+type FilePath = string;
+
+type FileContent = string;
+
+export async function createRegistry(
+  fileMap: Record<FilePath, FileContent>,
 ): Promise<Record<SnippetType, Snippet[]>> {
   const snippets = await Promise.all(
-    Object.entries(files).map(async ([path, getContent]) => {
+    Object.entries(fileMap).map(async ([path, content]) => {
       const [registry, category, snippetName] = path.split("/").slice(-3);
 
       const type = registry.slice(0, -1);
@@ -26,7 +30,6 @@ export async function createSnippets(
 
       const id = basename(snippetName, extname(snippetName));
       const name = type === "type" ? pascal(id) : camel(id);
-      const content = ((await getContent()) as { default: string }).default;
 
       const file = await createSourceFile(snippetName, content);
       const dependencies = await extractDependencies(file);

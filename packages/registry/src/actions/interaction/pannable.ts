@@ -5,7 +5,7 @@ import type { Action } from "svelte/action";
  *
  * @example
  * ```svelte
- * <div use:pannable={true} on:panstart on:panmove on:panend>
+ * <div use:pannable={true} on:panstart on:panmove on:panend />
  * ```
  */
 export const pannable: Action<HTMLElement> = (node) => {

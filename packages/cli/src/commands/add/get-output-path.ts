@@ -2,9 +2,9 @@ import { exit } from "node:process";
 
 import type { ResolvedConfig } from "@/config/types.js";
 import type { Snippet } from "@atmx-org/common";
-import { pathExists } from "fs-extra";
 import { confirm } from "@inquirer/prompts";
 
+import { pathExists } from "@atmx-org/registry/helpers/filesystem/path-exists.js";
 import { getOutputPath as getOutPath } from "@/utils/get-output-path.js";
 import { clearSpinners } from "@/spinners.js";
 

@@ -11,14 +11,16 @@ import {
   type SourceFile,
   createSourceFile,
 } from "typescript";
+
 import { TextRange, TSDocParser } from "@microsoft/tsdoc";
+
+import { format } from "prettier";
 
 import formatSvelte from "prettier-plugin-svelte";
 
 import type { Snippet, TSDoc } from "@atmx-org/common";
 
 import { Formatter } from "./formatter.js";
-import { format } from "prettier";
 
 /**
  * Returns true if the specified SyntaxKind is part of a declaration form.
@@ -176,19 +178,24 @@ function walkCompilerAstAndFindComments(
 }
 
 async function formatExample(code: string) {
+  let c = code;
+  let lang = "ts";
+
   if (code.startsWith("```")) {
     const matcher = code.match(/^```(\w+)\n(.+)\n```$/s);
-    const lang = matcher?.[1] || "typescript";
-    const formatted = await format(
+
+    lang = matcher?.[1] || "ts";
+    c = await format(
       matcher?.[2] ?? code,
       lang === "svelte"
         ? { parser: "svelte", plugins: [formatSvelte] }
         : { parser: "typescript" },
     );
-    return ["```" + lang, formatted, "```"].join("\n");
+  } else {
+    c = await format(code, { parser: "typescript" });
   }
 
-  return format(code, { parser: "typescript" });
+  return [`\`\`\`${lang}`, c, "```"].join("\n");
 }
 
 async function extractDocs(code: string): Promise<TSDoc> {
@@ -217,7 +224,7 @@ async function extractDocs(code: string): Promise<TSDoc> {
   };
 }
 
-export async function extractTSDoc(snippet: Snippet): Promise<TSDoc> {
+async function extractTSDoc(snippet: Snippet): Promise<TSDoc> {
   const sourceFile: SourceFile = createSourceFile(
     "tmp.ts",
     snippet.content,
@@ -241,3 +248,5 @@ export async function extractTSDoc(snippet: Snippet): Promise<TSDoc> {
 
   return { description: "", parameters: [], examples: [] };
 }
+
+export { extractTSDoc as extractDocs };

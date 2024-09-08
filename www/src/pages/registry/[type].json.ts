@@ -5,7 +5,7 @@ import {
   type SnippetType,
 } from "@atmx-org/common";
 
-import { getSnippets } from "@/lib/get-snippets";
+import { createRegistry } from "@/lib/create-registry";
 
 export const GET: APIRoute<{ snippets: Snippet[] }> = async ({
   url,
@@ -36,7 +36,7 @@ export const GET: APIRoute<{ snippets: Snippet[] }> = async ({
 };
 
 export async function getStaticPaths() {
-  return Object.entries(await getSnippets()).map(([type, snippets]) => ({
+  return Object.entries(await createRegistry()).map(([type, snippets]) => ({
     params: { type: getRegistryName(type as SnippetType) },
     props: { snippets },
   }));

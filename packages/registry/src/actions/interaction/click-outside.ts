@@ -9,7 +9,7 @@ export interface ClickOutsideConfig {
  *
  * @example
  * ```svelte
- * <div use:clickOutside={{ enabled: open, cb: () => open = false }}>
+ * <div use:clickOutside={{ enabled: open, cb: () => open = false }} />
  * ```
  */
 export const clickOutside: Action<HTMLElement, ClickOutsideConfig> = (

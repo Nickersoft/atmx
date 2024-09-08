@@ -1,5 +1,5 @@
 import { configSchema } from "@/config.js";
-import { writeFile } from "fs/promises";
+import { writeFile } from "node:fs/promises";
 
 import { zodToJsonSchema } from "zod-to-json-schema";
 

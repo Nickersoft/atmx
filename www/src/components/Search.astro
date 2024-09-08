@@ -3,17 +3,17 @@ import { InteractiveSearch } from "./InteractiveSearch";
 
 import SearchIcon from "~icons/mdi/search";
 
-import { getSnippets } from "@/lib/registry/get-snippets";
+import { createRegistry } from "@/lib/create-registry";
 
 import KBD from "./KBD.astro";
 import {
-  expandSnippet,
   getRegistryName,
   SNIPPET_TYPES,
   type SnippetType,
 } from "@atmx-org/common";
+import { getDocsForSnippet } from "@atmx-org/registry-tools";
 
-const snippets = await getSnippets();
+const snippets = await createRegistry();
 
 let sections = await Promise.all(
   Object.entries(snippets).map(async ([section, snippets]) => ({
@@ -23,13 +23,13 @@ let sections = await Promise.all(
         .filter((s) => SNIPPET_TYPES.includes(s.type))
         .map(async (snippet) => ({
           name: snippet.name,
-          description: await expandSnippet(snippet).then(
-            (expanded) => expanded.description,
+          description: await getDocsForSnippet(snippet).then(
+            (expanded) => expanded.description
           ),
           link: snippet.urls.docs,
-        })),
+        }))
     ),
-  })),
+  }))
 );
 
 sections = sections.filter((section) => section.items.length > 0);

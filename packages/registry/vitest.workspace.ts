@@ -1,26 +1,24 @@
 import { defineWorkspace } from "vitest/config";
 
+const browserTests = [
+  "src/actions/**/*.test.ts",
+  "src/hooks/browser/*.test.ts",
+  "src/hooks/sensors/*.test.ts",
+];
+
 export default defineWorkspace([
   {
     extends: "vitest.config.ts",
     test: {
       environment: "jsdom",
-      exclude: [
-        "src/actions/**/*.test.ts",
-        "src/hooks/dom/*.test.ts",
-        "src/hooks/sensors/*.test.ts",
-      ],
+      exclude: browserTests,
     },
   },
   // Test hooks and actions in a browser
   {
     extends: "vitest.config.ts",
     test: {
-      include: [
-        "src/actions/**/*.test.ts",
-        "src/hooks/dom/*.test.ts",
-        "src/hooks/sensors/*.test.ts",
-      ],
+      include: browserTests,
       browser: {
         enabled: true,
         headless: true,

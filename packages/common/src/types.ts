@@ -1,10 +1,5 @@
 import { SNIPPET_TYPES } from "./consts.js";
 
-export type ImportGlob = Record<
-  string,
-  () => Promise<{ default: string }> | { default: string }
->;
-
 export type SnippetType = (typeof SNIPPET_TYPES)[number];
 
 export interface Dependencies {

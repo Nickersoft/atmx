@@ -2,7 +2,7 @@ import { expect, test } from "vitest";
 
 import type { SnippetType } from "@atmx-org/common";
 
-import { extractTSDoc } from "./extract-tsdoc.js";
+import { extractDocs } from "./extract-docs.js";
 
 const code = `
 /**
@@ -34,7 +34,7 @@ test("extracts docs correctly", async () => {
     },
   };
 
-  const result = await extractTSDoc(snippet);
+  const result = await extractDocs(snippet);
 
   expect(result).toStrictEqual({
     description:
