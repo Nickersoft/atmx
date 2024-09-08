@@ -5,7 +5,7 @@
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]
     },
     "build": {
-      "dependsOn": ["^build", "registry#check"],
+      "dependsOn": ["^build", "@atmx-org/registry#check"],
       "outputs": ["dist/**", ".vercel/**", ".astro/**"]
     },
     "test": {

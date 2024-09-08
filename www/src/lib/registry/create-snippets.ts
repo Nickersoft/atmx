@@ -1,14 +1,18 @@
 import { basename, extname } from "node:path";
 
-import type { ImportGlob, Snippet, SnippetType } from "@/types.js";
-import { transformImports } from "@/transformers/transform-imports.js";
+import {
+  type ImportGlob,
+  type Snippet,
+  type SnippetType,
+  transformImports,
+} from "@atmx-org/common";
 
-import { camel } from "@/helpers/strings/camel.js";
-import { pascal } from "@/helpers/strings/pascal.js";
+import { camel } from "@/helpers/strings/camel";
+import { pascal } from "@/helpers/strings/pascal";
+import { group } from "@/helpers/arrays/group";
 
 import { extractDependencies } from "./extract-dependencies.js";
-import { createSourceFile } from "./ast.js";
-import { group } from "./group.js";
+import { createSourceFile } from "../../../../packages/common/src/utils/ast.js";
 
 export async function createSnippets(
   files: ImportGlob,

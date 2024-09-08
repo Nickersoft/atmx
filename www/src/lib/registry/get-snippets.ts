@@ -1,4 +1,9 @@
-import { createSnippets, type ImportGlob } from "@atmx-org/common";
+import { createSnippets } from "./create-snippets";
+
+export type ImportGlob = Record<
+  string,
+  () => Promise<{ default: string }> | { default: string }
+>;
 
 export async function getSnippets() {
   const files = await import.meta.glob(

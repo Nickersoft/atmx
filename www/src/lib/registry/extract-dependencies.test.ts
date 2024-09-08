@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { extractDependencies } from "./extract-dependencies.js";
-import { createSourceFile } from "./ast.js";
+import { createSourceFile } from "../../../../packages/common/src/utils/ast.js";
 
 export const code = `
 import f1 from "some-external-lib";

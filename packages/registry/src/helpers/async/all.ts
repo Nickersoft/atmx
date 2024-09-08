@@ -11,9 +11,9 @@ type PromiseValues<T extends Promise<any>[]> = {
  *
  * @example
  * const [user] = await all([
- *   api.users.create(...),
- *   s3.buckets.create(...),
- *   slack.customerSuccessChannel.sendMessage(...)
+ *   api.users.create({}),
+ *   s3.buckets.create({}),
+ *   slack.customerSuccessChannel.sendMessage({})
  * ])
  */
 export async function all<T extends [Promise<any>, ...Promise<any>[]]>(
@@ -31,9 +31,9 @@ export async function all<T extends Promise<any>[]>(
  *
  * @example
  * const { user } = await all({
- *   user: api.users.create(...),
- *   bucket: s3.buckets.create(...),
- *   message: slack.customerSuccessChannel.sendMessage(...)
+ *   user: api.users.create({}),
+ *   bucket: s3.buckets.create({}),
+ *   message: slack.customerSuccessChannel.sendMessage({})
  * })
  */
 export async function all<T extends Record<string, Promise<any>>>(

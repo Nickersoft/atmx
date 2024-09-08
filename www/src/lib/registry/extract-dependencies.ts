@@ -1,4 +1,4 @@
-import type { Dependencies } from "@/types.js";
+import type { Dependencies } from "@atmx-org/common";
 
 import type { SourceFile } from "ts-morph";
 

@@ -10,19 +10,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Usage
 
-  <% if (it.example.startsWith('```')) { %>
-
-    <%~ it.example %>
-
-  <% } else { %>
-
-    ```ts  
-    <%~ it.example %>    
-    ```
-
-  <% } %>
-
-<% } %>
+<%~ it.example %>
 
 ## Installation
 

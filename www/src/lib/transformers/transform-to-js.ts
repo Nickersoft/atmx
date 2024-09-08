@@ -1,6 +1,9 @@
 import { format, type Options as PrettierOptions } from "prettier";
 
-import { type RemoveTypeOptions, removeTypes } from "@/utils/remove-types.js";
+import {
+  type RemoveTypeOptions,
+  removeTypes,
+} from "@/lib/registry/remove-types";
 
 export interface TransformOptions extends RemoveTypeOptions {
   /** Prettier options */

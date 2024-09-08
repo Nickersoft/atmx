@@ -1,7 +1,8 @@
 /**
  * Linearly interpolates between two numbers.
  *
- * @example  * lerp(0, 10, 0.5) // => 5
+ * @example
+ * lerp(0, 10, 0.5) // => 5
  * lerp(5, 15, 0.2) // => 7
  * lerp(-10, 10, 0.75) // => 5
  */

@@ -15,7 +15,7 @@ import {
   type SnippetType,
 } from "@atmx-org/common";
 
-import { getSnippets } from "../../src/lib/get-snippets";
+import { getSnippets } from "@/lib/registry/get-snippets";
 
 import type { TemplateData } from "./types";
 

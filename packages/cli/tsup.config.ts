@@ -5,6 +5,7 @@ export default defineConfig({
   dts: true,
   format: ["esm"],
   target: "esnext",
+  treeshake: true,
   minify: process.env.NODE_ENV !== "development",
   sourcemap: true,
   noExternal: ["@atmx-org/registry"],

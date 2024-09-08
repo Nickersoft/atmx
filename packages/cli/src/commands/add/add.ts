@@ -1,4 +1,4 @@
-import { type RegistryName } from "@atmx-org/common";
+import type { RegistryName } from "@atmx-org/common";
 
 import { getConfig } from "@/config/get-config.js";
 

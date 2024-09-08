@@ -1,7 +1,8 @@
 import { expect, test } from "vitest";
 
+import type { SnippetType } from "@atmx-org/common";
+
 import { extractTSDoc } from "./extract-tsdoc.js";
-import type { SnippetType } from "@/types.js";
 
 const code = `
 /**
