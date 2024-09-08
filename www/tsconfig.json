@@ -4,12 +4,13 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
+    "skipLibCheck": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*", "../../node_modules/@atmx-org/registry/src/*"]
     },
     "types": ["unplugin-icons/types/react"]
   },
-  "exclude": ["src/snippets/**/*", "dist/**/*"],
+  "exclude": ["dist/**/*"],
   "mdx": {
     // Enable strict type checking in MDX files.
     "checkMdx": true

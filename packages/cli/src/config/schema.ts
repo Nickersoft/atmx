@@ -1,24 +1,31 @@
 import * as v from "valibot";
 
-export const stringCasing = v.enum({
-  kebab: "kebab",
-  pascal: "pascal",
-  camel: "camel",
-});
+import {
+  getRegistryName,
+  SNIPPET_TYPES,
+  configSchema as baseConfigSchema,
+  type RegistryName,
+} from "@atmx-org/common";
 
-export const configSchema = v.object({
-  ts: v.boolean(),
-  casing: stringCasing,
-  aliases: v.object({
-    helpers: v.string(),
-    hooks: v.string(),
-  }),
-});
+import { isESM } from "@/utils/environment.ts";
+import { resolveAlias } from "@/utils/resolve-alias.ts";
 
-export const resolvedConfigSchema = v.object({
-  ...configSchema.entries,
-  resolvedAliases: v.object({
-    helpers: v.string(),
-    hooks: v.string(),
-  }),
-});
+export const configSchema = v.pipeAsync(
+  baseConfigSchema,
+  v.transformAsync(async (config) => ({
+    ...config,
+    isESM: await isESM(config.cwd),
+    resolvedAliases: Object.fromEntries(
+      await Promise.all(
+        SNIPPET_TYPES.map(async (type) => [
+          getRegistryName(type),
+          await resolveAlias({
+            type,
+            aliasMap: config.aliases,
+            isTypeScript: config.ts,
+          }),
+        ]),
+      ),
+    ) as Record<RegistryName, string>,
+  })),
+);

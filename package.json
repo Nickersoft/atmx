@@ -5,12 +5,15 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "release": "turbo run build && changesets publish",
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "clean": "rimraf -g packages/**/dist www/**/.vercel packages/**/.turbo www/**/.turbo www/**/.astro",
     "preview": "turbo run preview",
-    "www": "pnpm --filter www run",
-    "cli": "pnpm --filter cli run",
-    "common": "pnpm --filter common run"
+    "check": "turbo run check",
+    "www": "bun --filter www run",
+    "cli": "bun --filter cli run",
+    "common": "bun --filter common run"
   },
   "workspaces": [
     "packages/*",
@@ -26,7 +29,7 @@
     "turbo": "^2.1.1",
     "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
+  "packageManager": "bun@1.1.26",
   "license": "MIT",
   "dependencies": {
     "eta": "^3.5.0"

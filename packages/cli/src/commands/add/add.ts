@@ -1,23 +1,20 @@
-import { Argument, Command } from "commander";
-import { pathExists } from "fs-extra";
-import { confirm } from "@inquirer/prompts";
-import ora, { type Ora } from "ora";
+import { relative } from "node:path";
 
-import {
-  getRegistry,
-  getRegistryName,
-  SNIPPET_TYPES,
-  type RegistryName,
-} from "@atmx-org/common";
+import chalk from "chalk";
 
-import { installPackages } from "@/utils/install-packages.js";
+import type { RegistryName } from "@atmx-org/common";
 
-import { getConfig } from "@/config/get-config.js";
+import { getConfig } from "@/config/get-config.ts";
 
-import type { AddOptions, AddSummary } from "./types.js";
-import { resolveSnippet } from "./resolve-snippet.js";
-import { getOutputPath } from "./get-output-path.js";
-import { installSnippet } from "@/utils/install-snippet.js";
+import { installSnippet } from "./utils/install-snippet.ts";
+import { installPackages } from "./utils/install-packages.ts";
+import { filterInstalled } from "./utils/filter-installed.ts";
+import { resolveSnippet } from "./utils/resolve-snippet.ts";
+import { getOutputPath } from "./utils/get-output-path.ts";
+
+import type { AddOptions } from "./types.ts";
+
+import { createSpinner } from "@/spinners.ts";
 
 async function installDeps(deps: string[], options: AddOptions) {
   if (deps.length === 0) return;
@@ -40,15 +37,19 @@ export async function add(opts: AddOptions) {
   const { overwrite, logging, name, type, registry: registryName } = opts;
 
   // Retrieve the user config
-  const config = await getConfig();
+  const config = await getConfig(opts.cwd);
 
   // Find the snippet by name and error if not found
   const snippet = await resolveSnippet({ type, name, registryName });
 
   if (snippet) {
-    const outputPath = await getOutputPath({ snippet, overwrite, config });
+    const { outputPath, force } = await getOutputPath({
+      snippet,
+      overwrite,
+      config,
+    });
 
-    const spinner = ora({ isSilent: !logging }).start();
+    const spinner = createSpinner({ isSilent: !logging }).start();
 
     spinner.text = `Adding ${type} ${name}...`;
 
@@ -58,13 +59,25 @@ export async function add(opts: AddOptions) {
 
     if (local.length > 0 || external.length > 0) {
       spinner.text = "Installing dependencies...";
-      await Promise.all([installDeps(local, opts), installPackages(external)]);
+
+      const pkgs = await filterInstalled(opts.cwd, external);
+
+      await Promise.all([
+        installDeps(local, { ...opts, overwrite: force }),
+        installPackages(pkgs),
+      ]);
+
+      opts.summary.addedDependencies.push(...pkgs);
     }
 
     spinner.text = `Installing '${name}'...`;
 
     await installSnippet({ snippet, config, outputPath });
 
-    spinner.succeed(`Installed ${type} ${name}!`);
+    spinner.stop();
+
+    console.log(`\n✨ Installed ${type}: ${chalk.bold(name)}\n`);
+
+    opts.summary.addedFiles.push(relative(opts.cwd, outputPath));
   }
 }

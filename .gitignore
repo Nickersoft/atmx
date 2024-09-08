@@ -13,7 +13,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
+bun-debug.log*
 
 
 # environment variables
@@ -25,6 +25,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+__screenshots__
 
 .vercel
 .turbo

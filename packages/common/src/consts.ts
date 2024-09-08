@@ -4,6 +4,6 @@ export const REGISTRY_HOST = IS_DEV
   ? "http://localhost:4321"
   : "https://atmx.dev";
 
-export const SNIPPET_TYPES = ["hook", "helper"] as const;
+export const SNIPPET_TYPES = ["hook", "action", "type", "helper"] as const;
 
 export const CLI_NAME = `atmx`;

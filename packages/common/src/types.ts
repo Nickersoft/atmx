@@ -1,9 +1,4 @@
-import { SNIPPET_TYPES } from "./consts.js";
-
-export type ImportGlob = Record<
-  string,
-  () => Promise<{ default: string }> | { default: string }
->;
+import { SNIPPET_TYPES } from "./consts.ts";
 
 export type SnippetType = (typeof SNIPPET_TYPES)[number];
 
@@ -13,6 +8,7 @@ export interface Dependencies {
 }
 
 export interface Snippet {
+  id: string;
   type: SnippetType;
   category: string;
   name: string;

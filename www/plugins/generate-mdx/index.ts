@@ -19,6 +19,30 @@ export default {
               collapsed: true,
             },
           },
+          {
+            label: "Hooks",
+            collapsed: false,
+            autogenerate: {
+              directory: "generated/hooks",
+              collapsed: true,
+            },
+          },
+          {
+            label: "Actions",
+            collapsed: false,
+            autogenerate: {
+              directory: "generated/actions",
+              collapsed: true,
+            },
+          },
+          {
+            label: "Types",
+            collapsed: false,
+            autogenerate: {
+              directory: "generated/types",
+              collapsed: true,
+            },
+          },
         ],
       });
     },

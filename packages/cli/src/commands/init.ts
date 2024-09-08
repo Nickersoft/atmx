@@ -3,9 +3,11 @@ import { writeFile } from "node:fs/promises";
 import { Command } from "commander";
 import { input, select } from "@inquirer/prompts";
 
-import { CONFIG_FILENAME } from "@/consts.js";
-import { isTypescriptProject } from "@/utils/is-typescript-project.js";
-import type { GlobalOptions } from "@/types.js";
+import type { Config } from "@atmx-org/common";
+
+import { isTypescriptProject } from "@/utils/environment.ts";
+import type { GlobalOptions } from "@/types.ts";
+import { CONFIG_FILE_NAME } from "@/config/consts.ts";
 
 interface InitOptions extends GlobalOptions {}
 
@@ -28,19 +30,33 @@ async function init(options: InitOptions) {
   });
 
   const hooks = await input({
-    message: "What alias would you like to use for React hooks (if using)?",
+    message: "What alias would you like to use for React hooks?",
     default: "@/lib/hooks",
   });
 
-  const config = {
+  const actions = await input({
+    message: "What alias would you like to use for Svelte actions?",
+    default: "@/lib/actions",
+  });
+
+  const types = await input({
+    message: "What alias would you like to use for utility types?",
+    default: "@/lib/types",
+  });
+
+  const config: Config = {
     ts,
     aliases: {
       helpers,
       hooks,
+      types,
+      actions,
     },
   };
 
-  await writeFile(CONFIG_FILENAME, JSON.stringify(config, null, 2));
+  await writeFile(CONFIG_FILE_NAME, JSON.stringify(config, null, 2));
+
+  console.log("\n✅ utils.json created successfully!");
 }
 
 export default new Command("init").action(init);

@@ -20,6 +20,9 @@ export default defineConfig({
         jsx: "react",
       }),
     ],
+    ssr: {
+      noExternal: ["@atmx-org/registry"],
+    },
   },
   integrations: [
     starlight({

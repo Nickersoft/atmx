@@ -1,7 +1,7 @@
-import type { ResolvedConfig, Transformer } from "@/types.js";
+import type { ResolvedConfig, Transformer } from "@/types.ts";
 import { createSourceFile } from "@atmx-org/common";
 
-import { transformImports } from "./transform-imports.js";
+import { transformImports } from "./transform-imports.ts";
 
 const transformers: Transformer[] = [transformImports];
 

@@ -1,6 +1,6 @@
 import type { RegistryName, SnippetType } from "@atmx-org/common";
 
-import type { GlobalOptions } from "@/types.js";
+import type { GlobalOptions } from "@/types.ts";
 
 export interface AddOptions extends GlobalOptions {
   registry: RegistryName;

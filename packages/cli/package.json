@@ -8,21 +8,27 @@
   },
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
-    "dev": "tsup --watch",
-    "prepare": "pnpm run build",
-    "generate-schema": "tsx scripts/generate-schema.ts",
-    "test": "vitest"
+    "dev": "cross-env NODE_ENV=development tsup --watch",
+    "generate-schema": "tsx scripts/generate-schema.ts"
   },
-  "keywords": ["atmx", "atomics", "lodash", "utilities", "hooks", "cli"],
+  "keywords": [
+    "atmx",
+    "atomics",
+    "lodash",
+    "utilities",
+    "hooks",
+    "cli"
+  ],
   "author": "Tyler Nickerson",
   "license": "MIT",
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
+    "@atmx-org/registry": "workspace:*",
+    "@types/bun": "^1.1.8",
+    "cross-env": "^7.0.3",
     "tsup": "^8.2.4",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.5",
-    "zod-to-json-schema": "^3.23.2"
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "dependencies": {
     "@atmx-org/common": "workspace:*",
@@ -30,7 +36,6 @@
     "commander": "^12.1.0",
     "detect-package-manager": "^3.0.2",
     "execa": "^9.3.1",
-    "fs-extra": "^11.2.0",
     "lilconfig": "^3.1.2",
     "ora": "^8.0.1",
     "tsconfig-paths": "^4.2.0",

@@ -3,12 +3,12 @@ import type { APIRoute } from "astro";
 import {
   type ExpandedSnippet,
   type SnippetType,
-  expandSnippet,
   getRegistryName,
-  transformToJS,
 } from "@atmx-org/common";
 
-import { getSnippets } from "@/lib/get-snippets";
+import { transformToJS, getDocsForSnippet } from "@atmx-org/registry-tools";
+
+import { createRegistry } from "@/lib/create-registry";
 
 export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
   params,
@@ -21,7 +21,7 @@ export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
     return new Response(snippet.content);
   }
 
-  if (name?.endsWith(".js")) {
+  if (name?.endsWith(".ts")) {
     return new Response(await transformToJS(snippet.content));
   }
 
@@ -29,26 +29,30 @@ export const GET: APIRoute<{ snippet: ExpandedSnippet }> = async ({
 };
 
 export async function getStaticPaths() {
-  const snippets = await getSnippets();
+  const snippets = await createRegistry();
 
   return Promise.all(
     Object.entries(snippets).flatMap(([_type, snippets]) =>
       Promise.all(
         snippets?.map(async (snippet) => {
-          const metadata = await expandSnippet(snippet);
+          const metadata = await getDocsForSnippet(snippet).then((docs) => ({
+            ...snippet,
+            ...docs,
+          }));
+
           const type = getRegistryName(_type as SnippetType);
 
           return [
             {
-              params: { type, name: `${snippet.name}.json` },
+              params: { type, name: `${snippet.id}.json` },
               props: { snippet: metadata },
             },
             {
-              params: { type, name: `${snippet.name}.ts` },
+              params: { type, name: `${snippet.id}.ts` },
               props: { snippet: metadata },
             },
             {
-              params: { type, name: `${snippet.name}.js` },
+              params: { type, name: `${snippet.id}.js` },
               props: { snippet: metadata },
             },
           ];

@@ -10,6 +10,10 @@ type Item = Props["sidebar"][number];
 
 const { sidebar, ...props } = Astro.props;
 
+function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function updateLinks(items: Item[], child: boolean = false) {
   for (const link of items) {
     if (link.type === "link") {
@@ -21,6 +25,7 @@ function updateLinks(items: Item[], child: boolean = false) {
         "active:opacity-50 transition-all duration-150",
       );
     } else {
+      link.label = capitalize(link.label);
       link.entries = updateLinks(link.entries, true);
     }
   }

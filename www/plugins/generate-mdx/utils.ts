@@ -7,17 +7,18 @@ import { format } from "prettier";
 
 import { Eta } from "eta";
 
+import { getDocsForSnippet } from "@atmx-org/registry-tools";
+
 import {
-  expandSnippet,
   getRegistryName,
   SNIPPET_TYPES,
   type Snippet,
   type SnippetType,
 } from "@atmx-org/common";
 
-import { getSnippets } from "../../src/lib/get-snippets";
-
 import type { TemplateData } from "./types";
+
+import { createRegistry } from "../../src/lib/create-registry";
 
 const eta = new Eta({
   views: fileURLToPath(new URL("../../templates", import.meta.url)),
@@ -33,16 +34,17 @@ export function filterSnippets(
 
 async function processSnippet(snippet: Snippet): Promise<void> {
   const code = snippet.content;
-  const expanded = await expandSnippet(snippet);
+  const docs = await getDocsForSnippet(snippet);
   const registry = getRegistryName(snippet.type);
 
   const result = eta.render<TemplateData>("mdx", {
     name: snippet.name,
+    id: snippet.id,
     type: snippet.type,
-    description: expanded.description,
-    example: expanded.examples[0] ?? "",
+    description: docs.description,
+    example: docs.examples[0] ?? "",
     code: await format(code, { parser: "typescript" }),
-    slug: expanded.urls.docs.slice(1).toLowerCase(),
+    slug: snippet.urls.docs.slice(1),
   });
 
   const generatedDir = fileURLToPath(
@@ -53,7 +55,7 @@ async function processSnippet(snippet: Snippet): Promise<void> {
     await rm(generatedDir, { recursive: true });
   }
 
-  const outputDir = resolve(generatedDir, registry, expanded.category);
+  const outputDir = resolve(generatedDir, registry, snippet.category);
 
   await mkdir(outputDir, { recursive: true });
 
@@ -65,7 +67,9 @@ async function processSnippet(snippet: Snippet): Promise<void> {
 }
 
 export async function generateSnippetMDX(): Promise<void> {
-  const snippets: [string, Snippet[]][] = filterSnippets(await getSnippets());
+  const snippets: [string, Snippet[]][] = filterSnippets(
+    await createRegistry(),
+  );
 
   await Promise.all(
     snippets.flatMap(async (entry) => entry[1].map(processSnippet)),

@@ -4,5 +4,6 @@ export interface TemplateData {
   example: string;
   code: string;
   type: string;
+  id: string;
   slug: string;
 }
