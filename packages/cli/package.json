@@ -9,9 +9,7 @@
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
     "dev": "cross-env NODE_ENV=development tsup --watch",
-    "prepare": "bun run build",
-    "generate-schema": "tsx scripts/generate-schema.ts",
-    "test": "vitest"
+    "generate-schema": "tsx scripts/generate-schema.ts"
   },
   "keywords": [
     "atmx",
@@ -30,8 +28,7 @@
     "tsup": "^8.2.4",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
-    "vite-tsconfig-paths": "^5.0.1",
-    "zod-to-json-schema": "^3.23.2"
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "dependencies": {
     "@atmx-org/common": "workspace:*",

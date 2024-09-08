@@ -14,9 +14,7 @@
   ],
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
-    "dev": "tsup --watch",
-    "prepare": "bun run build",
-    "test": "vitest"
+    "dev": "tsup --watch"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
