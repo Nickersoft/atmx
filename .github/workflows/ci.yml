@@ -11,17 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup bun
-        uses: bun/action-setup@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20.x
-          cache: "bun"
+          bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
-      - name: Install Playwright Browsers
-        run: bun dlx playwright install chromium --with-deps
       - name: Typechecking
         run: bun run check
       - name: Running tests

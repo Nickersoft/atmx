@@ -2,7 +2,7 @@ import type { Dependencies } from "@atmx-org/common";
 
 import type { SourceFile } from "ts-morph";
 
-const LOCAL_REGEX = /^@\/(.+)\/.+\/([^.]+)(?:.(js|ts)?)?$/;
+const LOCAL_REGEX = /^@\/(.+)\/.+\/([^.]+)(?:.[jt]s?)?$/;
 const ORG_REGEX = /^(@[^\/]+\/[^\/]+)\/?.*$/;
 const PKG_REGEX = /^([^@][^\/]+)\/?.*$/;
 
