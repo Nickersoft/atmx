@@ -1,7 +1,7 @@
 import { getRegistryName, SNIPPET_TYPES } from "@atmx-org/common";
 import { Argument, Command } from "commander";
 
-import chalk from "chalk";
+import * as pc from "picocolors";
 
 import { createAction } from "@/utils/create-action.ts";
 
@@ -30,17 +30,17 @@ const action = createAction(async ({ args: [type, name], cmd }) => {
   printTree(
     [
       {
-        name: chalk.bold("📄 New Files"),
+        name: pc.bold("📄 New Files"),
         children: addedFiles.map((file) => ({
-          name: chalk.green(`+ ${file}`),
+          name: pc.green(`+ ${file}`),
         })),
       },
       ...(addedDependencies.length > 0
         ? [
             {
-              name: chalk.bold("📦 New Dependencies"),
+              name: pc.bold("📦 New Dependencies"),
               children: addedDependencies.map((dep) => ({
-                name: chalk.green(`+ ${dep}`),
+                name: pc.green(`+ ${dep}`),
               })),
             },
           ]
@@ -49,7 +49,7 @@ const action = createAction(async ({ args: [type, name], cmd }) => {
     {
       label: "name",
       children: "children",
-      rootLabel: chalk.underline(chalk.bold("Summary\n")),
+      rootLabel: pc.underline(pc.bold("Summary\n")),
     },
   );
 });

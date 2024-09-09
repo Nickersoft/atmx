@@ -1,6 +1,6 @@
 import { relative } from "node:path";
 
-import chalk from "chalk";
+import * as pc from "picocolors";
 
 import type { RegistryName } from "@atmx-org/common";
 
@@ -76,7 +76,7 @@ export async function add(opts: AddOptions) {
 
     spinner.stop();
 
-    console.log(`\n✨ Installed ${type}: ${chalk.bold(name)}\n`);
+    console.log(`\n✨ Installed ${type}: ${pc.bold(name)}\n`);
 
     opts.summary.addedFiles.push(relative(opts.cwd, outputPath));
   }
