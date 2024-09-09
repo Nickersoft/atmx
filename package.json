@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "release": "turbo run build && changesets publish",
+    "release": "turbo run build && changeset publish",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "clean": "rimraf -g packages/**/dist www/**/.vercel packages/**/.turbo www/**/.turbo www/**/.astro",

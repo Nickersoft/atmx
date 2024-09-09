@@ -28,9 +28,8 @@ export default defineConfig({
     starlight({
       title: "ATMX",
       customCss: [
-        "@fontsource/geist-sans",
+        "@fontsource-variable/inter",
         "@fontsource/geist-mono",
-        "@fontsource-variable/space-grotesk",
         "./src/styles/global.postcss",
       ],
       social: {
@@ -48,7 +47,7 @@ export default defineConfig({
       plugins: [snippetMDX],
       expressiveCode: {
         // themes: ["starlight-dark"],
-        themes: [theme],
+        themes: [theme, "starlight-light"],
         styleOverrides: {
           borderRadius: "calc(var(--radius) - 2px)",
           borderWidth: "1px",

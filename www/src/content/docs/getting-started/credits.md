@@ -2,7 +2,7 @@
 title: Credits
 description: atmx is built atop the open-source community
 sidebar:
-  order: 2
+  order: 4
 ---
 
 While we'd love to take credit for all of the code on the website, much of it is lifted from MIT-licensed code repositories. 

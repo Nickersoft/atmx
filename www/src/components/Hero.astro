@@ -15,7 +15,7 @@ import Link from "./Link.astro";
   class="container pb-16 absolute inset-0 max-w-2xl mx-auto flex flex-col justify-center items-center gap-8"
 >
   <div class="blur-in w-full w-max-[700px]">
-    <Logo class="text-foreground glowing" />
+    <Logo class="text-foreground logo" />
   </div>
 
   <p
@@ -40,16 +40,6 @@ import Link from "./Link.astro";
 </div>
 
 <style>
-  @keyframes glowing {
-    from {
-      filter: drop-shadow(0 0 12px theme("textColor.foreground"));
-    }
-
-    to {
-      filter: drop-shadow(0 0 8px theme("textColor.foreground/0.5"));
-    }
-  }
-
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -66,10 +56,6 @@ import Link from "./Link.astro";
 
   .blur-in {
     animation: fadeIn 2s ease-out;
-  }
-
-  .glowing {
-    animation: glowing 2.5s infinite alternate ease-in-out;
   }
 </style>
 
@@ -104,8 +90,10 @@ import Link from "./Link.astro";
       const w = (this.#canvas.width = this.#canvas.clientWidth) / 2;
       const h = (this.#canvas.height = this.#canvas.clientHeight) / 2;
 
-      // ctx.fillRect(0, 0, w * 2, h * 2);
-      this.#ctx.fillStyle = "#fff";
+      const isDark =
+        document.querySelector(":root")?.getAttribute("data-theme") === "dark";
+
+      this.#ctx.fillStyle = isDark ? "#fff" : "#000";
 
       for (let i = 30; i--; ) {
         for (let j = 80; j--; ) {
@@ -122,7 +110,7 @@ import Link from "./Link.astro";
             h / 8 + (y / z) * 180,
             16 / z / z,
             0,
-            7,
+            7
           );
           this.#ctx.fill();
         }
