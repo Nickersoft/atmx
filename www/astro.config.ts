@@ -27,6 +27,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "ATMX",
+      description: "Utilities, React hooks, and more in a single command.",
       customCss: [
         "@fontsource-variable/inter",
         "@fontsource/geist-mono",
@@ -75,6 +76,7 @@ export default defineConfig({
         Header: "./src/components/Header.astro",
         ContentPanel: "./src/components/ContentPanel.astro",
         Hero: "./src/components/Hero.astro",
+        Head: "./src/components/Head.astro",
       },
     }),
     tailwind({

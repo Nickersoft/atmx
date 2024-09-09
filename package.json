@@ -12,6 +12,7 @@
     "preview": "turbo run preview",
     "check": "turbo run check",
     "www": "bun --filter www run",
+    "postinstall": "bun run build --filter='@atmx-org/*'",
     "cli": "bun --filter cli run",
     "common": "bun --filter common run"
   },

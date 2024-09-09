@@ -35,6 +35,7 @@
     "@radix-ui/react-tabs": "^1.1.0",
     "@rehype-pretty/transformers": "^0.13.2",
     "astro": "^4.14.5",
+    "astro-seo": "^0.8.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",

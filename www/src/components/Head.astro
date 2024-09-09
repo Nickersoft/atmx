@@ -1,5 +1,9 @@
 ---
-// import { ViewTransitions } from "astro:transitions";
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Head.astro";
 ---
 
-<!-- <ViewTransitions /> -->
+<Default {...Astro.props}><slot /></Default>
+
+<meta property="og:image" content={new URL("/og.jpg", Astro.url)} />
+<meta name="twitter:image" content={new URL("/og.jpg", Astro.url)} />
