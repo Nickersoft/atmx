@@ -27,8 +27,8 @@ export async function installSnippet({
   const indexDir = dirname(outputPath);
 
   if (config.index) {
-    generateIndexFile(indexDir);
+    generateIndexFile(indexDir, config.isESM, config.ts);
   } else {
-    deleteIndexFile(indexDir);
+    deleteIndexFile(indexDir, config.ts);
   }
 }
