@@ -5,6 +5,7 @@ import { REGISTRY_HOST, SNIPPET_TYPES } from "@/consts.ts";
 
 export const configSchema = v.pipe(
   v.object({
+    index: v.optional(v.boolean(), false),
     cwd: v.optional(v.string(), "."),
     ts: v.optional(v.boolean(), false),
     casing: v.optional(

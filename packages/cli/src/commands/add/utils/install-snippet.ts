@@ -4,6 +4,8 @@ import { type Snippet } from "@atmx-org/common";
 
 import type { ResolvedConfig } from "@/config/types.ts";
 import { transform } from "@/transformers/transform.ts";
+import { deleteIndexFile, generateIndexFile } from "./index-file.ts";
+import { dirname } from "node:path";
 
 interface InstallSnippetOptions {
   snippet: Snippet;
@@ -20,5 +22,13 @@ export async function installSnippet({
   const rawCode = await fetch(url).then((res) => res.text());
   const code = await transform(snippet.name, rawCode, config);
 
-  return writeFile(outputPath, code);
+  await writeFile(outputPath, code);
+
+  const indexDir = dirname(outputPath);
+
+  if (config.index) {
+    generateIndexFile(indexDir, config.isESM, config.ts);
+  } else {
+    deleteIndexFile(indexDir, config.ts);
+  }
 }

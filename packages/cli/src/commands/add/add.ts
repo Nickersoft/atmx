@@ -53,10 +53,14 @@ export async function add(opts: AddOptions) {
 
     spinner.text = `Adding ${type} ${name}...`;
 
-    const {
+    let {
       dependencies: { local, external },
     } = snippet;
 
+    if(!config.ts){
+      local = local.filter((dep: string) => !dep.startsWith('types/'));
+    }
+  
     if (local.length > 0 || external.length > 0) {
       spinner.text = "Installing dependencies...";
 
