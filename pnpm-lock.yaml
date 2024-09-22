@@ -307,8 +307,8 @@ importers:
         specifier: ^5.0.3
         version: 5.1.0
       '@gcornut/valibot-json-schema':
-        specifier: ^0.41.1
-        version: 0.41.1(esbuild@0.23.1)(typescript@5.6.2)
+        specifier: ^0.42.0
+        version: 0.42.0(esbuild@0.23.1)(typescript@5.6.2)
       '@iconify-json/mdi':
         specifier: ^1.1.68
         version: 1.2.0
@@ -1081,8 +1081,8 @@ packages:
   '@fontsource/geist-mono@5.1.0':
     resolution: {integrity: sha512-MDFgmKUdDbV357vD2bOZAro597Nd2md01GAdr3GSZteCJQdPT/UhHUBCAxl9KUiH03aMPFM9Rx7x8/EtrJmpKg==}
 
-  '@gcornut/valibot-json-schema@0.41.1':
-    resolution: {integrity: sha512-wrMSbzfBK7tiej89z8xZf0Gu0gJXCQHsx9yf4E0qFULXptP8/oSsAjUYgqV+jNA6/v0I4+eLb7KssVLbVSiWmw==}
+  '@gcornut/valibot-json-schema@0.42.0':
+    resolution: {integrity: sha512-4Et4AN6wmqeA0PfU5Clkv/IS27wiefsWf6TemAZrb75uzkClYEFavim7SboeKwbll9Nbsn2Iv0LT/HS5H7orZg==}
     hasBin: true
 
   '@iconify-json/mdi@1.2.0':
@@ -4824,6 +4824,14 @@ packages:
       typescript:
         optional: true
 
+  valibot@0.42.1:
+    resolution: {integrity: sha512-3keXV29Ar5b//Hqi4MbSdV7lfVp6zuYLZuA9V1PvQUsXqogr+u5lvLPLk3A4f74VUXDnf/JfWMN6sB+koJ/FFw==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
 
@@ -5980,9 +5988,9 @@ snapshots:
 
   '@fontsource/geist-mono@5.1.0': {}
 
-  '@gcornut/valibot-json-schema@0.41.1(esbuild@0.23.1)(typescript@5.6.2)':
+  '@gcornut/valibot-json-schema@0.42.0(esbuild@0.23.1)(typescript@5.6.2)':
     dependencies:
-      valibot: 0.41.0(typescript@5.6.2)
+      valibot: 0.42.1(typescript@5.6.2)
     optionalDependencies:
       '@types/json-schema': 7.0.15
       esbuild-runner: 2.2.2(esbuild@0.23.1)
@@ -10246,6 +10254,10 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   valibot@0.41.0(typescript@5.6.2):
+    optionalDependencies:
+      typescript: 5.6.2
+
+  valibot@0.42.1(typescript@5.6.2):
     optionalDependencies:
       typescript: 5.6.2
 
