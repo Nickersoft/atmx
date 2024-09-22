@@ -7,11 +7,11 @@
     "./*": "./src/*"
   },
   "scripts": {
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "test": "vitest"
   },
   "license": "MIT",
   "devDependencies": {
-    "@happy-dom/global-registrator": "^15.7.4",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.1",
     "@types/bun": "^1.1.10",
@@ -24,7 +24,6 @@
     "svelte": "^4.2.19",
     "tinyspy": "^3.0.2",
     "typescript": "^5.6.2",
-    "vite-tsconfig-paths": "^5.0.1",
-    "@sinonjs/fake-timers": "^13.0.2"
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

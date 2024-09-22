@@ -8,8 +8,10 @@
   },
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
+    "test": "vitest",
     "dev": "cross-env NODE_ENV=development tsup --watch",
-    "generate-schema": "tsx scripts/generate-schema.ts"
+    "generate-schema": "tsx scripts/generate-schema.ts",
+    "prepare": "pnpm run build"
   },
   "keywords": [
     "atmx",

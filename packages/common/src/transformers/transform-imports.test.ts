@@ -1,4 +1,4 @@
-import { expect, test } from "bun:test";
+import { expect, test } from "vitest";
 
 import { transformImports } from "./transform-imports.ts";
 import { createSourceFile } from "@/utils/ast.ts";

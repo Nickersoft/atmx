@@ -1,12 +1,12 @@
 import {
   describe,
   beforeAll,
-  jest,
+  vi,
   beforeEach,
   afterEach,
   it,
   expect,
-} from "bun:test";
+} from "vitest";
 
 // Needed for r e a s o n s
 // https://github.com/vitest-dev/vitest/issues/6104
@@ -19,8 +19,8 @@ describe("lazyload", function () {
   let action: ReturnType<typeof lazyload>;
   let intersectionObserverConstructorSpy: SpyImpl;
 
-  const observeFake = jest.fn();
-  const unobserveFake = jest.fn();
+  const observeFake = vi.fn();
+  const unobserveFake = vi.fn();
 
   beforeAll(function () {
     setupIntersectionObserverMock({

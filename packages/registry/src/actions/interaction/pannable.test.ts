@@ -1,12 +1,12 @@
 import {
   describe,
-  jest,
+  vi,
   beforeAll,
   afterEach,
   it,
   afterAll,
   expect,
-} from "bun:test";
+} from "vitest";
 
 import { pannable } from "./pannable.ts";
 
@@ -30,9 +30,9 @@ describe("pannable", function () {
   it("dispatches pan events", function () {
     action = pannable(element);
 
-    const panstartCb = jest.fn();
-    const panmoveCb = jest.fn();
-    const panendCb = jest.fn();
+    const panstartCb = vi.fn();
+    const panmoveCb = vi.fn();
+    const panendCb = vi.fn();
 
     element.addEventListener("panstart", panstartCb);
     element.addEventListener("panmove", panmoveCb);

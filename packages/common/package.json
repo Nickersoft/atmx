@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "prepare": "pnpm run build"
   },
   "devDependencies": {
     "@types/babel__core": "^7.20.5",

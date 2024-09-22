@@ -1,4 +1,4 @@
-import { it } from "bun:test";
+import { it } from "vitest";
 
 import { createSourceFile } from "@atmx-org/common";
 import { parseConfig } from "@/config/parse-config.ts";

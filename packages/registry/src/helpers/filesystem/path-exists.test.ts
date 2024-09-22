@@ -6,7 +6,7 @@
 
 import { join } from "node:path";
 
-import { beforeEach, afterEach, it, describe, expect } from "bun:test";
+import { beforeEach, afterEach, it, describe, expect } from "vitest";
 import { tmpdir } from "node:os";
 
 import { rimraf } from "@/helpers/filesystem/rimraf.ts";

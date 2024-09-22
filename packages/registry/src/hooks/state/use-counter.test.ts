@@ -1,4 +1,4 @@
-import { it, expect, describe, spyOn } from "bun:test";
+import { it, expect, describe, vi } from "vitest";
 import { act, renderHook } from "@testing-library/react";
 
 import { useCounter } from "./use-counter.ts";
@@ -150,7 +150,7 @@ it("should not exceed min value", () => {
 
 describe("should `console.error` on unexpected inputs", () => {
   it("if the min is greater than than the max", () => {
-    const spy = spyOn(console, "error").mockImplementation(() => {});
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
 
     expect(() => {
       setUp(10, 3, 5);

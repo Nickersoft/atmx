@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { randomBytes } from "node:crypto";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
-import { describe, beforeEach, it, expect, afterEach } from "bun:test";
+import { describe, beforeEach, it, expect, afterEach } from "vitest";
 
 import { empty } from "@/helpers/filesystem/empty.ts";
 import { rimraf } from "@/helpers/filesystem/rimraf.ts";
@@ -54,25 +54,25 @@ describe("remove", () => {
 
   describe("+ remove()", () => {
     it("should delete an empty directory", async () => {
-      expect(existsSync(TEST_DIR)).toBeTrue();
+      expect(existsSync(TEST_DIR)).toBeTruthy();
       await rimraf(TEST_DIR);
-      expect(existsSync(TEST_DIR)).toBeFalse();
+      expect(existsSync(TEST_DIR)).toBeFalsy;
     });
 
     it("should delete a directory full of directories and files", async () => {
       buildFixtureDir();
-      expect(existsSync(TEST_DIR)).toBeTrue();
+      expect(existsSync(TEST_DIR)).toBeTruthy();
       await rimraf(TEST_DIR);
-      expect(existsSync(TEST_DIR)).toBeFalse();
+      expect(existsSync(TEST_DIR)).toBeFalsy;
     });
 
     it("should delete a file", async () => {
       const file = join(TEST_DIR, "file");
 
       writeFileSync(file, "hello");
-      expect(existsSync(file)).toBeTrue();
+      expect(existsSync(file)).toBeTruthy();
       await rimraf(file);
-      expect(existsSync(file)).toBeFalse();
+      expect(existsSync(file)).toBeFalsy;
     });
 
     it("should delete without a callback", async () => {
@@ -80,7 +80,7 @@ describe("remove", () => {
 
       writeFileSync(file, "hello");
 
-      expect(existsSync(file)).toBeTrue();
+      expect(existsSync(file)).toBeTruthy();
 
       let existsChecker = setInterval(async () => {
         const exists = await pathExists(file);
@@ -105,13 +105,13 @@ describe("remove", () => {
 
       writeFileSync(wrongFile, "yo");
 
-      expect(existsSync(file)).toBeTrue();
-      expect(existsSync(wrongFile)).toBeTrue();
+      expect(existsSync(file)).toBeTruthy();
+      expect(existsSync(wrongFile)).toBeTruthy();
 
       await rimraf(file);
 
-      expect(existsSync(file)).toBeFalse();
-      expect(existsSync(wrongFile)).toBeTrue();
+      expect(existsSync(file)).toBeFalsy();
+      expect(existsSync(wrongFile)).toBeTruthy();
     });
 
     it("shouldn’t delete glob matches when file doesn’t exist", async () => {
@@ -121,13 +121,13 @@ describe("remove", () => {
 
       writeFileSync(wrongFile, "yo");
 
-      expect(existsSync(nonexistentFile)).toBeFalse();
-      expect(existsSync(wrongFile)).toBeTrue();
+      expect(existsSync(nonexistentFile)).toBeFalsy;
+      expect(existsSync(wrongFile)).toBeTruthy();
 
       await rimraf(nonexistentFile);
 
-      expect(existsSync(nonexistentFile)).toBeFalse();
-      expect(existsSync(wrongFile)).toBeTrue();
+      expect(existsSync(nonexistentFile)).toBeFalsy;
+      expect(existsSync(wrongFile)).toBeTruthy();
     });
   });
 });

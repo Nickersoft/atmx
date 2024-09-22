@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "test": "vitest"
   },
   "author": "Tyler Nickerson",
   "license": "MIT",
