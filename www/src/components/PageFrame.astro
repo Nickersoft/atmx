@@ -6,7 +6,7 @@ import SidebarPane from "./SidebarPane.astro";
 import SidebarContent from "./SidebarContent.astro";
 import PageHeader from "./PageHeader.astro";
 
-const { hasSidebar, labels } = Astro.props;
+const { hasSidebar } = Astro.props;
 ---
 
 <div class="flex flex-col min-h-screen">
@@ -17,7 +17,10 @@ const { hasSidebar, labels } = Astro.props;
   <div class="container flex-1 flex flex-row">
     {
       hasSidebar && (
-        <nav class="sidebar" aria-label={labels["sidebarNav.accessibleLabel"]}>
+        <nav
+          class="sidebar"
+          aria-label={Astro.locals.t("sidebarNav.accessibleLabel")}
+        >
           <MobileMenuToggle {...Astro.props} />
 
           <SidebarPane>
