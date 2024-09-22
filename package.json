@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "release": "pnpm run build && changeset publish",
     "dev": "turbo run dev",
     "test": "vitest",
     "clean": "rimraf -g packages/**/dist www/**/.vercel packages/**/.turbo www/**/.turbo www/**/.astro",
