@@ -1,3 +1,4 @@
+import * as v from "valibot";
 import type { APIRoute } from "astro";
 
 import { configSchema } from "@atmx-org/common";
@@ -8,7 +9,7 @@ export const GET: APIRoute = () => {
     JSON.stringify(
       toJSONSchema({
         ignoreUnknownValidation: true,
-        schema: configSchema,
+        schema: v.omit(configSchema, ["cwd"]),
       }),
     ),
   );

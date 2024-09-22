@@ -1,6 +1,7 @@
 {
-  "index": true,
-  "ts": true,
+  "$schema": "https://atmx.dev/schema.json",
+  "ts": false,
+  "index": false,
   "aliases": {
     "helpers": "@/lib/helpers",
     "hooks": "@/lib/hooks",

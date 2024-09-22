@@ -1,0 +1,11 @@
+{
+  "$schema": "https://atmx.dev/schema.json",
+  "ts": true,
+  "index": false,
+  "aliases": {
+    "helpers": "@/lib/helpers",
+    "hooks": "@/lib/hooks",
+    "types": "@/lib/types",
+    "actions": "@/lib/actions"
+  }
+}

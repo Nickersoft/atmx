@@ -18,8 +18,8 @@
   },
   "workspaces": [
     "packages/*",
-    "www",
-    "examples/*"
+    "examples/*",
+    "www"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
@@ -31,8 +31,5 @@
     "typescript": "^5.5.4"
   },
   "packageManager": "bun@1.1.26",
-  "license": "MIT",
-  "dependencies": {
-    "eta": "^3.5.0"
-  }
+  "license": "MIT"
 }
