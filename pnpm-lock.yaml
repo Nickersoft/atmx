@@ -13,7 +13,7 @@ importers:
         version: 2.27.8
       '@types/node':
         specifier: ^22.5.5
-        version: 22.7.2
+        version: 22.7.3
       happy-dom:
         specifier: ^15.7.4
         version: 15.7.4
@@ -34,10 +34,10 @@ importers:
         version: 5.6.2
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.2))
+        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.3))
       vitest:
         specifier: ^2.1.1
-        version: 2.1.1(@types/node@22.7.2)(happy-dom@15.7.4)(jsdom@25.0.1)
+        version: 2.1.1(@types/node@22.7.3)(happy-dom@15.7.4)(jsdom@25.0.1)
 
   examples/javascript:
     dependencies:
@@ -129,7 +129,7 @@ importers:
         version: 5.6.2
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.2))
+        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.3))
 
   packages/common:
     dependencies:
@@ -175,13 +175,13 @@ importers:
         version: 1.1.10
       '@types/node':
         specifier: ^22.2.0
-        version: 22.7.2
+        version: 22.7.3
       tsup:
         specifier: ^8.2.4
         version: 8.3.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.2)(yaml@2.5.1)
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.2))
+        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.3))
 
   packages/registry:
     devDependencies:
@@ -223,7 +223,7 @@ importers:
         version: 5.6.2
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.2))
+        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.3))
 
   packages/registry-tools:
     dependencies:
@@ -275,13 +275,13 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^3.1.7
-        version: 3.1.7(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))
+        version: 3.1.7(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))
       '@astrojs/starlight':
         specifier: ^0.28.2
-        version: 0.28.2(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))
+        version: 0.28.2(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))
       '@astrojs/starlight-tailwind':
         specifier: ^2.0.3
-        version: 2.0.3(@astrojs/starlight@0.28.2(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)
+        version: 2.0.3(@astrojs/starlight@0.28.2(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)
       '@atmx-org/common':
         specifier: workspace:*
         version: link:../packages/common
@@ -338,7 +338,7 @@ importers:
         version: 0.13.2
       astro:
         specifier: ^4.15.8
-        version: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
+        version: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
@@ -396,16 +396,16 @@ importers:
         version: 0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       '@astrojs/node':
         specifier: ^8.3.4
-        version: 8.3.4(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))
+        version: 8.3.4(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))
       '@astrojs/react':
         specifier: ^3.6.2
-        version: 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.7(@types/node@22.7.2))
+        version: 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.7(@types/node@22.7.3))
       '@astrojs/tailwind':
         specifier: ^5.1.1
-        version: 5.1.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13)
+        version: 5.1.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13)
       '@astrojs/vercel':
         specifier: ^7.8.1
-        version: 7.8.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(react@18.3.1)
+        version: 7.8.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(react@18.3.1)
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.6.2)
@@ -420,7 +420,7 @@ importers:
         version: 7.20.6
       '@types/node':
         specifier: ^22.5.5
-        version: 22.7.2
+        version: 22.7.3
       '@types/react':
         specifier: ^18.3.8
         version: 18.3.9
@@ -2183,8 +2183,8 @@ packages:
   '@types/node@20.12.14':
     resolution: {integrity: sha512-scnD59RpYD91xngrQQLGkE+6UrHUPzeKZWhhjBSa3HSkwjbQc38+q3RoIVEwxQGRw3M+j5hpNAM+lgV3cVormg==}
 
-  '@types/node@22.7.2':
-    resolution: {integrity: sha512-866lXSrpGpgyHBZUa2m9YNWqHDjjM0aBTJlNtYaGEw4rqY/dcD7deRVTbBBAJelfA7oaGDbNftXF/TL/A6RgoA==}
+  '@types/node@22.7.3':
+    resolution: {integrity: sha512-qXKfhXXqGTyBskvWEzJZPUxSslAiLaB6JGP1ic/XTH9ctGgzdgYguuLP1C601aRTSDNlLb0jbKqXjZ48GNraSA==}
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
@@ -5435,12 +5435,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.7(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))':
+  '@astrojs/mdx@3.1.7(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.2.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.12.1
-      astro: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       gray-matter: 4.0.3
@@ -5455,9 +5455,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@8.3.4(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))':
+  '@astrojs/node@8.3.4(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))':
     dependencies:
-      astro: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
       send: 0.19.0
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -5467,11 +5467,11 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.7(@types/node@22.7.2))':
+  '@astrojs/react@3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.7(@types/node@22.7.3))':
     dependencies:
       '@types/react': 18.3.9
       '@types/react-dom': 18.3.0
-      '@vitejs/plugin-react': 4.3.1(vite@5.4.7(@types/node@22.7.2))
+      '@vitejs/plugin-react': 4.3.1(vite@5.4.7(@types/node@22.7.3))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.5.3
@@ -5485,21 +5485,21 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.28.2(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)':
+  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.28.2(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)))(@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13))(tailwindcss@3.4.13)':
     dependencies:
-      '@astrojs/starlight': 0.28.2(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))
-      '@astrojs/tailwind': 5.1.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13)
+      '@astrojs/starlight': 0.28.2(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))
+      '@astrojs/tailwind': 5.1.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13)
       tailwindcss: 3.4.13
 
-  '@astrojs/starlight@0.28.2(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))':
+  '@astrojs/starlight@0.28.2(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))':
     dependencies:
-      '@astrojs/mdx': 3.1.7(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))
+      '@astrojs/mdx': 3.1.7(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))
       '@astrojs/sitemap': 3.1.6
       '@pagefind/default-ui': 1.1.1
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
-      astro: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
-      astro-expressive-code: 0.35.6(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))
+      astro: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
+      astro-expressive-code: 0.35.6(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))
       bcp-47: 2.1.0
       hast-util-from-html: 2.0.3
       hast-util-select: 6.0.2
@@ -5519,9 +5519,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13)':
+  '@astrojs/tailwind@5.1.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(tailwindcss@3.4.13)':
     dependencies:
-      astro: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
       autoprefixer: 10.4.20(postcss@8.4.47)
       postcss: 8.4.47
       postcss-load-config: 4.0.2(postcss@8.4.47)
@@ -5541,13 +5541,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@7.8.1(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2))(react@18.3.1)':
+  '@astrojs/vercel@7.8.1(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(react@18.3.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.4.1
       '@vercel/analytics': 1.3.1(react@18.3.1)
       '@vercel/edge': 1.1.2
       '@vercel/nft': 0.27.4
-      astro: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
       esbuild: 0.21.5
       fast-glob: 3.3.2
       web-vitals: 3.5.2
@@ -6322,7 +6322,7 @@ snapshots:
       '@inquirer/figures': 1.0.6
       '@inquirer/type': 2.0.0
       '@types/mute-stream': 0.0.4
-      '@types/node': 22.7.2
+      '@types/node': 22.7.3
       '@types/wrap-ansi': 3.0.0
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
@@ -7163,7 +7163,7 @@ snapshots:
 
   '@types/mute-stream@0.0.4':
     dependencies:
-      '@types/node': 22.7.2
+      '@types/node': 22.7.3
 
   '@types/nlcst@2.0.3':
     dependencies:
@@ -7177,7 +7177,7 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@22.7.2':
+  '@types/node@22.7.3':
     dependencies:
       undici-types: 6.19.8
 
@@ -7194,7 +7194,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 22.7.2
+      '@types/node': 22.7.3
 
   '@types/semver@7.5.8': {}
 
@@ -7238,14 +7238,14 @@ snapshots:
       - encoding
       - supports-color
 
-  '@vitejs/plugin-react@4.3.1(vite@5.4.7(@types/node@22.7.2))':
+  '@vitejs/plugin-react@4.3.1(vite@5.4.7(@types/node@22.7.3))':
     dependencies:
       '@babel/core': 7.25.2
       '@babel/plugin-transform-react-jsx-self': 7.24.7(@babel/core@7.25.2)
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.25.2)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.7(@types/node@22.7.2)
+      vite: 5.4.7(@types/node@22.7.3)
     transitivePeerDependencies:
       - supports-color
 
@@ -7256,13 +7256,13 @@ snapshots:
       chai: 5.1.1
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.1(@vitest/spy@2.1.1)(vite@5.4.7(@types/node@22.7.2))':
+  '@vitest/mocker@2.1.1(@vitest/spy@2.1.1)(vite@5.4.7(@types/node@22.7.3))':
     dependencies:
       '@vitest/spy': 2.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.11
     optionalDependencies:
-      vite: 5.4.7(@types/node@22.7.2)
+      vite: 5.4.7(@types/node@22.7.3)
 
   '@vitest/pretty-format@2.1.1':
     dependencies:
@@ -7436,9 +7436,9 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-expressive-code@0.35.6(astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)):
+  astro-expressive-code@0.35.6(astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)):
     dependencies:
-      astro: 4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2)
+      astro: 4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2)
       rehype-expressive-code: 0.35.6
 
   astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2):
@@ -7449,7 +7449,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@4.15.8(@types/node@22.7.2)(rollup@4.22.4)(typescript@5.6.2):
+  astro@4.15.8(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
@@ -7508,8 +7508,8 @@ snapshots:
       tsconfck: 3.1.3(typescript@5.6.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.3
-      vite: 5.4.7(@types/node@22.7.2)
-      vitefu: 1.0.2(vite@5.4.7(@types/node@22.7.2))
+      vite: 5.4.7(@types/node@22.7.3)
+      vitefu: 1.0.2(vite@5.4.7(@types/node@22.7.3))
       which-pm: 3.0.0
       xxhash-wasm: 1.0.2
       yargs-parser: 21.1.1
@@ -10513,12 +10513,12 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-node@2.1.1(@types/node@22.7.2):
+  vite-node@2.1.1(@types/node@22.7.3):
     dependencies:
       cac: 6.7.14
       debug: 4.3.7
       pathe: 1.1.2
-      vite: 5.4.7(@types/node@22.7.2)
+      vite: 5.4.7(@types/node@22.7.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -10530,34 +10530,34 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.2)):
+  vite-tsconfig-paths@5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.7.3)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.3(typescript@5.6.2)
     optionalDependencies:
-      vite: 5.4.7(@types/node@22.7.2)
+      vite: 5.4.7(@types/node@22.7.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.4.7(@types/node@22.7.2):
+  vite@5.4.7(@types/node@22.7.3):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.22.4
     optionalDependencies:
-      '@types/node': 22.7.2
+      '@types/node': 22.7.3
       fsevents: 2.3.3
 
-  vitefu@1.0.2(vite@5.4.7(@types/node@22.7.2)):
+  vitefu@1.0.2(vite@5.4.7(@types/node@22.7.3)):
     optionalDependencies:
-      vite: 5.4.7(@types/node@22.7.2)
+      vite: 5.4.7(@types/node@22.7.3)
 
-  vitest@2.1.1(@types/node@22.7.2)(happy-dom@15.7.4)(jsdom@25.0.1):
+  vitest@2.1.1(@types/node@22.7.3)(happy-dom@15.7.4)(jsdom@25.0.1):
     dependencies:
       '@vitest/expect': 2.1.1
-      '@vitest/mocker': 2.1.1(@vitest/spy@2.1.1)(vite@5.4.7(@types/node@22.7.2))
+      '@vitest/mocker': 2.1.1(@vitest/spy@2.1.1)(vite@5.4.7(@types/node@22.7.3))
       '@vitest/pretty-format': 2.1.1
       '@vitest/runner': 2.1.1
       '@vitest/snapshot': 2.1.1
@@ -10572,11 +10572,11 @@ snapshots:
       tinyexec: 0.3.0
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.7(@types/node@22.7.2)
-      vite-node: 2.1.1(@types/node@22.7.2)
+      vite: 5.4.7(@types/node@22.7.3)
+      vite-node: 2.1.1(@types/node@22.7.3)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.7.2
+      '@types/node': 22.7.3
       happy-dom: 15.7.4
       jsdom: 25.0.1
     transitivePeerDependencies:
