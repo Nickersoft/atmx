@@ -1,5 +1,13 @@
 # atmx
 
+## 0.0.1
+
+### Patch Changes
+
+- 0f6e1fa: Fix dependencies
+- Updated dependencies [0f6e1fa]
+  - @atmx-org/common@0.0.1
+
 ## 0.0.0
 
 ### Patch Changes

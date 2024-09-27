@@ -1,5 +1,12 @@
 # @examples/svelte
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [0f6e1fa]
+  - atmx@0.0.1
+
 ## 1.0.1
 
 ### Patch Changes
