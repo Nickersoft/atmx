@@ -17,7 +17,6 @@
     "@astrojs/starlight": "^0.28.2",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@atmx-org/common": "workspace:*",
-    "@atmx-org/registry": "workspace:*",
     "@atmx-org/registry-tools": "workspace:*",
     "@babel/core": "^7.25.2",
     "@babel/preset-typescript": "^7.24.7",
@@ -54,6 +53,7 @@
     "valibot": "^0.42.1"
   },
   "devDependencies": {
+    "@atmx-org/registry": "workspace:*",    
     "@astrojs/check": "^0.9.3",
     "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.2",

@@ -133,9 +133,6 @@ importers:
 
   packages/common:
     dependencies:
-      '@atmx-org/registry':
-        specifier: workspace:*
-        version: link:../registry
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -164,6 +161,9 @@ importers:
         specifier: ^0.42.0
         version: 0.42.1(typescript@5.6.2)
     devDependencies:
+      '@atmx-org/registry':
+        specifier: workspace:*
+        version: link:../registry
       '@types/babel__core':
         specifier: ^7.20.5
         version: 7.20.5
@@ -285,9 +285,6 @@ importers:
       '@atmx-org/common':
         specifier: workspace:*
         version: link:../packages/common
-      '@atmx-org/registry':
-        specifier: workspace:*
-        version: link:../packages/registry
       '@atmx-org/registry-tools':
         specifier: workspace:*
         version: link:../packages/registry-tools
@@ -406,6 +403,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.8.1
         version: 7.8.1(astro@4.15.9(@types/node@22.7.3)(rollup@4.22.4)(typescript@5.6.2))(react@18.3.1)
+      '@atmx-org/registry':
+        specifier: workspace:*
+        version: link:../packages/registry
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.6.2)
