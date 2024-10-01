@@ -1,5 +1,12 @@
 # @examples/react
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [b5b2bae]
+  - atmx@0.0.2
+
 ## 1.0.2
 
 ### Patch Changes

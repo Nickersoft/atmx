@@ -1,5 +1,12 @@
 # @atmx-org/registry-tools
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [b5b2bae]
+  - @atmx-org/common@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes
