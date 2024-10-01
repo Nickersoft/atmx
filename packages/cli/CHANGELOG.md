@@ -1,5 +1,13 @@
 # atmx
 
+## 0.0.2
+
+### Patch Changes
+
+- b5b2bae: Make registry a dev dependency
+- Updated dependencies [b5b2bae]
+  - @atmx-org/common@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
