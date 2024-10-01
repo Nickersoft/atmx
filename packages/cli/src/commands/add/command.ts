@@ -1,7 +1,7 @@
 import { getRegistryName, SNIPPET_TYPES } from "@atmx-org/common";
 import { Argument, Command } from "commander";
 
-import * as pc from "picocolors";
+import pc from "picocolors";
 
 import { createAction } from "@/utils/create-action.ts";
 

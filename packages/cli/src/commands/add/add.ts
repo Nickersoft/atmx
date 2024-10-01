@@ -1,6 +1,6 @@
 import { relative } from "node:path";
 
-import * as pc from "picocolors";
+import pc from "picocolors";
 
 import type { RegistryName } from "@atmx-org/common";
 
@@ -57,10 +57,10 @@ export async function add(opts: AddOptions) {
       dependencies: { local, external },
     } = snippet;
 
-    if(!config.ts){
-      local = local.filter((dep: string) => !dep.startsWith('types/'));
+    if (!config.ts) {
+      local = local.filter((dep: string) => !dep.startsWith("types/"));
     }
-  
+
     if (local.length > 0 || external.length > 0) {
       spinner.text = "Installing dependencies...";
 
