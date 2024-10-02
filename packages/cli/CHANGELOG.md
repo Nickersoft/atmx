@@ -1,5 +1,12 @@
 # atmx
 
+## 0.0.3
+
+### Patch Changes
+
+- da4b260: Fix runtime errors
+- 7005c71: Improve dependency handling
+
 ## 0.0.2
 
 ### Patch Changes
