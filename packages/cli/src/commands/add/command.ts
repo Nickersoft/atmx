@@ -14,7 +14,7 @@ const typeArg = new Argument(
 ).choices(SNIPPET_TYPES);
 
 const action = createAction(async ({ args: [type, name], cmd }) => {
-  const summary = { addedDependencies: [], addedFiles: [] };
+  const summary = { addedSnippets: [], addedDependencies: [], addedFiles: [] };
 
   await add({
     ...cmd.optsWithGlobals(),
@@ -31,7 +31,7 @@ const action = createAction(async ({ args: [type, name], cmd }) => {
     [
       {
         name: pc.bold("📄 New Files"),
-        children: addedFiles.map((file) => ({
+        children: Array.from(new Set(addedFiles)).map((file) => ({
           name: pc.green(`+ ${file}`),
         })),
       },
@@ -39,7 +39,7 @@ const action = createAction(async ({ args: [type, name], cmd }) => {
         ? [
             {
               name: pc.bold("📦 New Dependencies"),
-              children: addedDependencies.map((dep) => ({
+              children: Array.from(new Set(addedDependencies)).map((dep) => ({
                 name: pc.green(`+ ${dep}`),
               })),
             },

@@ -19,6 +19,7 @@ async function installDeps(deps: string[], options: AddOptions) {
 
   await Promise.all(
     deps
+      .filter((dep) => !options.summary.addedSnippets.includes(dep))
       .map((d) => d.split("/"))
       .map(([registry, name]) =>
         add({
@@ -80,6 +81,7 @@ export async function add(opts: AddOptions) {
       console.log(`✨ Installed ${type}: ${pc.bold(name)}\n`);
     }
 
+    opts.summary.addedSnippets.push(`${registryName}/${name}`);
     opts.summary.addedFiles.push(relative(opts.cwd, outputPath));
   }
 }

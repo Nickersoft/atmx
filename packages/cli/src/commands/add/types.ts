@@ -15,4 +15,5 @@ export interface AddOptions extends GlobalOptions {
 export interface AddSummary {
   addedDependencies: string[];
   addedFiles: string[];
+  addedSnippets: string[];
 }
