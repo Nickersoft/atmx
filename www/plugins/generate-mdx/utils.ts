@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { existsSync } from "node:fs";
 
 import { format } from "prettier";
+import { stringify } from "yaml";
 
 import { Eta } from "eta";
 
@@ -16,7 +17,7 @@ import {
   type SnippetType,
 } from "@atmx-org/common";
 
-import type { TemplateData } from "./types";
+import type { TemplateData, TemplateFrontmatter } from "./types";
 
 import { createRegistry } from "../../src/lib/create-registry";
 
@@ -38,13 +39,14 @@ async function processSnippet(snippet: Snippet): Promise<void> {
   const registry = getRegistryName(snippet.type);
 
   const result = eta.render<TemplateData>("mdx", {
-    name: snippet.name,
-    id: snippet.id,
-    type: snippet.type,
-    description: docs.description,
+    snippet,
+    frontmatter: stringify({
+      title: snippet.name,
+      description: docs.description,
+      slug: snippet.urls.docs.slice(1),
+    } satisfies TemplateFrontmatter),
     example: docs.examples[0] ?? "",
     code: await format(code, { parser: "typescript" }),
-    slug: snippet.urls.docs.slice(1),
   });
 
   const generatedDir = fileURLToPath(

@@ -68,6 +68,9 @@ importers:
       atmx:
         specifier: workspace:*
         version: link:../../packages/cli
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
     devDependencies:
       typescript:
         specifier: ^5.6.2
@@ -436,6 +439,9 @@ importers:
       unplugin-icons:
         specifier: ^0.19.3
         version: 0.19.3(@svgr/core@8.1.0(typescript@5.6.2))
+      yaml:
+        specifier: ^2.5.1
+        version: 2.5.1
 
 packages:
 

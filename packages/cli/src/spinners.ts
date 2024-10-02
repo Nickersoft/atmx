@@ -8,6 +8,6 @@ export function createSpinner(options: string | OraOptions = {}) {
 }
 
 export function clearSpinners() {
-  spinnerRegistry.forEach((spinner) => spinner.clear());
+  spinnerRegistry.forEach((spinner) => spinner.stop());
   spinnerRegistry = [];
 }

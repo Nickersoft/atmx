@@ -1,7 +1,5 @@
 ---
-title: "<%= it.name %>"
-description: "<%~ it.description %>"
-slug: "<%= it.slug %>"
+<%~ it.frontmatter %>
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
@@ -20,7 +18,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
   <TabItem label="CLI">
 
     ```bash
-    npx atmx add <%= it.type %> <%= it.id %>  
+    npx atmx add <%= it.snippet.type %> <%= it.snippet.id %>  
     ```
     
   </TabItem>

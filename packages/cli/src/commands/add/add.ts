@@ -8,12 +8,10 @@ import { getConfig } from "@/config/get-config.ts";
 
 import { installSnippet } from "./utils/install-snippet.ts";
 import { installPackages } from "./utils/install-packages.ts";
-import { filterInstalled } from "./utils/filter-installed.ts";
 import { resolveSnippet } from "./utils/resolve-snippet.ts";
 import { getOutputPath } from "./utils/get-output-path.ts";
 
 import type { AddOptions } from "./types.ts";
-
 import { createSpinner } from "@/spinners.ts";
 
 async function installDeps(deps: string[], options: AddOptions) {
@@ -64,11 +62,9 @@ export async function add(opts: AddOptions) {
     if (local.length > 0 || external.length > 0) {
       spinner.text = "Installing dependencies...";
 
-      const pkgs = await filterInstalled(opts.cwd, external);
-
-      await Promise.all([
+      const [_, pkgs] = await Promise.all([
         installDeps(local, { ...opts, overwrite: force }),
-        installPackages(pkgs),
+        installPackages(external, opts),
       ]);
 
       opts.summary.addedDependencies.push(...pkgs);
@@ -80,7 +76,9 @@ export async function add(opts: AddOptions) {
 
     spinner.stop();
 
-    console.log(`\n✨ Installed ${type}: ${pc.bold(name)}\n`);
+    if (logging) {
+      console.log(`✨ Installed ${type}: ${pc.bold(name)}\n`);
+    }
 
     opts.summary.addedFiles.push(relative(opts.cwd, outputPath));
   }

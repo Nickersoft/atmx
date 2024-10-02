@@ -1,6 +1,7 @@
 import type { RegistryName, SnippetType } from "@atmx-org/common";
 
 import type { GlobalOptions } from "@/types.ts";
+import type { Ora } from "ora";
 
 export interface AddOptions extends GlobalOptions {
   registry: RegistryName;

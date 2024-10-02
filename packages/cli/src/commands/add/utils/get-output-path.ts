@@ -21,17 +21,24 @@ export async function getOutputPath({
 }: GetOutputPathOptions) {
   const outputPath = await getOutPath(snippet, config);
 
+  let force = false;
+
   if (!overwrite && (await pathExists(outputPath))) {
     clearSpinners();
 
     const shouldOverwrite = await confirm({
       message: `It looks like you already have "${snippet.id}" added to your project. Do you wish to overwrite it and its dependencies?`,
+      theme: {
+        prefix: "",
+      },
     });
 
     if (!shouldOverwrite) {
       exit();
     }
+
+    force = true;
   }
 
-  return { outputPath, force: false };
+  return { outputPath, force };
 }
