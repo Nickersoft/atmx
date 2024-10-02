@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import * as React from "react";
 
 import { useRafState } from "@/hooks/animations/use-raf-state.ts";
+import { isBrowser } from "@/helpers/browser/is-browser.ts";
 
 export interface WindowScrollState {
   x: number;
@@ -29,14 +30,14 @@ export interface WindowScrollState {
  * ```
  */
 const useWindowScroll = (): WindowScrollState => {
-  const isBrowser = typeof window !== "undefined";
+  const browser = isBrowser();
 
   const [state, setState] = useRafState<WindowScrollState>(() => ({
-    x: isBrowser ? window.scrollX : 0,
-    y: isBrowser ? window.scrollY : 0,
+    x: browser ? window.scrollX : 0,
+    y: browser ? window.scrollY : 0,
   }));
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handler = () => {
       setState((state) => {
         const { scrollX, scrollY } = window;
