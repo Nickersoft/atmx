@@ -1,5 +1,13 @@
 # @examples/javascript
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [da4b260]
+- Updated dependencies [7005c71]
+  - atmx@0.0.3
+
 ## 1.0.3
 
 ### Patch Changes
