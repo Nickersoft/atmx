@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@atmx-org/common": "workspace:*",
-    "@inquirer/prompts": "^6.0.0",
+    "@inquirer/prompts": "^7.0.0",
     "commander": "^12.1.0",
     "detect-package-manager": "^3.0.2",
     "execa": "^9.3.1",
