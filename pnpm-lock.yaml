@@ -25,7 +25,7 @@ importers:
         version: 0.14.1
       prettier-plugin-tailwindcss:
         specifier: ^0.6.6
-        version: 0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@4.2.19))(prettier@3.3.3)
+        version: 0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.0))(prettier@3.3.3)
       turbo:
         specifier: ^2.1.2
         version: 2.2.1
@@ -153,7 +153,7 @@ importers:
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.2.7(prettier@3.3.3)(svelte@4.2.19)
+        version: 3.2.7(prettier@3.3.3)(svelte@5.0.0)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -216,8 +216,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       svelte:
-        specifier: ^4.2.19
-        version: 4.2.19
+        specifier: ^5.0.0
+        version: 5.0.0
       tinyspy:
         specifier: ^3.0.2
         version: 3.0.2
@@ -253,7 +253,7 @@ importers:
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.2.7(prettier@3.3.3)(svelte@4.2.19)
+        version: 3.2.7(prettier@3.3.3)(svelte@5.0.0)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -368,7 +368,7 @@ importers:
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.2.7(prettier@3.3.3)(svelte@4.2.19)
+        version: 3.2.7(prettier@3.3.3)(svelte@5.0.0)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2439,6 +2439,11 @@ packages:
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
 
+  acorn-typescript@1.4.13:
+    resolution: {integrity: sha512-xsc9Xv0xlVfwp2o7sQ+GCQ1PgbkdcpWdTzrwXxO3xDMTAywVS3oXVOcOHuRjAPkS4P9b+yc/qNF15460v+jp4Q==}
+    peerDependencies:
+      acorn: '>=8.9.0'
+
   acorn@8.12.1:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
@@ -3042,10 +3047,16 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
+  esm-env@1.0.0:
+    resolution: {integrity: sha512-Cf6VksWPsTuW01vU9Mk/3vRue91Zevka5SjyNf3nEpokFRuqt/KjUQoGAwq9qMmhpLTHmXzSIrFRw8zxWzmFBA==}
+
   esprima@4.0.1:
     resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
     engines: {node: '>=4'}
     hasBin: true
+
+  esrap@1.2.2:
+    resolution: {integrity: sha512-F2pSJklxx1BlQIQgooczXCPHmcWpn6EsP5oo73LQfonG9fIlIENQ8vMmfGXeojP9MrkzUNAfyU5vdFlR9shHAw==}
 
   estree-util-attach-comments@3.0.0:
     resolution: {integrity: sha512-cKUwm/HUcTDsYh/9FgnuFqpfquUbwIqwKM26BVCGDPVgvaCl/nDCCjUfiLlx6lsEZ3Z4RFxNbOQ60pkaEwFxGw==}
@@ -4794,6 +4805,10 @@ packages:
     resolution: {integrity: sha512-IY1rnGr6izd10B0A8LqsBfmlT5OILVuZ7XsI0vdGPEvuonFV7NYEUK4dAkm9Zg2q0Um92kYjTpS1CAP3Nh/KWw==}
     engines: {node: '>=16'}
 
+  svelte@5.0.0:
+    resolution: {integrity: sha512-jv2IvTtakG58DqZMo6fY3T6HFmGV4iDQH2lSUyfmCEYaoa+aCNcF+9rERbdDvT4XDF0nQBg6TEoJn0dirED8VQ==}
+    engines: {node: '>=18'}
+
   svg-parser@2.0.4:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
 
@@ -5494,6 +5509,9 @@ packages:
   yoctocolors@2.1.1:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
+
+  zimmerframe@1.1.2:
+    resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
 
   zod-to-json-schema@3.23.3:
     resolution: {integrity: sha512-TYWChTxKQbRJp5ST22o/Irt9KC5nj7CdBKYB/AosCRdj/wxEMvv4NNaj9XVUHDOIp53ZxArGhnw5HMZziPFjog==}
@@ -7618,9 +7636,13 @@ snapshots:
     dependencies:
       acorn: 8.13.0
 
-  acorn-jsx@5.3.2(acorn@8.12.1):
+  acorn-jsx@5.3.2(acorn@8.13.0):
     dependencies:
-      acorn: 8.12.1
+      acorn: 8.13.0
+
+  acorn-typescript@1.4.13(acorn@8.13.0):
+    dependencies:
+      acorn: 8.13.0
 
   acorn@8.12.1: {}
 
@@ -8294,7 +8316,14 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
+  esm-env@1.0.0: {}
+
   esprima@4.0.1: {}
+
+  esrap@1.2.2:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@types/estree': 1.0.6
 
   estree-util-attach-comments@3.0.0:
     dependencies:
@@ -9401,8 +9430,8 @@ snapshots:
 
   micromark-extension-mdxjs@3.0.0:
     dependencies:
-      acorn: 8.12.1
-      acorn-jsx: 5.3.2(acorn@8.12.1)
+      acorn: 8.13.0
+      acorn-jsx: 5.3.2(acorn@8.13.0)
       micromark-extension-mdx-expression: 3.0.0
       micromark-extension-mdx-jsx: 3.0.1
       micromark-extension-mdx-md: 2.0.0
@@ -9900,17 +9929,17 @@ snapshots:
       prettier: 3.3.3
       sass-formatter: 0.7.9
 
-  prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@4.2.19):
+  prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.0):
     dependencies:
       prettier: 3.3.3
-      svelte: 4.2.19
+      svelte: 5.0.0
 
-  prettier-plugin-tailwindcss@0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@4.2.19))(prettier@3.3.3):
+  prettier-plugin-tailwindcss@0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.0))(prettier@3.3.3):
     dependencies:
       prettier: 3.3.3
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
-      prettier-plugin-svelte: 3.2.7(prettier@3.3.3)(svelte@4.2.19)
+      prettier-plugin-svelte: 3.2.7(prettier@3.3.3)(svelte@5.0.0)
 
   prettier@2.8.7:
     optional: true
@@ -10481,6 +10510,22 @@ snapshots:
       magic-string: 0.30.11
       periscopic: 3.1.0
 
+  svelte@5.0.0:
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@types/estree': 1.0.6
+      acorn: 8.13.0
+      acorn-typescript: 1.4.13(acorn@8.13.0)
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      esm-env: 1.0.0
+      esrap: 1.2.2
+      is-reference: 3.0.2
+      locate-character: 3.0.0
+      magic-string: 0.30.12
+      zimmerframe: 1.1.2
+
   svg-parser@2.0.4: {}
 
   symbol-tree@3.2.4: {}
@@ -10784,7 +10829,7 @@ snapshots:
 
   unplugin@1.14.1:
     dependencies:
-      acorn: 8.12.1
+      acorn: 8.13.0
       webpack-virtual-modules: 0.6.2
 
   update-browserslist-db@1.1.1(browserslist@4.24.0):
@@ -11163,6 +11208,8 @@ snapshots:
   yoctocolors-cjs@2.1.2: {}
 
   yoctocolors@2.1.1: {}
+
+  zimmerframe@1.1.2: {}
 
   zod-to-json-schema@3.23.3(zod@3.23.8):
     dependencies:
