@@ -25,7 +25,7 @@ importers:
         version: 0.14.1
       prettier-plugin-tailwindcss:
         specifier: ^0.6.6
-        version: 0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.2))(prettier@3.3.3)
+        version: 0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.3))(prettier@3.3.3)
       turbo:
         specifier: ^2.1.2
         version: 2.2.1
@@ -61,7 +61,7 @@ importers:
         version: link:../../packages/cli
       svelte:
         specifier: ^4.2.19
-        version: 5.0.2
+        version: 5.0.3
 
   examples/typescript:
     dependencies:
@@ -153,7 +153,7 @@ importers:
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.2.7(prettier@3.3.3)(svelte@5.0.2)
+        version: 3.2.7(prettier@3.3.3)(svelte@5.0.3)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -217,7 +217,7 @@ importers:
         version: 18.3.1
       svelte:
         specifier: ^5.0.0
-        version: 5.0.2
+        version: 5.0.3
       tinyspy:
         specifier: ^3.0.2
         version: 3.0.2
@@ -253,7 +253,7 @@ importers:
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.2.7(prettier@3.3.3)(svelte@5.0.2)
+        version: 3.2.7(prettier@3.3.3)(svelte@5.0.3)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -368,7 +368,7 @@ importers:
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.2.7(prettier@3.3.3)(svelte@5.0.2)
+        version: 3.2.7(prettier@3.3.3)(svelte@5.0.3)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -4788,8 +4788,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  svelte@5.0.2:
-    resolution: {integrity: sha512-TIqp5kjyTMa45L0McUvVfjuvlF/hyxVolyAc9APY3/FeF5aqYpt+Y1PckPQ7DlsDkthxNeq2+ystop8GlIV3kw==}
+  svelte@5.0.3:
+    resolution: {integrity: sha512-i8DopbAPRP9iaR3qqe++LPv4povQRshSseH3kSrzI4URZ9/7OTt3vCJPBp+5ACRQDik0S/tM1ZRA6EW/sGcKfw==}
     engines: {node: '>=18'}
 
   svg-parser@2.0.4:
@@ -9893,17 +9893,17 @@ snapshots:
       prettier: 3.3.3
       sass-formatter: 0.7.9
 
-  prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.2):
+  prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.3):
     dependencies:
       prettier: 3.3.3
-      svelte: 5.0.2
+      svelte: 5.0.3
 
-  prettier-plugin-tailwindcss@0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.2))(prettier@3.3.3):
+  prettier-plugin-tailwindcss@0.6.8(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.3))(prettier@3.3.3):
     dependencies:
       prettier: 3.3.3
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
-      prettier-plugin-svelte: 3.2.7(prettier@3.3.3)(svelte@5.0.2)
+      prettier-plugin-svelte: 3.2.7(prettier@3.3.3)(svelte@5.0.3)
 
   prettier@2.8.7:
     optional: true
@@ -10457,7 +10457,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte@5.0.2:
+  svelte@5.0.3:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@jridgewell/sourcemap-codec': 1.5.0
