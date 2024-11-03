@@ -16,7 +16,7 @@ importers:
         version: 22.8.7
       happy-dom:
         specifier: ^15.7.4
-        version: 15.8.0
+        version: 15.8.2
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -37,7 +37,7 @@ importers:
         version: 5.0.1(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.7))
       vitest:
         specifier: ^2.1.1
-        version: 2.1.4(@types/node@22.8.7)(happy-dom@15.8.0)(jsdom@25.0.1)
+        version: 2.1.4(@types/node@22.8.7)(happy-dom@15.8.2)(jsdom@25.0.1)
 
   examples/javascript:
     dependencies:
@@ -3179,8 +3179,8 @@ packages:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
 
-  happy-dom@15.8.0:
-    resolution: {integrity: sha512-LwBvPvR4MQ1xfrf4gbWRJzeL2xQqWiEiHvZF5uA1AwlCCgjH9ht0fGVXciRGQCghdHAIXw1zGX1mJ6a3O0fpeA==}
+  happy-dom@15.8.2:
+    resolution: {integrity: sha512-MhU+SvFD6Ul002JPMY8WoKSV1EV+AK+sLfeqWluvUmD873G0DNXpsUdi7gmBgXo8Nwj44NeWCuWy8OmPDLqs1g==}
     engines: {node: '>=18.0.0'}
 
   has-flag@3.0.0:
@@ -8368,7 +8368,7 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
-  happy-dom@15.8.0:
+  happy-dom@15.8.2:
     dependencies:
       entities: 4.5.0
       webidl-conversions: 7.0.0
@@ -10733,7 +10733,7 @@ snapshots:
     optionalDependencies:
       vite: 5.4.10(@types/node@22.8.7)
 
-  vitest@2.1.4(@types/node@22.8.7)(happy-dom@15.8.0)(jsdom@25.0.1):
+  vitest@2.1.4(@types/node@22.8.7)(happy-dom@15.8.2)(jsdom@25.0.1):
     dependencies:
       '@vitest/expect': 2.1.4
       '@vitest/mocker': 2.1.4(vite@5.4.10(@types/node@22.8.7))
@@ -10757,7 +10757,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.8.7
-      happy-dom: 15.8.0
+      happy-dom: 15.8.2
       jsdom: 25.0.1
     transitivePeerDependencies:
       - less
