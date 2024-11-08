@@ -14,7 +14,7 @@
   "private": true,
   "dependencies": {
     "@astrojs/mdx": "^3.1.7",
-    "@astrojs/starlight": "^0.28.2",
+    "@astrojs/starlight": "^0.29.0",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@atmx-org/common": "workspace:*",
     "@atmx-org/registry-tools": "workspace:*",
