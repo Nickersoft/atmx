@@ -284,7 +284,7 @@ importers:
         version: 0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))
       '@astrojs/starlight-tailwind':
         specifier: ^2.0.3
-        version: 2.0.3(@astrojs/starlight@0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3)))(@astrojs/tailwind@5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.14))(tailwindcss@3.4.14)
+        version: 2.0.3(@astrojs/starlight@0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3)))(@astrojs/tailwind@5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.15))(tailwindcss@3.4.15)
       '@atmx-org/common':
         specifier: workspace:*
         version: link:../packages/common
@@ -402,7 +402,7 @@ importers:
         version: 3.6.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.11(@types/node@22.9.0))
       '@astrojs/tailwind':
         specifier: ^5.1.1
-        version: 5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.14)
+        version: 5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.15)
       '@astrojs/vercel':
         specifier: ^7.8.1
         version: 7.8.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(react@18.3.1)
@@ -432,10 +432,10 @@ importers:
         version: 18.3.1
       tailwindcss:
         specifier: ^3.4.12
-        version: 3.4.14
+        version: 3.4.15
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.14)
+        version: 1.0.7(tailwindcss@3.4.15)
       unplugin-icons:
         specifier: ^0.20.0
         version: 0.20.1(@svgr/core@8.1.0(typescript@5.6.3))(svelte@5.1.16)
@@ -4726,8 +4726,8 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
-  tailwindcss@3.4.14:
-    resolution: {integrity: sha512-IcSvOcTRcUtQQ7ILQL5quRDg7Xs93PdJEk1ZLbhhvJc7uj/OAhYOnruEiwnGgBvUtaUAJ8/mhSw1o8L2jCiENA==}
+  tailwindcss@3.4.15:
+    resolution: {integrity: sha512-r4MeXnfBmSOuKUWmXe6h2CcyfzJCEk4F0pptO5jlnYSIViUkVmsawj80N5h2lO3gwcmSb4n3PuN+e+GC1Guylw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -5566,11 +5566,11 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3)))(@astrojs/tailwind@5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.14))(tailwindcss@3.4.14)':
+  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3)))(@astrojs/tailwind@5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.15))(tailwindcss@3.4.15)':
     dependencies:
       '@astrojs/starlight': 0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))
-      '@astrojs/tailwind': 5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.14)
-      tailwindcss: 3.4.14
+      '@astrojs/tailwind': 5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.15)
+      tailwindcss: 3.4.15
 
   '@astrojs/starlight@0.29.0(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))':
     dependencies:
@@ -5601,13 +5601,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/tailwind@5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.14)':
+  '@astrojs/tailwind@5.1.2(astro@4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3))(tailwindcss@3.4.15)':
     dependencies:
       astro: 4.16.12(@types/node@22.9.0)(rollup@4.26.0)(typescript@5.6.3)
       autoprefixer: 10.4.20(postcss@8.4.47)
       postcss: 8.4.47
       postcss-load-config: 4.0.2(postcss@8.4.47)
-      tailwindcss: 3.4.14
+      tailwindcss: 3.4.15
     transitivePeerDependencies:
       - ts-node
 
@@ -9656,17 +9656,17 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  postcss-import@15.1.0(postcss@8.4.47):
+  postcss-import@15.1.0(postcss@8.4.49):
     dependencies:
-      postcss: 8.4.47
+      postcss: 8.4.49
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.4.47):
+  postcss-js@4.0.1(postcss@8.4.49):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.47
+      postcss: 8.4.49
 
   postcss-load-config@4.0.2(postcss@8.4.47):
     dependencies:
@@ -9674,6 +9674,13 @@ snapshots:
       yaml: 2.6.0
     optionalDependencies:
       postcss: 8.4.47
+
+  postcss-load-config@4.0.2(postcss@8.4.49):
+    dependencies:
+      lilconfig: 3.1.2
+      yaml: 2.6.0
+    optionalDependencies:
+      postcss: 8.4.49
 
   postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.49)(tsx@4.19.2)(yaml@2.6.0):
     dependencies:
@@ -9683,11 +9690,6 @@ snapshots:
       postcss: 8.4.49
       tsx: 4.19.2
       yaml: 2.6.0
-
-  postcss-nested@6.2.0(postcss@8.4.47):
-    dependencies:
-      postcss: 8.4.47
-      postcss-selector-parser: 6.1.2
 
   postcss-nested@6.2.0(postcss@8.4.49):
     dependencies:
@@ -10357,11 +10359,11 @@ snapshots:
 
   tailwind-merge@2.5.4: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@3.4.14):
+  tailwindcss-animate@1.0.7(tailwindcss@3.4.15):
     dependencies:
-      tailwindcss: 3.4.14
+      tailwindcss: 3.4.15
 
-  tailwindcss@3.4.14:
+  tailwindcss@3.4.15:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -10377,11 +10379,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.4.47
-      postcss-import: 15.1.0(postcss@8.4.47)
-      postcss-js: 4.0.1(postcss@8.4.47)
-      postcss-load-config: 4.0.2(postcss@8.4.47)
-      postcss-nested: 6.2.0(postcss@8.4.47)
+      postcss: 8.4.49
+      postcss-import: 15.1.0(postcss@8.4.49)
+      postcss-js: 4.0.1(postcss@8.4.49)
+      postcss-load-config: 4.0.2(postcss@8.4.49)
+      postcss-nested: 6.2.0(postcss@8.4.49)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
