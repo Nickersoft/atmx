@@ -362,7 +362,7 @@ importers:
         version: 0.460.0(react@18.3.1)
       marked:
         specifier: ^15.0.0
-        version: 15.0.0
+        version: 15.0.1
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -3608,8 +3608,8 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  marked@15.0.0:
-    resolution: {integrity: sha512-0mouKmBROJv/WSHJBPZZyYofUgawMChnD5je/g+aOBXsHDjb/IsnTQj7mnhQZu+qPJmRQ0ecX3mLGEUm3BgwYA==}
+  marked@15.0.1:
+    resolution: {integrity: sha512-VnnE19XO2Vb2oZeH8quAepfrb6Aaz4OoY8yZQACfuy/5KVJ0GxYC0Qxzz/iuc+g5UF7H0HJ+QROfvH26XeBdDA==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -8902,7 +8902,7 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  marked@15.0.0: {}
+  marked@15.0.1: {}
 
   mdast-util-definitions@6.0.0:
     dependencies:
