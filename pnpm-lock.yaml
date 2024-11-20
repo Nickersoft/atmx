@@ -34,7 +34,7 @@ importers:
         version: 5.6.3
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
+        version: 5.1.3(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
       vitest:
         specifier: ^2.1.1
         version: 2.1.5(@types/node@22.9.1)(happy-dom@15.11.6)(jsdom@25.0.1)
@@ -61,7 +61,7 @@ importers:
         version: link:../../packages/cli
       svelte:
         specifier: ^4.2.19
-        version: 5.2.4
+        version: 4.2.19
 
   examples/typescript:
     dependencies:
@@ -132,7 +132,7 @@ importers:
         version: 5.6.3
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
+        version: 5.1.3(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
 
   packages/common:
     dependencies:
@@ -184,7 +184,7 @@ importers:
         version: 8.3.5(jiti@1.21.6)(postcss@8.4.49)(tsx@4.19.2)(typescript@5.6.3)(yaml@2.6.1)
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
+        version: 5.1.3(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
 
   packages/registry:
     devDependencies:
@@ -226,7 +226,7 @@ importers:
         version: 5.6.3
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
+        version: 5.1.3(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1))
 
   packages/registry-tools:
     dependencies:
@@ -2647,6 +2647,9 @@ packages:
   code-block-writer@13.0.3:
     resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
+  code-red@1.0.4:
+    resolution: {integrity: sha512-7qJWqItLA8/VPVlKJlFXU+NBlo/qyfs39aJcuMT/2ere32ZqvF5OSxgdM5xOfJJ7O429gg2HM47y8v9P+9wrNw==}
+
   collapse-white-space@2.1.0:
     resolution: {integrity: sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==}
 
@@ -2735,6 +2738,10 @@ packages:
 
   css-selector-parser@3.0.5:
     resolution: {integrity: sha512-3itoDFbKUNx1eKmVpYMFyqKX04Ww9osZ+dLgrk6GEv6KMVeXUhUnp4I5X+evw+u3ZxVU6RFXSSRxlTeMh8bA+g==}
+
+  css-tree@2.3.1:
+    resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
+    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
   cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
@@ -3663,6 +3670,9 @@ packages:
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
 
+  mdn-data@2.0.30:
+    resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
+
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
 
@@ -4065,6 +4075,9 @@ packages:
   pathval@2.0.0:
     resolution: {integrity: sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA==}
     engines: {node: '>= 14.16'}
+
+  periscopic@3.1.0:
+    resolution: {integrity: sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -4703,6 +4716,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  svelte@4.2.19:
+    resolution: {integrity: sha512-IY1rnGr6izd10B0A8LqsBfmlT5OILVuZ7XsI0vdGPEvuonFV7NYEUK4dAkm9Zg2q0Um92kYjTpS1CAP3Nh/KWw==}
+    engines: {node: '>=16'}
+
   svelte@5.2.4:
     resolution: {integrity: sha512-hsab3Inx/HKV6Y/FUwtX8yCkt+nl6n46zC7Z6y7VWoDFhJWEQ453vP0KmDL42cLm9Q92nZyOE+izANqjss61/A==}
     engines: {node: '>=18'}
@@ -5057,8 +5074,8 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
-  vite-tsconfig-paths@5.1.2:
-    resolution: {integrity: sha512-gEIbKfJzSEv0yR3XS2QEocKetONoWkbROj6hGx0FHM18qKUojhvcokQsxQx5nMkelZq2n37zbSGCJn+FSODSjA==}
+  vite-tsconfig-paths@5.1.3:
+    resolution: {integrity: sha512-0bz+PDlLpGfP2CigeSKL9NFTF1KtXkeHGZSSaGQSuPZH77GhoiQaA8IjYgOaynSuwlDTolSUEU0ErVvju3NURg==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -7778,6 +7795,14 @@ snapshots:
 
   code-block-writer@13.0.3: {}
 
+  code-red@1.0.4:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@types/estree': 1.0.6
+      acorn: 8.14.0
+      estree-walker: 3.0.3
+      periscopic: 3.1.0
+
   collapse-white-space@2.1.0: {}
 
   color-convert@1.9.3:
@@ -7856,6 +7881,11 @@ snapshots:
       which: 2.0.2
 
   css-selector-parser@3.0.5: {}
+
+  css-tree@2.3.1:
+    dependencies:
+      mdn-data: 2.0.30
+      source-map-js: 1.2.1
 
   cssesc@3.0.0: {}
 
@@ -9063,6 +9093,8 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
 
+  mdn-data@2.0.30: {}
+
   merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
@@ -9607,6 +9639,12 @@ snapshots:
   pathe@1.1.2: {}
 
   pathval@2.0.0: {}
+
+  periscopic@3.1.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      estree-walker: 3.0.3
+      is-reference: 3.0.3
 
   picocolors@1.1.1: {}
 
@@ -10308,6 +10346,23 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
+  svelte@4.2.19:
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/trace-mapping': 0.3.25
+      '@types/estree': 1.0.6
+      acorn: 8.14.0
+      aria-query: 5.3.2
+      axobject-query: 4.1.0
+      code-red: 1.0.4
+      css-tree: 2.3.1
+      estree-walker: 3.0.3
+      is-reference: 3.0.3
+      locate-character: 3.0.0
+      magic-string: 0.30.13
+      periscopic: 3.1.0
+
   svelte@5.2.4:
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -10690,7 +10745,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1)):
+  vite-tsconfig-paths@5.1.3(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.1)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
