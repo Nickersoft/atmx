@@ -40,7 +40,7 @@
     "cmdk": "1.0.4",
     "eta": "^3.5.0",
     "fuzzysort": "^3.0.2",
-    "lucide-react": "^0.460.0",
+    "lucide-react": "^0.462.0",
     "marked": "^15.0.0",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
