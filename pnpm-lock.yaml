@@ -438,7 +438,7 @@ importers:
         version: 1.0.7(tailwindcss@3.4.15)
       unplugin-icons:
         specifier: ^0.20.0
-        version: 0.20.1(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.9)
+        version: 0.20.2(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.9)
       yaml:
         specifier: ^2.5.1
         version: 2.6.1
@@ -455,6 +455,9 @@ packages:
 
   '@antfu/install-pkg@0.4.1':
     resolution: {integrity: sha512-T7yB5QNG29afhWVkVq7XeIMBa5U/vs9mX69YqayXypPRmYzUmzwnYltplHmPtZ4HPCn+sQKeXW8I47wCbuBOjw==}
+
+  '@antfu/install-pkg@0.5.0':
+    resolution: {integrity: sha512-dKnk2xlAyC7rvTkpkHmu+Qy/2Zc3Vm/l8PtNyIOGDBtXPY3kThfU4ORNEp3V7SXw5XSOb+tOJaUYpfquPzL/Tg==}
 
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
@@ -3616,8 +3619,8 @@ packages:
     resolution: {integrity: sha512-OfCBkGEw4nN6JLtgRidPX6QxjBQGQf72q3si2uvqyFEMbycSFFHwAZeXx6cJgFM9wmLrf9zBwCP3Ivqa+LLZPw==}
     engines: {node: '>=6'}
 
-  local-pkg@0.5.0:
-    resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
+  local-pkg@0.5.1:
+    resolution: {integrity: sha512-9rrA30MRRP3gBD3HTGnC6cDFpaE1kVDWxWgqWJUN0RvDNAo+Nz/9GxB+nHOH0ifbVFy0hSA1V6vFDvnx54lTEQ==}
     engines: {node: '>=14'}
 
   locate-character@3.0.0:
@@ -3954,8 +3957,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mlly@1.7.2:
-    resolution: {integrity: sha512-tN3dvVHYVz4DhSXinXIk7u9syPYaJvio118uomkovAtWBT+RdbP6Lfh/5Lvo519YMmwBafwlh20IPTXIStscpA==}
+  mlly@1.7.3:
+    resolution: {integrity: sha512-xUsx5n/mN0uQf4V548PKQ+YShA4/IW0KI1dZhrNrPCLG+xizETbHTkOa1f8/xut9JRPp8kQuMnz0oqwkTiLo/A==}
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -4115,11 +4118,11 @@ packages:
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
 
-  package-manager-detector@0.2.2:
-    resolution: {integrity: sha512-VgXbyrSNsml4eHWIvxxG/nTL4wgybMTXCV2Un/+yEc3aDKKU6nQBZjbeP3Pl3qm9Qg92X/1ng4ffvCeD/zwHgg==}
-
   package-manager-detector@0.2.4:
     resolution: {integrity: sha512-H/OUu9/zUfP89z1APcBf2X8Us0tt8dUK4lUmKqz12QNXif3DxAs1/YqjGtcutZi1zQqeNQRWr9C+EbQnnvSSFA==}
+
+  package-manager-detector@0.2.5:
+    resolution: {integrity: sha512-3dS7y28uua+UDbRCLBqltMBrbI+A5U2mI9YuxHRxIWYmLj3DwntEBmERYzIAQ4DMeuCUOBSak7dBHHoXKpOTYQ==}
 
   pagefind@1.2.0:
     resolution: {integrity: sha512-sFVv5/x73qCp9KlLHv8/uWDv7rG1tsWcG9MuXc5YTrXIrb8c1Gshm9oc5rMLXNZILXUWai8WczqaK4jjroEzng==}
@@ -5090,8 +5093,8 @@ packages:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
 
-  unplugin-icons@0.20.1:
-    resolution: {integrity: sha512-0z5sYGx07Q69ZrJB4kjmx7a5LYLNSWwyq95Ox9OuSG2y/sbhJaHUapRPOJcKmKhOAyToDVRdy9P7gxJ05lYipw==}
+  unplugin-icons@0.20.2:
+    resolution: {integrity: sha512-Ak6TKAiO812aIUrCelrBSTQbYC4FiqawnFrAusP/hjmB8f9cAug9jr381ItvLl+Asi4IVcjoOiPbpy9CfFGKvQ==}
     peerDependencies:
       '@svgr/core': '>=7.0.0'
       '@svgx/core': ^1.0.1
@@ -5113,14 +5116,9 @@ packages:
       vue-template-es2015-compiler:
         optional: true
 
-  unplugin@1.15.0:
-    resolution: {integrity: sha512-jTPIs63W+DUEDW207ztbaoO7cQ4p5aVaB823LSlxpsFEU3Mykwxf3ZGC/wzxFJeZlASZYgVrWeo7LgOrqJZ8RA==}
+  unplugin@1.16.0:
+    resolution: {integrity: sha512-5liCNPuJW8dqh3+DM6uNM2EI3MLLpCKp/KY+9pB5M2S2SR2qvvDHhKgBOaTWEbZTAws3CXfB0rKTIolWKL05VQ==}
     engines: {node: '>=14.0.0'}
-    peerDependencies:
-      webpack-sources: ^3
-    peerDependenciesMeta:
-      webpack-sources:
-        optional: true
 
   update-browserslist-db@1.1.1:
     resolution: {integrity: sha512-R8UzCaa9Az+38REPiJ1tXlImTJXlVfgHZsglwBD/k6nj76ctsH1E3q4doGrukiLQd3sGQYu56r5+lo5r94l29A==}
@@ -5584,7 +5582,12 @@ snapshots:
 
   '@antfu/install-pkg@0.4.1':
     dependencies:
-      package-manager-detector: 0.2.2
+      package-manager-detector: 0.2.5
+      tinyexec: 0.3.1
+
+  '@antfu/install-pkg@0.5.0':
+    dependencies:
+      package-manager-detector: 0.2.5
       tinyexec: 0.3.1
 
   '@antfu/utils@0.7.10': {}
@@ -6516,8 +6519,8 @@ snapshots:
       '@iconify/types': 2.0.0
       debug: 4.3.7
       kolorist: 1.8.0
-      local-pkg: 0.5.0
-      mlly: 1.7.2
+      local-pkg: 0.5.1
+      mlly: 1.7.3
     transitivePeerDependencies:
       - supports-color
 
@@ -9021,9 +9024,9 @@ snapshots:
       pify: 4.0.1
       strip-bom: 3.0.0
 
-  local-pkg@0.5.0:
+  local-pkg@0.5.1:
     dependencies:
-      mlly: 1.7.2
+      mlly: 1.7.3
       pkg-types: 1.2.1
 
   locate-character@3.0.0: {}
@@ -9664,7 +9667,7 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  mlly@1.7.2:
+  mlly@1.7.3:
     dependencies:
       acorn: 8.14.0
       pathe: 1.1.2
@@ -9811,9 +9814,9 @@ snapshots:
 
   package-json-from-dist@1.0.1: {}
 
-  package-manager-detector@0.2.2: {}
-
   package-manager-detector@0.2.4: {}
+
+  package-manager-detector@0.2.5: {}
 
   pagefind@1.2.0:
     optionalDependencies:
@@ -9912,7 +9915,7 @@ snapshots:
   pkg-types@1.2.1:
     dependencies:
       confbox: 0.1.8
-      mlly: 1.7.2
+      mlly: 1.7.3
       pathe: 1.1.2
 
   playwright-core@1.49.0: {}
@@ -10917,23 +10920,22 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  unplugin-icons@0.20.1(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.9):
+  unplugin-icons@0.20.2(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.9):
     dependencies:
-      '@antfu/install-pkg': 0.4.1
+      '@antfu/install-pkg': 0.5.0
       '@antfu/utils': 0.7.10
       '@iconify/utils': 2.1.33
       debug: 4.3.7
       kolorist: 1.8.0
-      local-pkg: 0.5.0
-      unplugin: 1.15.0
+      local-pkg: 0.5.1
+      unplugin: 1.16.0
     optionalDependencies:
       '@svgr/core': 8.1.0(typescript@5.7.2)
       svelte: 5.2.9
     transitivePeerDependencies:
       - supports-color
-      - webpack-sources
 
-  unplugin@1.15.0:
+  unplugin@1.16.0:
     dependencies:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
