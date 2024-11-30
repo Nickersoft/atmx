@@ -25,7 +25,7 @@ importers:
         version: 0.14.1
       prettier-plugin-tailwindcss:
         specifier: ^0.6.6
-        version: 0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.1)(svelte@5.2.11))(prettier@3.4.1)
+        version: 0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.1)(svelte@5.2.12))(prettier@3.4.1)
       turbo:
         specifier: ^2.1.2
         version: 2.3.3
@@ -61,7 +61,7 @@ importers:
         version: link:../../packages/cli
       svelte:
         specifier: ^4.2.19
-        version: 5.2.11
+        version: 5.2.12
 
   examples/typescript:
     dependencies:
@@ -153,7 +153,7 @@ importers:
         version: 3.4.1
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.3.2(prettier@3.4.1)(svelte@5.2.11)
+        version: 3.3.2(prettier@3.4.1)(svelte@5.2.12)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -217,7 +217,7 @@ importers:
         version: 18.3.1
       svelte:
         specifier: ^5.0.0
-        version: 5.2.11
+        version: 5.2.12
       tinyspy:
         specifier: ^3.0.2
         version: 3.0.2
@@ -253,7 +253,7 @@ importers:
         version: 3.4.1
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.3.2(prettier@3.4.1)(svelte@5.2.11)
+        version: 3.3.2(prettier@3.4.1)(svelte@5.2.12)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -368,7 +368,7 @@ importers:
         version: 3.4.1
       prettier-plugin-svelte:
         specifier: ^3.2.6
-        version: 3.3.2(prettier@3.4.1)(svelte@5.2.11)
+        version: 3.3.2(prettier@3.4.1)(svelte@5.2.12)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -438,7 +438,7 @@ importers:
         version: 1.0.7(tailwindcss@3.4.15)
       unplugin-icons:
         specifier: ^0.20.0
-        version: 0.20.2(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.11)
+        version: 0.20.2(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.12)
       yaml:
         specifier: ^2.5.1
         version: 2.6.1
@@ -3032,8 +3032,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  esrap@1.2.2:
-    resolution: {integrity: sha512-F2pSJklxx1BlQIQgooczXCPHmcWpn6EsP5oo73LQfonG9fIlIENQ8vMmfGXeojP9MrkzUNAfyU5vdFlR9shHAw==}
+  esrap@1.2.3:
+    resolution: {integrity: sha512-ZlQmCCK+n7SGoqo7DnfKaP1sJZa49P01/dXzmjCASSo04p72w8EksT2NMK8CEX8DhKsfJXANioIw8VyHNsBfvQ==}
 
   estree-util-attach-comments@3.0.0:
     resolution: {integrity: sha512-cKUwm/HUcTDsYh/9FgnuFqpfquUbwIqwKM26BVCGDPVgvaCl/nDCCjUfiLlx6lsEZ3Z4RFxNbOQ60pkaEwFxGw==}
@@ -4810,8 +4810,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  svelte@5.2.11:
-    resolution: {integrity: sha512-rAVKne02inlyw//aD1QXuUbxDBNnyW6sagS7JfxzUbGVuJnHrf2WfQdJDYlBq8mOz8NBGQAZdD6KEITd0NUDtA==}
+  svelte@5.2.12:
+    resolution: {integrity: sha512-lcrJVygO05nzQkgRLxaz3qd0kamyhujfpCxalzzKabJUueVrnpc0bhHgR2hUa/335XvOHO39wtc79C72g+5ftw==}
     engines: {node: '>=18'}
 
   svg-parser@2.0.4:
@@ -8282,7 +8282,7 @@ snapshots:
 
   esprima@4.0.1: {}
 
-  esrap@1.2.2:
+  esrap@1.2.3:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
       '@types/estree': 1.0.6
@@ -9959,17 +9959,17 @@ snapshots:
       prettier: 3.4.1
       sass-formatter: 0.7.9
 
-  prettier-plugin-svelte@3.3.2(prettier@3.4.1)(svelte@5.2.11):
+  prettier-plugin-svelte@3.3.2(prettier@3.4.1)(svelte@5.2.12):
     dependencies:
       prettier: 3.4.1
-      svelte: 5.2.11
+      svelte: 5.2.12
 
-  prettier-plugin-tailwindcss@0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.1)(svelte@5.2.11))(prettier@3.4.1):
+  prettier-plugin-tailwindcss@0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.1)(svelte@5.2.12))(prettier@3.4.1):
     dependencies:
       prettier: 3.4.1
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
-      prettier-plugin-svelte: 3.3.2(prettier@3.4.1)(svelte@5.2.11)
+      prettier-plugin-svelte: 3.3.2(prettier@3.4.1)(svelte@5.2.12)
 
   prettier@2.8.7:
     optional: true
@@ -10576,7 +10576,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte@5.2.11:
+  svelte@5.2.12:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -10586,7 +10586,7 @@ snapshots:
       aria-query: 5.3.2
       axobject-query: 4.1.0
       esm-env: 1.2.1
-      esrap: 1.2.2
+      esrap: 1.2.3
       is-reference: 3.0.3
       locate-character: 3.0.0
       magic-string: 0.30.14
@@ -10867,7 +10867,7 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  unplugin-icons@0.20.2(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.11):
+  unplugin-icons@0.20.2(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.2.12):
     dependencies:
       '@antfu/install-pkg': 0.5.0
       '@antfu/utils': 0.7.10
@@ -10878,7 +10878,7 @@ snapshots:
       unplugin: 1.16.0
     optionalDependencies:
       '@svgr/core': 8.1.0(typescript@5.7.2)
-      svelte: 5.2.11
+      svelte: 5.2.12
     transitivePeerDependencies:
       - supports-color
 
