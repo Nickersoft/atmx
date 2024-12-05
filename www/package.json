@@ -57,7 +57,7 @@
     "@astrojs/node": "^9.0.0",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.1",
-    "@astrojs/vercel": "^7.8.1",
+    "@astrojs/vercel": "^8.0.0",
     "@atmx-org/registry": "workspace:*",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
