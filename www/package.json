@@ -13,7 +13,7 @@
   },
   "private": true,
   "dependencies": {
-    "@astrojs/mdx": "^3.1.7",
+    "@astrojs/mdx": "^4.0.0",
     "@astrojs/starlight": "^0.29.0",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@atmx-org/common": "workspace:*",
@@ -33,7 +33,7 @@
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@rehype-pretty/transformers": "^0.13.2",
-    "astro": "^4.15.8",
+    "astro": "^5.0.0",
     "astro-seo": "^0.8.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
     "@astrojs/node": "^9.0.0",
-    "@astrojs/react": "^3.6.2",
+    "@astrojs/react": "^4.0.0",
     "@astrojs/tailwind": "^5.1.1",
     "@astrojs/vercel": "^8.0.0",
     "@atmx-org/registry": "workspace:*",
