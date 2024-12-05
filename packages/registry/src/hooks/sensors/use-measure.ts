@@ -26,6 +26,10 @@ const defaultState: UseMeasureRect = {
   right: 0,
 };
 
+/**
+ * A hook that measures the dimensions of an element. 
+ * @returns The ref and the dimensions of the element.  
+ */
 function useMeasure<E extends Element = Element>(): UseMeasureResult<E> {
   const [element, ref] = React.useState<E | null>(null);
   const [rect, setRect] = React.useState<UseMeasureRect>(defaultState);

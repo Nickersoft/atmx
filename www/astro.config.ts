@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 // import node from "@astrojs/node";
 import starlight from "@astrojs/starlight";
 import mdx from "@astrojs/mdx";
@@ -87,7 +87,7 @@ export default defineConfig({
   ],
   prefetch: true,
   site: "https://atmx.dev",
-  output: "hybrid",
+  output: "static",
   adapter: vercel({ webAnalytics: { enabled: true } }),
   // node({
   //   mode: "standalone",

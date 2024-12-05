@@ -41,7 +41,7 @@ interface MouseState {
  */
 export function useMouse<T extends HTMLElement>(): [
   MouseState,
-  React.RefObject<T>,
+  React.RefObject<T | null>,
 ] {
   const [state, setState] = React.useState<MouseState>({
     x: 0,

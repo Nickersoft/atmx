@@ -54,7 +54,7 @@ async function processSnippet(snippet: Snippet): Promise<void> {
   );
 
   if (existsSync(generatedDir)) {
-    await rm(generatedDir, { recursive: true });
+    await rm(generatedDir, { force: true, recursive: true });
   }
 
   const outputDir = resolve(generatedDir, registry, snippet.category);
