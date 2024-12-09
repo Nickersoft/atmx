@@ -28,7 +28,7 @@ importers:
         version: 0.14.1
       prettier-plugin-tailwindcss:
         specifier: ^0.6.9
-        version: 0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.9.0))(prettier@3.4.2)
+        version: 0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.9.1))(prettier@3.4.2)
       turbo:
         specifier: ^2.3.3
         version: 2.3.3
@@ -64,7 +64,7 @@ importers:
         version: link:../../packages/cli
       svelte:
         specifier: ^4.2.19
-        version: 5.9.0
+        version: 5.9.1
 
   examples/typescript:
     dependencies:
@@ -156,7 +156,7 @@ importers:
         version: 3.4.2
       prettier-plugin-svelte:
         specifier: ^3.3.2
-        version: 3.3.2(prettier@3.4.2)(svelte@5.9.0)
+        version: 3.3.2(prettier@3.4.2)(svelte@5.9.1)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -223,7 +223,7 @@ importers:
         version: 19.0.0(react@19.0.0)
       svelte:
         specifier: ^5.7.1
-        version: 5.9.0
+        version: 5.9.1
       tinyspy:
         specifier: ^3.0.2
         version: 3.0.2
@@ -259,7 +259,7 @@ importers:
         version: 3.4.2
       prettier-plugin-svelte:
         specifier: ^3.3.2
-        version: 3.3.2(prettier@3.4.2)(svelte@5.9.0)
+        version: 3.3.2(prettier@3.4.2)(svelte@5.9.1)
       ts-morph:
         specifier: ^24.0.0
         version: 24.0.0
@@ -374,7 +374,7 @@ importers:
         version: 3.4.2
       prettier-plugin-svelte:
         specifier: ^3.3.2
-        version: 3.3.2(prettier@3.4.2)(svelte@5.9.0)
+        version: 3.3.2(prettier@3.4.2)(svelte@5.9.1)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -411,7 +411,7 @@ importers:
         version: 5.1.3(astro@5.0.3(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.16)
       '@astrojs/vercel':
         specifier: ^8.0.0
-        version: 8.0.0(astro@5.0.3(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1))(react@19.0.0)(rollup@4.28.0)(svelte@5.9.0)
+        version: 8.0.0(astro@5.0.3(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1))(react@19.0.0)(rollup@4.28.0)(svelte@5.9.1)
       '@atmx-org/registry':
         specifier: workspace:*
         version: link:../packages/registry
@@ -444,7 +444,7 @@ importers:
         version: 1.0.7(tailwindcss@3.4.16)
       unplugin-icons:
         specifier: ^0.21.0
-        version: 0.21.0(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.9.0)
+        version: 0.21.0(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.9.1)
       yaml:
         specifier: ^2.6.1
         version: 2.6.1
@@ -4449,8 +4449,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  svelte@5.9.0:
-    resolution: {integrity: sha512-ZcC3BtjIDa4yfhAyAr94MxDQLD97zbpXmaUldFv2F5AkdZwYgQYB3BZVNRU5zEVaeeHoAns8ADiRMnre3QmpxQ==}
+  svelte@5.9.1:
+    resolution: {integrity: sha512-2iWB8J9j/tZqEfuplxSt7gi/iA0Fg7VFwWATxDmG/efttLI05hwLWAKIx4ltv+FtvJIhRGs28rJ0e8uY8e3LWg==}
     engines: {node: '>=18'}
 
   svg-parser@2.0.4:
@@ -5407,10 +5407,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@8.0.0(astro@5.0.3(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1))(react@19.0.0)(rollup@4.28.0)(svelte@5.9.0)':
+  '@astrojs/vercel@8.0.0(astro@5.0.3(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1))(react@19.0.0)(rollup@4.28.0)(svelte@5.9.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.4.2
-      '@vercel/analytics': 1.4.1(react@19.0.0)(svelte@5.9.0)
+      '@vercel/analytics': 1.4.1(react@19.0.0)(svelte@5.9.1)
       '@vercel/edge': 1.1.3
       '@vercel/nft': 0.27.7(rollup@4.28.0)
       astro: 5.0.3(@types/node@22.10.1)(jiti@1.21.6)(rollup@4.28.0)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1)
@@ -6909,10 +6909,10 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vercel/analytics@1.4.1(react@19.0.0)(svelte@5.9.0)':
+  '@vercel/analytics@1.4.1(react@19.0.0)(svelte@5.9.1)':
     optionalDependencies:
       react: 19.0.0
-      svelte: 5.9.0
+      svelte: 5.9.1
 
   '@vercel/edge@1.1.3': {}
 
@@ -9261,17 +9261,17 @@ snapshots:
       prettier: 3.4.2
       sass-formatter: 0.7.9
 
-  prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.9.0):
+  prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.9.1):
     dependencies:
       prettier: 3.4.2
-      svelte: 5.9.0
+      svelte: 5.9.1
 
-  prettier-plugin-tailwindcss@0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.9.0))(prettier@3.4.2):
+  prettier-plugin-tailwindcss@0.6.9(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.3.2(prettier@3.4.2)(svelte@5.9.1))(prettier@3.4.2):
     dependencies:
       prettier: 3.4.2
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
-      prettier-plugin-svelte: 3.3.2(prettier@3.4.2)(svelte@5.9.0)
+      prettier-plugin-svelte: 3.3.2(prettier@3.4.2)(svelte@5.9.1)
 
   prettier@2.8.7:
     optional: true
@@ -9817,7 +9817,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte@5.9.0:
+  svelte@5.9.1:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -10103,7 +10103,7 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  unplugin-icons@0.21.0(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.9.0):
+  unplugin-icons@0.21.0(@svgr/core@8.1.0(typescript@5.7.2))(svelte@5.9.1):
     dependencies:
       '@antfu/install-pkg': 0.5.0
       '@antfu/utils': 0.7.10
@@ -10114,7 +10114,7 @@ snapshots:
       unplugin: 1.16.0
     optionalDependencies:
       '@svgr/core': 8.1.0(typescript@5.7.2)
-      svelte: 5.9.0
+      svelte: 5.9.1
     transitivePeerDependencies:
       - supports-color
 
