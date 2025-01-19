@@ -50,7 +50,7 @@
     "tailwind-merge": "^2.5.5",
     "ts-morph": "^24.0.0",
     "typescript": "^5.7.2",
-    "valibot": "1.0.0-beta.9"
+    "valibot": "1.0.0-beta.12"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

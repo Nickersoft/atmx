@@ -112,8 +112,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0
       valibot:
-        specifier: 1.0.0-beta.9
-        version: 1.0.0-beta.9(typescript@5.7.3)
+        specifier: 1.0.0-beta.12
+        version: 1.0.0-beta.12(typescript@5.7.3)
     devDependencies:
       '@atmx-org/registry':
         specifier: workspace:*
@@ -164,8 +164,8 @@ importers:
         specifier: ^5.7.2
         version: 5.7.3
       valibot:
-        specifier: 1.0.0-beta.9
-        version: 1.0.0-beta.9(typescript@5.7.3)
+        specifier: 1.0.0-beta.12
+        version: 1.0.0-beta.12(typescript@5.7.3)
     devDependencies:
       '@atmx-org/registry':
         specifier: workspace:*
@@ -394,8 +394,8 @@ importers:
         specifier: ^5.7.2
         version: 5.7.3
       valibot:
-        specifier: 1.0.0-beta.9
-        version: 1.0.0-beta.9(typescript@5.7.3)
+        specifier: 1.0.0-beta.12
+        version: 1.0.0-beta.12(typescript@5.7.3)
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.4
@@ -5200,8 +5200,8 @@ packages:
       typescript:
         optional: true
 
-  valibot@1.0.0-beta.9:
-    resolution: {integrity: sha512-yEX8gMAZ2R1yI2uwOO4NCtVnJQx36zn3vD0omzzj9FhcoblvPukENIiRZXKZwCnqSeV80bMm8wNiGhQ0S8fiww==}
+  valibot@1.0.0-beta.12:
+    resolution: {integrity: sha512-j3WIxJ0pmUFMfdfUECn3YnZPYOiG0yHYcFEa/+RVgo0I+MXE3ToLt7gNRLtY5pwGfgNmsmhenGZfU5suu9ijUA==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -10932,7 +10932,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.3
 
-  valibot@1.0.0-beta.9(typescript@5.7.3):
+  valibot@1.0.0-beta.12(typescript@5.7.3):
     optionalDependencies:
       typescript: 5.7.3
 
