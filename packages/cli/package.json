@@ -35,7 +35,7 @@
   "dependencies": {
     "@atmx-org/common": "workspace:*",
     "@inquirer/prompts": "^7.1.0",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "detect-package-manager": "^3.0.2",
     "execa": "^9.5.1",
     "fast-glob": "^3.3.2",
