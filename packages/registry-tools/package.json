@@ -29,7 +29,7 @@
     "@microsoft/tsdoc": "^0.15.1",
     "prettier": "^3.4.2",
     "prettier-plugin-svelte": "^3.3.2",
-    "ts-morph": "^24.0.0",
+    "ts-morph": "^25.0.0",
     "typescript": "^5.7.2"
   },
   "devDependencies": {
