@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.0.1",
     "@astrojs/starlight": "^0.31.0",
-    "@astrojs/starlight-tailwind": "^2.0.3",
+    "@astrojs/starlight-tailwind": "^3.0.0",
     "@atmx-org/common": "workspace:*",
     "@atmx-org/registry-tools": "workspace:*",
     "@babel/core": "^7.26.0",
