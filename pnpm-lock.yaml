@@ -290,7 +290,7 @@ importers:
         version: 0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))
       '@astrojs/starlight-tailwind':
         specifier: ^2.0.3
-        version: 2.0.3(@astrojs/starlight@0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)))(@astrojs/tailwind@5.1.5(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17))(tailwindcss@3.4.17)
+        version: 2.0.3(@astrojs/starlight@0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)))(@astrojs/tailwind@6.0.0(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17))(tailwindcss@3.4.17)
       '@atmx-org/common':
         specifier: workspace:*
         version: link:../packages/common
@@ -407,8 +407,8 @@ importers:
         specifier: ^4.0.0
         version: 4.2.0(@types/node@22.13.1)(@types/react-dom@19.0.3(@types/react@19.0.8))(@types/react@19.0.8)(jiti@1.21.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(tsx@4.19.2)(yaml@2.7.0)
       '@astrojs/tailwind':
-        specifier: ^5.1.3
-        version: 5.1.5(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17)
+        specifier: ^6.0.0
+        version: 6.0.0(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17)
       '@astrojs/vercel':
         specifier: ^8.0.0
         version: 8.0.5(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(react@19.0.0)(rollup@4.34.2)(svelte@5.19.7)
@@ -543,8 +543,8 @@ packages:
     peerDependencies:
       astro: ^5.1.5
 
-  '@astrojs/tailwind@5.1.5':
-    resolution: {integrity: sha512-1diguZEau7FZ9vIjzE4BwavGdhD3+JkdS8zmibl1ene+EHgIU5hI0NMgRYG3yea+Niaf7cyMwjeWeLvzq/maxg==}
+  '@astrojs/tailwind@6.0.0':
+    resolution: {integrity: sha512-GbEK2/h0nvY8i6g1GZT5ddHAgj71lQIf34/j7+jPLhUti3xDxKcWElApDe2jWvqAaKl2oKEh045ITSm8mU9BVQ==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0 || ^5.0.0
       tailwindcss: ^3.0.24
@@ -2697,9 +2697,6 @@ packages:
   camelcase@8.0.0:
     resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
     engines: {node: '>=16'}
-
-  caniuse-lite@1.0.30001695:
-    resolution: {integrity: sha512-vHyLade6wTgI2u1ec3WQBxv+2BrTERV28UXQu9LO6lZ9pYeMk34vjXFLOxo1A4UBA8XTL4njRQZdno/yYaSmWw==}
 
   caniuse-lite@1.0.30001696:
     resolution: {integrity: sha512-pDCPkvzfa39ehJtJ+OwGT/2yvT2SbjfHhiIW2LWOAcMQ7BzwxT/XuyUp4OTOd0XFWA6BKw0JalnBHgSi5DGJBQ==}
@@ -5756,10 +5753,10 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.24.1
 
-  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)))(@astrojs/tailwind@5.1.5(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17))(tailwindcss@3.4.17)':
+  '@astrojs/starlight-tailwind@2.0.3(@astrojs/starlight@0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)))(@astrojs/tailwind@6.0.0(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17))(tailwindcss@3.4.17)':
     dependencies:
       '@astrojs/starlight': 0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))
-      '@astrojs/tailwind': 5.1.5(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17)
+      '@astrojs/tailwind': 6.0.0(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17)
       tailwindcss: 3.4.17
 
   '@astrojs/starlight@0.31.1(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))':
@@ -5792,7 +5789,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/tailwind@5.1.5(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@6.0.0(astro@5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.17)':
     dependencies:
       astro: 5.2.5(@types/node@22.13.1)(jiti@1.21.7)(rollup@4.34.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       autoprefixer: 10.4.20(postcss@8.5.1)
@@ -7832,7 +7829,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.5.1):
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001695
+      caniuse-lite: 1.0.30001696
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -7920,8 +7917,6 @@ snapshots:
   camelcase@6.3.0: {}
 
   camelcase@8.0.0: {}
-
-  caniuse-lite@1.0.30001695: {}
 
   caniuse-lite@1.0.30001696: {}
 
