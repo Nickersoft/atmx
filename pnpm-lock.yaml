@@ -158,8 +158,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.3(prettier@3.4.2)(svelte@5.19.7)
       ts-morph:
-        specifier: ^24.0.0
-        version: 24.0.0
+        specifier: ^25.0.0
+        version: 25.0.1
       typescript:
         specifier: ^5.7.2
         version: 5.7.3
@@ -261,8 +261,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.3(prettier@3.4.2)(svelte@5.19.7)
       ts-morph:
-        specifier: ^24.0.0
-        version: 24.0.0
+        specifier: ^25.0.0
+        version: 25.0.1
       typescript:
         specifier: ^5.7.2
         version: 5.7.3
@@ -388,8 +388,8 @@ importers:
         specifier: ^2.5.5
         version: 2.6.0
       ts-morph:
-        specifier: ^24.0.0
-        version: 24.0.0
+        specifier: ^25.0.0
+        version: 25.0.1
       typescript:
         specifier: ^5.7.2
         version: 5.7.3
@@ -2287,8 +2287,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@ts-morph/common@0.25.0':
-    resolution: {integrity: sha512-kMnZz+vGGHi4GoHnLmMhGNjm44kGtKUXGnOvrKmMwAuvNjM/PgKVGfUnL7IDvK7Jb2QQ82jq3Zmp04Gy+r3Dkg==}
+  '@ts-morph/common@0.26.1':
+    resolution: {integrity: sha512-Sn28TGl/4cFpcM+jwsH1wLncYq3FtN/BIpem+HOygfBWPT5pAeS5dB4VFVzV8FbnOKHpDLZmvAl4AjPEev5idA==}
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -4895,8 +4895,8 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
-  ts-morph@24.0.0:
-    resolution: {integrity: sha512-2OAOg/Ob5yx9Et7ZX4CvTCc0UFoZHwLEJ+dpDPSUi5TgwwlTlX47w+iFRrEwzUZwYACjq83cgjS/Da50Ga37uw==}
+  ts-morph@25.0.1:
+    resolution: {integrity: sha512-QJEiTdnz1YjrB3JFhd626gX4rKHDLSjSVMvGGG4v7ONc3RBwa0Eei98G9AT9uNFDMtV54JyuXsFeC+OH0n6bXQ==}
 
   tsconfck@3.1.4:
     resolution: {integrity: sha512-kdqWFGVJqe+KGYvlSO9NIaWn9jT1Ny4oKVzAJsKii5eoE9snzTJzL4+MMVOMn+fikWGFmKEylcXL710V/kIPJQ==}
@@ -7385,11 +7385,11 @@ snapshots:
       '@types/react': 19.0.8
       '@types/react-dom': 19.0.3(@types/react@19.0.8)
 
-  '@ts-morph/common@0.25.0':
+  '@ts-morph/common@0.26.1':
     dependencies:
+      fast-glob: 3.3.3
       minimatch: 9.0.5
       path-browserify: 1.0.1
-      tinyglobby: 0.2.10
 
   '@types/acorn@4.0.6':
     dependencies:
@@ -10641,9 +10641,9 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-morph@24.0.0:
+  ts-morph@25.0.1:
     dependencies:
-      '@ts-morph/common': 0.25.0
+      '@ts-morph/common': 0.26.1
       code-block-writer: 13.0.3
 
   tsconfck@3.1.4(typescript@5.7.3):
